@@ -11,4 +11,4 @@
 * Multiple themes
 
 [API](https://stellar.github.io/js-stellar-sdk/)
-[開始する](docs/accounts#overview)
+[開始する](jp/#querying-horizon)

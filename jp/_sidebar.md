@@ -1,18 +1,9 @@
-* [ホーム](/jp)
-* アカウント
+* Rest API
 
-  * [アカウント](jp/docs/accounts.md)
-  * [アカウントを読み込む](jp/docs/load_account.md)
+* JavaScript SDK
 
-* 操作
-
-  * [オファー](jp/docs/offers.md)
-  * [操作](jp/docs/operations.md)
-  * [支払い](jp/docs/payments.md)
-
-* トランザクション
-
-  * [トランザクション](jp/docs/transactions.md)
-  * [トランザクションの送信](jp/docs/submit_transaction.md)
-
-* [例](/jp/examples.md)
+  * [概要](jp/#querying-horizon)
+  * [トランザクションの例](jp/base-examples.md)
+  * [トランザクションの構築](jp/building-transactions.md)
+  * [基本的な例](jp/examples.md)
+  * [API 参照](https://stellar.github.io/js-stellar-sdk/)

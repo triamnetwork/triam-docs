@@ -11,4 +11,4 @@
 * Multiple themes
 
 [API](https://stellar.github.io/js-stellar-sdk/)
-[Get Started](docs/accounts#overview)
+[Get Started](#querying-horizon)

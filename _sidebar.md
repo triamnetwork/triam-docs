@@ -1,18 +1,9 @@
-* [Home](/)
-* Account
+* Rest API
 
-  * [Accounts](docs/accounts.md)
-  * [Load Account](docs/load_account.md)
+* JavaScript SDK
 
-* Operation
-
-  * [Offers](docs/offers.md)
-  * [Operation](docs/operations.md)
-  * [Payments](docs/payments.md)
-
-* Transaction
-
-  * [Transactions](docs/transactions.md)
-  * [Submit Transactions](docs/submit_transaction.md)
-
-* [Examples](examples.md)
+  * [Overview](#querying-horizon)
+  * [Transaction Examples](base-examples.md)
+  * [Building Transactions](building-transactions.md)
+  * [Basic Examples](examples.md)
+  * [API Reference](https://stellar.github.io/js-stellar-sdk/)
