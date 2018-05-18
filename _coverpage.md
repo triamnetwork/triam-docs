@@ -10,5 +10,5 @@
 * No statically built html files
 * Multiple themes
 
-[API](https://stellar.github.io/js-stellar-sdk/)
+[API](https://armnetwork.github.io/arm-sdk/)
 [Get Started](#querying-horizon)

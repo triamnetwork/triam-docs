@@ -4,7 +4,7 @@
 
 * [Examples](examples.md)
 
-* [API](https://stellar.github.io/js-stellar-sdk/)
+* [API](https://armnetwork.github.io/arm-sdk/)
 
 * :globe_with_meridians:
   * English [:us:](/)

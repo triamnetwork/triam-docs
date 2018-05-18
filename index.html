@@ -29,7 +29,8 @@
     '<scr' + 'ipt src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.1/stellar-sdk.min.js"></scr' + 'ipt>'
     var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");\n' +
     '@import url("https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.css");'
-    var bootCode = ''
+    var bootCode = 'var keyPair = StellarSdk.Keypair.random()';
+    var keyPair = StellarSdk.Keypair.random();
     window.$docsify = {
       name: 'ArmSDK 1.0',
       nameLink: {
@@ -38,6 +39,12 @@
       },
       repo: 'https://github.com/langtuqntk/tutorial',
       loadSidebar: true,
+      alias: {
+        '/docs/_sidebar.md': '/_sidebar.md',
+        '/docs/_navbar.md': '/_navbar.md',
+        '/jp/docs/_sidebar.md': '/jp/_sidebar.md',
+        '/jp/docs/_navbar.md': 'j/_navbar.md'
+      },
       disqus: 'armsdk',
       subMaxLevel: 1,
       auto2top: true,

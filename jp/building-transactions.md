@@ -2,13 +2,13 @@
 title: Building Transactions
 ---
 
-[Transactions](https://stellar.org/developers/learn/concepts/transactions.html) are the commands that modify the state of the ledger.
+[Transactions](#) are the commands that modify the state of the ledger.
 They include sending payments, creating offers, making account configuration changes, etc.
 
-Every transaction has a source [account](https://stellar.org/developers/learn/concepts/accounts.html). This is the account
-that pays the [fee](https://stellar.org/developers/learn/concepts/fees.html) and uses up a sequence number for the transaction.
+Every transaction has a source [account](#). This is the account
+that pays the [fee](#) and uses up a sequence number for the transaction.
 
-Transactions are made up of one or more [operations](https://stellar.org/developers/learn/concepts/operations.html). Each operation also has a source account, which defaults to the transaction's source account.
+Transactions are made up of one or more [operations](#). Each operation also has a source account, which defaults to the transaction's source account.
 
 
 ## [TransactionBuilder](https://github.com/stellar/js-stellar-base/blob/master/src/transaction_builder.js)
@@ -23,7 +23,7 @@ See [operation.js](https://github.com/stellar/js-stellar-base/blob/master/src/op
 
 After adding the desired operations, call the `build()` method on the `TransactionBuilder`.
 This will return a fully constructed [Transaction](https://github.com/stellar/js-stellar-base/blob/master/src/transaction.js).
-The returned transaction will contain the sequence number of the source account. This transaction is unsigned. You must sign it before it will be accepted by the Stellar network.
+The returned transaction will contain the sequence number of the source account. This transaction is unsigned. You must sign it before it will be accepted by the Arm network.
 
 
 ```js
@@ -103,13 +103,13 @@ Most importantly, you can sign a transaction using `sign()` method. See below...
 ## Signing and Multi-sig
 Transactions require signatures for authorization, and generally they only require one.  However, you can exercise more
 control over authorization and set up complex schemes by increasing the number of signatures a transaction requires.  For
-more, please consult the [multi-sig documentation](https://stellar.org/developers/learn/concepts/multi-sig.html).
+more, please consult the [multi-sig documentation](#).
 
 You add signatures to a transaction with the `Transaction.sign()` function. You can chain multiple `sign()` calls together.
 
 ## `Keypair` class
 
-`Keypair` object represents key pair used to sign transactions in Stellar network. `Keypair` object can contain both a public and private key, or only a public key.
+`Keypair` object represents key pair used to sign transactions in Arm network. `Keypair` object can contain both a public and private key, or only a public key.
 
 If `Keypair` object does not contain private key it can't be used to sign transactions. The most convenient method of creating new keypair is by passing the account's secret seed:
 
