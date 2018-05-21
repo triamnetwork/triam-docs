@@ -1,5 +1,5 @@
 ---
-title: submitTransaction()
+Submit Transaction
 ---
 
 ## Overview

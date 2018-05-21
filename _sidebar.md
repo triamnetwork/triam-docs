@@ -1,6 +1,34 @@
 * Rest API
 
   * [Horizon](docs/restapi.md)
+  * Endpoints
+    * [Accounts Details](docs/endpoints/accounts-single.md)
+    * [Data for Account](docs/endpoints/data-for-account.md)
+    * [All Effects](docs/endpoints/effects-all.md)
+    * [Effects for Account](docs/endpoints/effects-for-account.md)
+    * [Effects for Ledger](docs/endpoints/effects-for-ledger.md)
+    * [Effects for Operation](docs/endpoints/effects-for-operation.md)
+    * [Effects for Transaction](docs/endpoints/effects-for-transaction.md)
+    * [All Ledger](docs/endpoints/ledgers-all.md)
+    * [Ledger Details](docs/endpoints/ledgers-single.md)
+    * [Offers for Account](docs/endpoints/offers-for-account.md)
+    * [All Operation](docs/endpoints/operations-all.md)
+    * [Operations for Account](docs/endpoints/operations-for-account.md)
+    * [Operations for Ledger](docs/endpoints/operations-for-ledger.md)
+    * [Operations for Transaction](docs/endpoints/operations-for-transaction.md)
+    * [Operation Details](docs/endpoints/operations-single.md)
+    * [Orderbook Details](docs/endpoints/orderbook-details.md)
+    * [Find Payment Paths](docs/endpoints/path-finding.md)
+    * [All Payments](docs/endpoints/payments-all.md)
+    * [Payments for Account](docs/endpoints/payments-for-account.md)
+    * [Payments for Ledger](docs/endpoints/payments-for-ledger.md)
+    * [Payments for Transaction](docs/endpoints/payments-for-transaction.md)
+    * [Trades for Orderbook](docs/endpoints/trades-for-orderbook.md)
+    * [All Transactions](docs/endpoints/transactions-all.md)
+    * [Post Transaction](docs/endpoints/transactions-create.md)
+    * [Transactions for Account](docs/endpoints/transactions-for-account.md)
+    * [Transactions for Ledger](docs/endpoints/transactions-for-ledger.md)
+    * [Transaction Details](docs/endpoints/transactions-single.md)
 
 * JavaScript SDK
 

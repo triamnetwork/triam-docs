@@ -1,10 +1,10 @@
 ---
-title: payments()
+Payments
 ---
 
 ## Overview
 
-In order to read information about payments from a Horizon server, the [`server`](./server.md) object provides the `payments()` function. `payments()` returns an `TransactionCallBuilder` class, an extension of the [`CallBuilder`](./call_builder.md) class.
+In order to read information about payments from a Horizon server, the [`server`](./server.md) object provides the `payments()` function. `payments()` returns an `TransactionCallBuilder` class, an extension of the [`CallBuilder`](#) class.
 
 By default, `payments()` provides access to the [`payments_all`](https://stellar.org/developers/horizon/reference/payments-all.html) Horizon endpoint.  By chaining other methods to it, you can reach other operation endpoints.
 

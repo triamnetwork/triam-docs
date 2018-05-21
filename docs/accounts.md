@@ -1,5 +1,5 @@
 ---
-title: accounts()
+Accounts
 ---
 
 ## Overview

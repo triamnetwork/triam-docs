@@ -1,5 +1,5 @@
 ---
-title: offers()
+Offers
 ---
 
 ## Overview
