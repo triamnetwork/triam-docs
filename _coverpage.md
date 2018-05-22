@@ -11,4 +11,4 @@
 * Multiple themes
 
 [API](https://armnetwork.github.io/arm-sdk/)
-[Get Started](#querying-horizon)
+[Get Started](docs/overview#overview)

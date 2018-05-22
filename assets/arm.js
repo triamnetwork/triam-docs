@@ -317,7 +317,11 @@ occa.docsifyPlugin = (hook, vm) => {
     } else {
       dom.classList.add('no-sidebar');
     }
-    $('div.md-button-content:contains("Try it out")').append(' &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i>');
+
+    setTimeout(function() {
+      $('div.md-button-content:contains("Try it out")').append(' &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i>');
+    }, 1000);
+
     const rootLi = $('.sidebar-nav li').has('ul');
     $.each(rootLi, function(index, el){
       if($(el).children().first()[0].nodeName === 'UL') {
@@ -338,6 +342,7 @@ occa.docsifyPlugin = (hook, vm) => {
 
   });
 };
+
 
 Vue.component('team-member', {
   props: [

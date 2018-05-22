@@ -1,5 +1,10 @@
+* JavaScript SDK
+  * [Overview](docs/overview#overview)
+  * [Transaction Examples](docs/base-examples.md)
+  * [Building Transactions](docs/building-transactions.md)
+  * [Basic Examples](docs/examples.md)
+  * [API Reference](https://armnetwork.github.io/arm-sdk/)
 * Rest API
-
   * [Horizon](docs/restapi.md)
   * Endpoints
     * [Accounts Details](docs/endpoints/accounts-single.md)
@@ -29,11 +34,3 @@
     * [Transactions for Account](docs/endpoints/transactions-for-account.md)
     * [Transactions for Ledger](docs/endpoints/transactions-for-ledger.md)
     * [Transaction Details](docs/endpoints/transactions-single.md)
-
-* JavaScript SDK
-
-  * [Overview](/#querying-horizon)
-  * [Transaction Examples](base-examples.md)
-  * [Building Transactions](building-transactions.md)
-  * [Basic Examples](examples.md)
-  * [API Reference](https://armnetwork.github.io/arm-sdk/)
