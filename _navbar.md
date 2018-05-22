@@ -1,8 +1,7 @@
 <!-- _navbar.md -->
+* [Home](/)
 
-* [Get Started](docs/accounts#overview)
-
-* [Examples](examples.md)
+* [Get Started](docs/overview#overview)
 
 * [API](https://armnetwork.github.io/arm-sdk/)
 

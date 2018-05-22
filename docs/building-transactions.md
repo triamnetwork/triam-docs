@@ -1,5 +1,5 @@
 ---
-title: Building Transactions
+Building Transactions
 ---
 
 [Transactions](#) are the commands that modify the state of the ledger.

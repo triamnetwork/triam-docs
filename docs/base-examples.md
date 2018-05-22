@@ -1,5 +1,5 @@
 ---
-title: Transaction Examples
+Transaction Examples
 ---
 
 - [Creating an account](#creating-an-account)
