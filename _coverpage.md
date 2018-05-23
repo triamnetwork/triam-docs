@@ -4,11 +4,7 @@
 
 # ArmSDK <small>1.0</small>
 
-> A magical documentation site generator...
-
-* Simple and lightweight (~19kB gzipped)
-* No statically built html files
-* Multiple themes
+> Move money across borders quickly, reliably, and for fractions of a penny.
 
 [API](https://armnetwork.github.io/arm-sdk/)
 [Get Started](docs/overview#overview)

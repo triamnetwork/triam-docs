@@ -298,7 +298,7 @@ occa.docsifyPlugin = (hook, vm) => {
     }
     content = occa.addIndents(content);
     content = occa.addTabs(content);
-    content = occa.addFooter(content);
+    //content = occa.addFooter(content);
     return content;
   });
 
