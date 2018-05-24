@@ -322,6 +322,16 @@ occa.docsifyPlugin = (hook, vm) => {
       $('div.md-button-content:contains("Try it out")').append(' &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i>');
     }, 1000);
 
+    if(location.href.substring(location.href.indexOf('#'), location.href.length) === `#/`) {
+      $('#disqus_thread').hide();
+      $('.docsify-pagination-container').hide();
+    }
+    else {
+      $('#disqus_thread').show();
+      $('.docsify-pagination-container').show();
+    }
+
+
     const rootLi = $('.sidebar-nav li').has('ul');
     $.each(rootLi, function(index, el){
       if($(el).children().first()[0].nodeName === 'UL') {
