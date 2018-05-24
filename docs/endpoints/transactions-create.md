@@ -64,10 +64,10 @@ If the transaction failed or errored, then an error response will be returned. P
   ```curl
   curl -X POST \
        -F "tx=AAAAAOo1QK/3upA74NLkdq4Io3DQAQZPi4TVhuDnvCYQTKIVAAAACgAAH8AAAAABAAAAAAAAAAAAAAABAAAAAQAAAADqNUCv97qQO+DS5HauCKNw0AEGT4uE1Ybg57wmEEyiFQAAAAEAAAAAZc2EuuEa2W1PAKmaqVquHuzUMHaEiRs//+ODOfgWiz8AAAAAAAAAAAAAA+gAAAAAAAAAARBMohUAAABAPnnZL8uPlS+c/AM02r4EbxnZuXmP6pQHvSGmxdOb0SzyfDB2jUKjDtL+NC7zcMIyw4NjTa9Ebp4lvONEf4yDBA==" \
-    "https://horizon-testnet.stellar.org/transactions"
+    "https://testnet-horizon.arm-system-holdings.com//transactions"
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=transactions&endpoint=create
+  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=create
 
 :::
 ### Example Response

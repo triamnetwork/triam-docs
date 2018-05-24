@@ -31,12 +31,12 @@ This endpoint responds with a list of payment operations in a given ledger.  See
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/ledgers/69859/payments"
+  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859/payments"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk')
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.payments()
     .forLedger("10866")
@@ -49,7 +49,7 @@ This endpoint responds with a list of payment operations in a given ledger.  See
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=payments&endpoint=for_ledger
+  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=for_ledger
 
 :::
 ### Example Response

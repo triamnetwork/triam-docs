@@ -28,12 +28,12 @@ This endpoint responds with a single Ledger.  See [ledger resource](../resources
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/ledgers/69859"
+  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk')
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.ledgers()
     .ledger('69858')
@@ -47,7 +47,7 @@ This endpoint responds with a single Ledger.  See [ledger resource](../resources
 
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=ledgers&endpoint=single
+  https://arm-laboratory.herokuapp.com/#explorer?resource=ledgers&endpoint=single
 
 :::
 ### Example Response

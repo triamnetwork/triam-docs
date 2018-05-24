@@ -32,12 +32,12 @@ This endpoint responds with a list of transactions that changed a given account'
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/accounts/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/transactions?limit=1"
+  curl "https://testnet-horizon.arm-system-holdings.com//accounts/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/transactions?limit=1"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.transactions()
     .forAccount("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")
@@ -50,7 +50,7 @@ This endpoint responds with a list of transactions that changed a given account'
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=transactions&endpoint=for_account
+  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=for_account
 
 :::
 ### Example Response

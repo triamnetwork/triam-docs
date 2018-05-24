@@ -31,12 +31,12 @@ The list of offers.
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers"
+  curl "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.offers('accounts', 'GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4')
     .call()
@@ -48,7 +48,7 @@ The list of offers.
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=offers&endpoint=for_account
+  https://arm-laboratory.herokuapp.com/#explorer?resource=offers&endpoint=for_account
 
 :::
 ### Example Response
@@ -57,13 +57,13 @@ The list of offers.
 {
   "_links": {
     "self": {
-      "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor="
+      "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor="
     },
     "next": {
-      "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor=122"
+      "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor=122"
     },
     "prev": {
-      "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=desc&limit=10&cursor=121"
+      "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=desc&limit=10&cursor=121"
     }
   },
   "_embedded": {
@@ -71,10 +71,10 @@ The list of offers.
       {
         "_links": {
           "self": {
-            "href": "https://horizon-testnet.stellar.org/offers/121"
+            "href": "https://testnet-horizon.arm-system-holdings.com//offers/121"
           },
           "offer_maker": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           }
         },
         "id": 121,
@@ -100,10 +100,10 @@ The list of offers.
       {
         "_links": {
           "self": {
-            "href": "https://horizon-testnet.stellar.org/offers/122"
+            "href": "https://testnet-horizon.arm-system-holdings.com//offers/122"
           },
           "offer_maker": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           }
         },
         "id": 122,

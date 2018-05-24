@@ -27,12 +27,12 @@ This endpoint responds with a single Transaction.  See [transaction resource](..
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/transactions/6391dd190f15f7d1665ba53c63842e368f485651a53d8d852ed442a446d1c69a"
+  curl "https://testnet-horizon.arm-system-holdings.com//transactions/6391dd190f15f7d1665ba53c63842e368f485651a53d8d852ed442a446d1c69a"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.transactions()
     .transaction("3c8ef808df9d5d240ba0d495629df9da5653b1be2daf05d43b49c5bcbfe099bd")
@@ -45,7 +45,7 @@ This endpoint responds with a single Transaction.  See [transaction resource](..
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=transactions&endpoint=single
+  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=single
 
 :::
 ### Example Response

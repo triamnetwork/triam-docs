@@ -31,12 +31,12 @@ The list of effects.
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/effects"
+  curl "https://testnet-horizon.arm-system-holdings.com//effects"
   ```
 - JavaScript
   ```javascript
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.effects()
     .call()
@@ -50,7 +50,7 @@ The list of effects.
 
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=effects&endpoint=all
+  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=all
 
 :::
 ### Example Response

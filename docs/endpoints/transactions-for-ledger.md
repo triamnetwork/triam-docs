@@ -30,12 +30,12 @@ This endpoint responds with a list of transactions in a given ledger.  See [tran
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/ledgers/69859/transactions"
+  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859/transactions"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.transactions()
     .forLedger("8365")
@@ -48,7 +48,7 @@ This endpoint responds with a list of transactions in a given ledger.  See [tran
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=transactions&endpoint=for_ledger
+  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=for_ledger
 
 :::
 ### Example Response

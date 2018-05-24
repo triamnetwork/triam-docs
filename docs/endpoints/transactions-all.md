@@ -34,12 +34,12 @@ See [transaction resource](../resources/transaction.md) for reference.
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/transactions?limit=200&order=desc"
+  curl "https://testnet-horizon.arm-system-holdings.com//transactions?limit=200&order=desc"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.transactions()
     .call()
@@ -56,7 +56,7 @@ See [transaction resource](../resources/transaction.md) for reference.
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=transactions&endpoint=all
+  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=all
 
 :::
 ### Example Response

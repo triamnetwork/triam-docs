@@ -32,18 +32,18 @@ This endpoint responds with a list of payments. See [operation resource](../reso
 - curl
   ```bash
   # Retrieve the first 200 payments, ordered chronologically.
-  curl "https://horizon-testnet.stellar.org/payments?limit=200"
+  curl "https://testnet-horizon.arm-system-holdings.com//payments?limit=200"
   ```
 
   ```bash
   # Retrieve a page of payments to occur immediately before the transaction
   # specified by the paging token "1234".
-  curl "https://horizon-testnet.stellar.org/payments?cursor=1234&order=desc"
+  curl "https://testnet-horizon.arm-system-holdings.com//payments?cursor=1234&order=desc"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.payments()
     .call()
@@ -55,7 +55,7 @@ This endpoint responds with a list of payments. See [operation resource](../reso
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=payments&endpoint=all
+  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=all
 
 :::
 ### Example Response

@@ -32,12 +32,12 @@ This endpoint responds with a list of effects that occurred in the ledger. See [
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/ledgers/69859/effects"
+  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859/effects"
   ```
 - JavaScript
   ```javascript
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.effects()
     .forLedger("2")
@@ -52,7 +52,7 @@ This endpoint responds with a list of effects that occurred in the ledger. See [
 
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=effects&endpoint=for_ledger
+  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=for_ledger
 
 :::
 ### Example Response

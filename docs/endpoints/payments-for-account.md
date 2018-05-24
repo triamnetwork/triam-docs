@@ -34,12 +34,12 @@ This endpoint responds with a [page](../resources/page.md) of [payment operation
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/account/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/payments?limit=25&order=desc"
+  curl "https://testnet-horizon.arm-system-holdings.com//account/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/payments?limit=25&order=desc"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.payments()
     .forAccount("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")
@@ -52,7 +52,7 @@ This endpoint responds with a [page](../resources/page.md) of [payment operation
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=payments&endpoint=for_account
+  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=for_account
 
 :::
 ### Example Response

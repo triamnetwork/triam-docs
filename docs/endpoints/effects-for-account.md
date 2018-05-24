@@ -33,12 +33,12 @@ The list of effects.
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/accounts/GA2HGBJIJKI6O4XEM7CZWY5PS6GKSXL6D34ERAJYQSPYA6X6AI7HYW36/effects"
+  curl "https://testnet-horizon.arm-system-holdings.com//accounts/GA2HGBJIJKI6O4XEM7CZWY5PS6GKSXL6D34ERAJYQSPYA6X6AI7HYW36/effects"
   ```
 - JavaScript
   ```javascript
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.effects()
     .forAccount("GD6VWBXI6NY3AOOR55RLVQ4MNIDSXE5JSAVXUTF35FRRI72LYPI3WL6Z")
@@ -53,7 +53,7 @@ The list of effects.
 
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=effects&endpoint=for_account
+  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=for_account
 
 :::
 ### Example Response

@@ -32,12 +32,12 @@ This endpoint responds with a list of operations. See [operation resource](../re
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/operations?limit=200&order=desc"
+  curl "https://testnet-horizon.arm-system-holdings.com//operations?limit=200&order=desc"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.operations()
     .call()
@@ -55,7 +55,7 @@ This endpoint responds with a list of operations. See [operation resource](../re
     })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=operations&endpoint=all
+  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=all
 
 :::
 ### Example Response

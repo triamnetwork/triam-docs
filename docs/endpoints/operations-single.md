@@ -28,12 +28,12 @@ This endpoint responds with a single Operation.  See [operation resource](../res
 
 - curl
   ```curl
-  curl https://horizon-testnet.stellar.org/operations/77309415424
+  curl https://testnet-horizon.arm-system-holdings.com//operations/77309415424
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.operations()
     .operation('77309415424')
@@ -48,7 +48,7 @@ This endpoint responds with a single Operation.  See [operation resource](../res
 
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=operations&endpoint=single
+  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=single
 
 :::
 ### Example Response

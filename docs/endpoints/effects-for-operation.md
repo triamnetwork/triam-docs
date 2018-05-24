@@ -30,12 +30,12 @@ This endpoint responds with a list of effects on the ledger as a result of a giv
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/operations/77309415424/effects"
+  curl "https://testnet-horizon.arm-system-holdings.com//operations/77309415424/effects"
   ```
 - JavaScript
   ```javascript
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.effects()
     .forOperation("141733924865")
@@ -50,7 +50,7 @@ This endpoint responds with a list of effects on the ledger as a result of a giv
 
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=effects&endpoint=for_operation
+  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=for_operation
 
 :::
 ### Example Response

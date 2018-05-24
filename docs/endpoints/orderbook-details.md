@@ -35,12 +35,12 @@ The summary of the orderbook and its bids and asks.
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/order_book?selling_asset_type=native&buying_asset_type=credit_alphanum4&buying_asset_code=FOO&buying_asset_issuer=GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG"
+  curl "https://testnet-horizon.arm-system-holdings.com//order_book?selling_asset_type=native&buying_asset_type=credit_alphanum4&buying_asset_code=FOO&buying_asset_issuer=GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.orderbook(new StellarSdk.Asset.native(), new StellarSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
     .call()
@@ -48,7 +48,7 @@ The summary of the orderbook and its bids and asks.
     .catch(function(err) { console.log(err); })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=order_book&endpoint=details
+  https://arm-laboratory.herokuapp.com/#explorer?resource=order_book&endpoint=details
 
 :::
 ## Example Response

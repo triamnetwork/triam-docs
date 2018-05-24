@@ -37,12 +37,12 @@ The list of trades.
 
 - curl
   ```curl
-  curl "https://horizon-testnet.stellar.org/order_book/trades?selling_asset_type=native&buying_asset_type=credit_alphanum4&buying_asset_code=FOO&buying_asset_issuer=GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG"
+  curl "https://testnet-horizon.arm-system-holdings.com//order_book/trades?selling_asset_type=native&buying_asset_type=credit_alphanum4&buying_asset_code=FOO&buying_asset_issuer=GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG"
   ```
 - JavaScript
   ```js
   var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.orderbook(new StellarSdk.Asset.native(), new StellarSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
     .trades()
@@ -51,7 +51,7 @@ The list of trades.
     .catch(function(err) { console.log(err); })
   ```
 - Try it out
-  https://www.stellar.org/laboratory/#explorer?resource=order_book&endpoint=trades
+  https://arm-laboratory.herokuapp.com/#explorer?resource=order_book&endpoint=trades
 
 :::
 ### Example Response
@@ -59,13 +59,13 @@ The list of trades.
 {
   "_links": {
     "self": {
-      "href": "https://horizon-testnet.stellar.org/order_book/trades?order=asc\u0026limit=10\u0026cursor="
+      "href": "https://testnet-horizon.arm-system-holdings.com//order_book/trades?order=asc\u0026limit=10\u0026cursor="
     },
     "next": {
-      "href": "https://horizon-testnet.stellar.org/order_book/trades?order=asc\u0026limit=10\u0026cursor=7281919481876481-2"
+      "href": "https://testnet-horizon.arm-system-holdings.com//order_book/trades?order=asc\u0026limit=10\u0026cursor=7281919481876481-2"
     },
     "prev": {
-      "href": "https://horizon-testnet.stellar.org/order_book/trades?order=desc\u0026limit=10\u0026cursor=7281893712072705-2"
+      "href": "https://testnet-horizon.arm-system-holdings.com//order_book/trades?order=desc\u0026limit=10\u0026cursor=7281893712072705-2"
     }
   },
   "_embedded": {
@@ -73,13 +73,13 @@ The list of trades.
       {
         "_links": {
           "self": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           },
           "seller": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           },
           "buyer": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GD42RQNXTRIW6YR3E2HXV5T2AI27LBRHOERV2JIYNFMXOBA234SWLQQB"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GD42RQNXTRIW6YR3E2HXV5T2AI27LBRHOERV2JIYNFMXOBA234SWLQQB"
           }
         },
         "id": "7281893712072705-2",
@@ -94,13 +94,13 @@ The list of trades.
       {
         "_links": {
           "self": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           },
           "seller": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           },
           "buyer": {
-            "href": "https://horizon-testnet.stellar.org/accounts/GD42RQNXTRIW6YR3E2HXV5T2AI27LBRHOERV2JIYNFMXOBA234SWLQQB"
+            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GD42RQNXTRIW6YR3E2HXV5T2AI27LBRHOERV2JIYNFMXOBA234SWLQQB"
           }
         },
         "id": "7281919481876481-2",
