@@ -323,7 +323,7 @@ occa.docsifyPlugin = (hook, vm) => {
     }, 1000);
 
     if(location.href.substring(location.href.indexOf('#'), location.href.length) === `#/`) {
-      $('#disqus_thread').hide();
+//      $('#disqus_thread').hide();
       $('.docsify-pagination-container').hide();
     }
     else {
