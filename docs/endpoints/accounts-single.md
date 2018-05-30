@@ -44,7 +44,7 @@ This endpoint responds with the details of a single account for a given ID. See 
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=accounts&endpoint=single
+  https://laboratory.arm-system-holdings.com/#explorer?resource=accounts&endpoint=single
 
 :::
 ### Example Response

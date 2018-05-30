@@ -51,7 +51,7 @@ This endpoint responds with a list of operations that affected the given account
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=for_account
+  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=for_account
 
 :::
 ### Example Response

@@ -49,7 +49,7 @@ This endpoint responds with a list of operations in a given ledger.  See [operat
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=for_ledger
+  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=for_ledger
 
 :::
 ### Example Response

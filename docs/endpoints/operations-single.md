@@ -48,7 +48,7 @@ This endpoint responds with a single Operation.  See [operation resource](../res
 
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=single
+  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=single
 
 :::
 ### Example Response

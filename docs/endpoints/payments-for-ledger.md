@@ -49,7 +49,7 @@ This endpoint responds with a list of payment operations in a given ledger.  See
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=for_ledger
+  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=for_ledger
 
 :::
 ### Example Response

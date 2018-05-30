@@ -50,7 +50,7 @@ This endpoint responds with a list of transactions that changed a given account'
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=for_account
+  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=for_account
 
 :::
 ### Example Response

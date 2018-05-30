@@ -56,7 +56,7 @@ See [transaction resource](../resources/transaction.md) for reference.
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=all
+  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=all
 
 :::
 ### Example Response

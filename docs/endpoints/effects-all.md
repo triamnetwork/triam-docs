@@ -50,7 +50,7 @@ The list of effects.
 
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=all
+  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=all
 
 :::
 ### Example Response

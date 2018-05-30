@@ -52,7 +52,7 @@ This endpoint responds with a [page](../resources/page.md) of [payment operation
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=for_account
+  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=for_account
 
 :::
 ### Example Response

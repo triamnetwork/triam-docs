@@ -53,7 +53,7 @@ The list of effects.
 
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=for_account
+  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=for_account
 
 :::
 ### Example Response

@@ -48,7 +48,7 @@ This endpoint responds with a list of payments operations that are part of a giv
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=for_transaction
+  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=for_transaction
 
 :::
 ### Example Response

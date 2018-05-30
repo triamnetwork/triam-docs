@@ -50,7 +50,7 @@ This endpoint responds with a list of effects on the ledger as a result of a giv
 
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=for_operation
+  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=for_operation
 
 :::
 ### Example Response

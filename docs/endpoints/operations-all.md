@@ -55,7 +55,7 @@ This endpoint responds with a list of operations. See [operation resource](../re
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=all
+  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=all
 
 :::
 ### Example Response

@@ -49,7 +49,7 @@ This endpoint responds with a list of operations that are part of a given transa
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=operations&endpoint=for_transaction
+  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=for_transaction
 
 :::
 ### Example Response

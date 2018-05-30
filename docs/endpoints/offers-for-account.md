@@ -48,7 +48,7 @@ The list of offers.
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=offers&endpoint=for_account
+  https://laboratory.arm-system-holdings.com/#explorer?resource=offers&endpoint=for_account
 
 :::
 ### Example Response

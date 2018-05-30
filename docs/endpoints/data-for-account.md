@@ -47,7 +47,7 @@ This endpoint responds with a value of the data field for the given account. See
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=data&endpoint=for_account
+  https://laboratory.arm-system-holdings.com/#explorer?resource=data&endpoint=for_account
 
 :::
 ### Example Response

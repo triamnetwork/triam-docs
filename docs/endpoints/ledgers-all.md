@@ -53,7 +53,7 @@ This endpoint responds with a list of ledgers.  See [ledger resource](../resourc
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=ledgers&endpoint=all
+  https://laboratory.arm-system-holdings.com/#explorer?resource=ledgers&endpoint=all
 
 :::
 ### Example Response

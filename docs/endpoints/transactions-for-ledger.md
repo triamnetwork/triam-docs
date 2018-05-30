@@ -48,7 +48,7 @@ This endpoint responds with a list of transactions in a given ledger.  See [tran
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=for_ledger
+  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=for_ledger
 
 :::
 ### Example Response

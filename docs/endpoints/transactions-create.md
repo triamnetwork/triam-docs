@@ -67,7 +67,7 @@ If the transaction failed or errored, then an error response will be returned. P
     "https://testnet-horizon.arm-system-holdings.com//transactions"
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=create
+  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=create
 
 :::
 ### Example Response

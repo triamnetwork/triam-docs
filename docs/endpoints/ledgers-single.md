@@ -47,7 +47,7 @@ This endpoint responds with a single Ledger.  See [ledger resource](../resources
 
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=ledgers&endpoint=single
+  https://laboratory.arm-system-holdings.com/#explorer?resource=ledgers&endpoint=single
 
 :::
 ### Example Response

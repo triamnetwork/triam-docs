@@ -55,7 +55,7 @@ This endpoint responds with a list of payments. See [operation resource](../reso
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=payments&endpoint=all
+  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=all
 
 :::
 ### Example Response

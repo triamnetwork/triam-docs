@@ -48,7 +48,7 @@ The summary of the orderbook and its bids and asks.
     .catch(function(err) { console.log(err); })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=order_book&endpoint=details
+  https://laboratory.arm-system-holdings.com/#explorer?resource=order_book&endpoint=details
 
 :::
 ## Example Response

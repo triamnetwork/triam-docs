@@ -52,7 +52,7 @@ This endpoint responds with a list of effects that occurred in the ledger. See [
 
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=effects&endpoint=for_ledger
+  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=for_ledger
 
 :::
 ### Example Response

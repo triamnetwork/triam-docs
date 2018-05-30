@@ -44,7 +44,7 @@ This endpoint responds with a page of path resources.  See [path resource](../re
   curl "https://testnet-horizon.arm-system-holdings.com//paths?destination_account=GAEDTJ4PPEFVW5XV2S7LUXBEHNQMX5Q2GM562RJGOQG7GVCE5H3HIB4V&source_account=GARSFJNXJIHO6ULUBK3DBYKVSIZE7SC72S5DYBCHU7DKL22UXKVD7MXP&destination_asset_type=credit_alphanum4&destination_asset_code=EUR&destination_asset_issuer=GDSBCQO34HWPGUGQSP3QBFEXVTSR2PW46UIGTHVWGWJGQKH3AFNHXHXN&destination_amount=20"
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=paths&endpoint=all
+  https://laboratory.arm-system-holdings.com/#explorer?resource=paths&endpoint=all
 
 :::
 ### Example Response

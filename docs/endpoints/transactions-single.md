@@ -45,7 +45,7 @@ This endpoint responds with a single Transaction.  See [transaction resource](..
     })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=transactions&endpoint=single
+  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=single
 
 :::
 ### Example Response

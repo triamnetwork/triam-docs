@@ -51,7 +51,7 @@ The list of trades.
     .catch(function(err) { console.log(err); })
   ```
 - Try it out
-  https://arm-laboratory.herokuapp.com/#explorer?resource=order_book&endpoint=trades
+  https://laboratory.arm-system-holdings.com/#explorer?resource=order_book&endpoint=trades
 
 :::
 ### Example Response
