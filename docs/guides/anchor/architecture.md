@@ -80,7 +80,7 @@ When using the above services, a complex payment using federation and compliance
 
 When someone is sending a transaction to you, the flow is slightly different:
 
-![Diagram of receiving a payment](assets/anchor-receive-payment-compliance.png)
+
 
 1. The sender looks up the Stellar account ID to send the payment to based on your customer’s federated address from your federation server.
 2. The sender contacts your compliance server with information about the person sending the payment.
