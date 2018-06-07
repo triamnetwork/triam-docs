@@ -1,8 +1,5 @@
 ---
 Compliance Server
-sequence:
-  previous: 3-federation-server.md
-  next: 5-conclusion.md
 ---
 
 The task of an anchor is handling regulatory compliance, like Anti-Money Laundering (<abbr title="Anti-Money Laundering">AML</abbr>). To accomplish that, you should use the [Stellar compliance protocol](../compliance-protocol.md), a standard way to exchange compliance information and pre-approve a transaction with another financial institution.

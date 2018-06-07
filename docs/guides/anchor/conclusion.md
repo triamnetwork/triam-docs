@@ -1,7 +1,5 @@
 ---
 Next Steps
-sequence:
-  previous: 4-compliance-server.md
 ---
 
 Congratulations! If you’ve made it to this point, you should now have a working bridge server, federation server, and compliance server, with the ability to make and receive secure, sanctioned payments on the Stellar network.

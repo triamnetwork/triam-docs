@@ -1,8 +1,5 @@
 ---
 Bridge Server
-sequence:
-  previous: readme.md
-  next: 3-federation-server.md
 ---
 
 Stellar.org maintains a [bridge server](https://github.com/stellar/bridge-server/blob/master/readme_bridge.md), which makes it easier to use the federation and compliance servers to send and receive payments. When using the bridge server, the only code you need to write is a private service to receive payment notifications and respond to regulatory checks from the bridge and compliance servers.

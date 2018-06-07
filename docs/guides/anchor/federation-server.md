@@ -1,8 +1,5 @@
 ---
 Federation Server
-sequence:
-  previous: 2-bridge-server.md
-  next: 4-compliance-server.md
 ---
 
 When testing the bridge server, we added a `memo` to the transaction in order to identify what customer account to credit. However, other people and organizations using Stellar might not know they need to do that. How do they find out?

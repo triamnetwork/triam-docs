@@ -1,7 +1,5 @@
 ---
 Architecture
-sequence:
-  next: 2-bridge-server.md
 ---
 
 Anchors are entities that people trust to hold their deposits and [issue credits](../issuing-assets.md) into the Stellar network for those deposits. All money transactions in the Stellar network (except lumens) occur in the form of credit issued by anchors, so anchors act as a bridge between existing currencies and the Stellar network. Most anchors are organizations like banks, savings institutions, farmers’ co-ops, central banks, and remittance companies.
