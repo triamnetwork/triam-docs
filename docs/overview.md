@@ -1,7 +1,7 @@
 ---
 Overview
 ---
-The JavaScript Arm SDK facilitates integration with the [Stellar Horizon API server](#) and submission of Stellar transactions, either on Node.js or in the browser. It has two main uses: [querying Horizon](#querying-horizon) and [building, signing, and submitting transactions to the Stellar network](#building-transactions).
+The JavaScript Ria SDK facilitates integration with the [Stellar Horizon API server](#) and submission of Stellar transactions, either on Node.js or in the browser. It has two main uses: [querying Horizon](#querying-horizon) and [building, signing, and submitting transactions to the Stellar network](#building-transactions).
 
 [Building and installing js-arm-sdk](https://armnetwork.github.io/arm-sdk/)<br>
 [Examples of using js-arm-sdk](./examples.md)
@@ -15,7 +15,7 @@ to Horizon. Starting with a [server](https://armnetwork.github.io/arm-sdk/Server
 (See the [Horizon reference](https://armnetwork.github.io/arm-docs/) documentation for what methods are possible.)
 ```js
 var StellarSdk = require('stellar-sdk');
-var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com');
+var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com');
 // get a list of transactions that occurred in ledger 1400
 server.transactions()
     .forLedger(1400)
@@ -47,7 +47,7 @@ Horizon API
     export default {
         methods: {
             callHorizon() {
-              var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com/');
+              var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
               // get a list of transactions that occurred in ledger 1400
               server.transactions()
                   .forLedger(1400)
@@ -59,7 +59,11 @@ Horizon API
                   .call().then(function(r){
                      $('#json-renderer').jsonViewer(r.records);
                      $('#json-renderer').prepend('<p>results:</p>');
-                   });
+                   })
+                   .catch(function(err){
+                      $('#json-renderer').jsonViewer(err.message);
+                      $('#json-renderer').prepend('<p>results:</p>');
+                    });
             }
         }
     }
@@ -78,7 +82,7 @@ For example, to log instances of transactions from a particular account:
 
 ```javascript
 var StellarSdk = require('stellar-sdk')
-var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com');
+var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com');
 var lastCursor=0; // or load where you left off
 
 var txHandler = function (txResponse) {
@@ -135,11 +139,11 @@ server.payments()
 See the [Building Transactions](#) guide for information about assembling a transaction.
 
 ## Submitting transactions
-Once you have built your transaction, you can submit it to the Arm network with `Server.submitTransaction()`.
+Once you have built your transaction, you can submit it to the Ria network with `Server.submitTransaction()`.
 ```js
 var StellarSdk = require('stellar-sdk')
 StellarSdk.Network.useTestNetwork();
-var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com');
+var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com');
 
 server
   .loadAccount(publicKey)

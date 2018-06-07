@@ -8,7 +8,7 @@ title: Basic Examples
 
 ## Creating a payment transaction
 
-js-arm-sdk exposes the [`TransactionBuilder`](https://github.com/stellar/js-stellar-base/blob/master/src/transaction_builder.js) class from js-stellar-base.  There are more examples of [building transactions here](#). All those examples can be signed and submitted to Arm in a similar manner as is done below.
+js-arm-sdk exposes the [`TransactionBuilder`](https://github.com/stellar/js-stellar-base/blob/master/src/transaction_builder.js) class from js-stellar-base.  There are more examples of [building transactions here](#). All those examples can be signed and submitted to Ria in a similar manner as is done below.
 
 In this example you must ensure that the destination account exists
 
@@ -42,7 +42,7 @@ var receiverPublicKey = 'GAIRISXKPLOWZBMFRPU5XRGUUX3VMA3ZEWKBM5MSNRU3CHV6P4PYZ74
 
 // Configure StellarSdk to talk to the horizon instance hosted by Stellar.org
 // To use the live network, set the hostname to 'horizon.stellar.org'
-var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com');
+var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com');
 
 // Uncomment the following line to build transactions for the live network. Be
 // sure to also change the horizon hostname.
@@ -101,7 +101,7 @@ Let's say you want to look at an account's transaction history.  You can use the
 
 ```javascript
 var StellarSdk = require('stellar-sdk')
-var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com');
+var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com');
 var accountId = 'GBBORXCY3PQRRDLJ7G7DWHQBXPCJVFGJ4RGMJQVAX6ORAUH6RWSPP6FM';
 
 server.transactions()
@@ -128,7 +128,7 @@ js-arm-sdk provides streaming support for Horizon endpoints using `EventSource`.
 Try submitting a transaction (via the guide above) while running the following code example.
 ```javascript
 var StellarSdk = require('stellar-sdk')
-var server = new StellarSdk.Server('https://stg-api.arm-system-holdings.com');
+var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com');
 
 // Get a message any time a payment occurs. Cursor is set to "now" to be notified
 // of payments happening starting from when this script runs (as opposed to from

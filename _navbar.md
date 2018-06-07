@@ -3,7 +3,7 @@
 
 * [Get Started](docs/overview#overview)
 
-* [API](https://armnetwork.github.io/arm-sdk/)
+* [API](https://triamnetwork.github.io/triam-sdk/)
 
 * :globe_with_meridians:
   * English [:us:](/)

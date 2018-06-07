@@ -2,7 +2,7 @@
 
 ![logo](../_media/logo-w.svg ':no-zoom')
 
-# ArmSDK <small>1.0</small>
+# TriamSDK <small>1.0</small>
 
 > A magical documentation site generator...
 

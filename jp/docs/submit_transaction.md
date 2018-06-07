@@ -4,7 +4,7 @@ title: submitTransaction()
 
 ## Overview
 
-You can build a transaction locally (see [this example](../readme.md#building-transactions)), but after you build it you have to submit it to the Arm network.  js-stellar-sdk has a function `submitTransaction()` that sends your transaction to the Horizon server (via the [`transactions_create`](https://stellar.org/developers/horizon/reference/transactions-create.html) endpoint) to be broadcast to the Arm network.
+You can build a transaction locally (see [this example](../readme.md#building-transactions)), but after you build it you have to submit it to the Ria network.  js-stellar-sdk has a function `submitTransaction()` that sends your transaction to the Horizon server (via the [`transactions_create`](https://stellar.org/developers/horizon/reference/transactions-create.html) endpoint) to be broadcast to the Ria network.
 
 ## Methods
 

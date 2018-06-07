@@ -23,7 +23,7 @@ See [operation.js](https://github.com/stellar/js-stellar-base/blob/master/src/op
 
 After adding the desired operations, call the `build()` method on the `TransactionBuilder`.
 This will return a fully constructed [Transaction](https://github.com/stellar/js-stellar-base/blob/master/src/transaction.js).
-The returned transaction will contain the sequence number of the source account. This transaction is unsigned. You must sign it before it will be accepted by the Arm network.
+The returned transaction will contain the sequence number of the source account. This transaction is unsigned. You must sign it before it will be accepted by the Ria network.
 
 
 ```js
@@ -109,7 +109,7 @@ You add signatures to a transaction with the `Transaction.sign()` function. You 
 
 ## `Keypair` class
 
-`Keypair` object represents key pair used to sign transactions in Arm network. `Keypair` object can contain both a public and private key, or only a public key.
+`Keypair` object represents key pair used to sign transactions in Ria network. `Keypair` object can contain both a public and private key, or only a public key.
 
 If `Keypair` object does not contain private key it can't be used to sign transactions. The most convenient method of creating new keypair is by passing the account's secret seed:
 

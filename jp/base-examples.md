@@ -34,7 +34,7 @@ transaction.sign(StellarSdk.Keypair.fromSecret(seedString)); // sign the transac
 ```
 
 ## Assets
-Object of the `Asset` class represents an asset in the Arm network. Right now there are 3 possible types of assets in the Arm network:
+Object of the `Asset` class represents an asset in the Ria network. Right now there are 3 possible types of assets in the Ria network:
 * native `XLM` asset (`ASSET_TYPE_NATIVE`),
 * issued assets with asset code of maximum 4 characters (`ASSET_TYPE_CREDIT_ALPHANUM4`),
 * issued assets with asset code of maximum 12 characters (`ASSET_TYPE_CREDIT_ALPHANUM12`).
