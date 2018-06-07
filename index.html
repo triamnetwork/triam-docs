@@ -27,7 +27,7 @@
   <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
   <script src="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.js"></script>
   <link href="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.css" type="text/css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.1/stellar-sdk.min.js"></script>
+  <script src="https://unpkg.com/arm-sdk@0.0.3/dist/arm-sdk.min.js"></script>
 
 
   <script src="./assets/arm.js"></script>
@@ -35,18 +35,18 @@
     var jsResources = '<scr' + 'ipt src="//unpkg.com/vue/dist/vue.min.js"></scr' + 'ipt>\n' +
     '<scr' + 'ipt src="//code.jquery.com/jquery-2.1.3.min.js"></scr' + 'ipt>\n' +
     '<scr' + 'ipt src="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.js"></scr' + 'ipt>\n' +
-    '<scr' + 'ipt src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/0.8.1/stellar-sdk.min.js"></scr' + 'ipt>'
+    '<scr' + 'ipt src="https://unpkg.com/arm-sdk@0.0.3/dist/arm-sdk.min.js"></scr' + 'ipt>'
     var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");\n' +
     '@import url("https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.css");'
-    var bootCode = 'var keyPair = StellarSdk.Keypair.random()';
-    var keyPair = StellarSdk.Keypair.random(), laboratoryUrl="";
+    var bootCode = 'var keyPair = ArmSdk.Keypair.random()';
+    var keyPair = ArmSdk.Keypair.random(), laboratoryUrl="";
     window.$docsify = {
       name: 'TriamSDK 1.0',
       nameLink: {
         '/jp/': '#/jp/',
         '/': '#/'
       },
-      repo: 'https://github.com/armnetwork/arm-docs',
+      repo: 'https://github.com/triamnetwork/triam-docs',
       loadSidebar: true,
       alias: {
         '/docs/_sidebar.md': '/_sidebar.md',
@@ -56,7 +56,7 @@
         '/jp/docs/_sidebar.md': '/jp/_sidebar.md',
         '/jp/docs/_navbar.md': 'jp/_navbar.md'
       },
-      disqus: 'triamsdk',
+      disqus: 'riasdk',
       //subMaxLevel: 1,
       auto2top: true,
       loadNavbar: true,
@@ -91,14 +91,14 @@
       },
       plugins: [
         occa.docsifyPlugin,
-        EditOnGithubPlugin.create('https://github.com/armnetwork/arm-docs/blob/master/'),
+        EditOnGithubPlugin.create('https://github.com/triamnetwork/triam-docs/blob/master/'),
         DemoBoxVue.create(jsResources, cssResources, bootCode),
         function (hook) {
           var footer = [
             '<hr/>',
             '<footer>',
-            '<span><a href="https://github.com/armnetwork">Ria network</a> &copy;2018.</span>',
-            '<span>Proudly published with <a href="https://github.com/armnetwork/arm-docs" target="_blank">TriamSDK</a>.</span>',
+            '<span><a href="https://github.com/triamnetwork">Triam network</a> &copy;2018.</span>',
+            '<span>Proudly published with <a href="https://github.com/triamnetwork/triam-docs" target="_blank">TriamSDK</a>.</span>',
             '</footer>'
           ].join('')
 

@@ -2,7 +2,7 @@
 Trades for Orderbook
 ---
 
-People on the Stellar network can make [offers](../resources/offer.md) to buy or sell assets.  These offers are summarized by the assets being bought and sold in [orderbooks](../resources/orderbook.md).  When an offer is fully or partially fulfilled, a [trade](../resources/trade.md) happens.
+People on the Triam network can make [offers](../resources/offer.md) to buy or sell assets.  These offers are summarized by the assets being bought and sold in [orderbooks](../resources/orderbook.md).  When an offer is fully or partially fulfilled, a [trade](../resources/trade.md) happens.
 
 Horizon will return a list of trades by the orderbook the trade's assets are associated with.
 
@@ -41,10 +41,10 @@ The list of trades.
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
-  server.orderbook(new StellarSdk.Asset.native(), new StellarSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
+  server.orderbook(new TriamSdk.Asset.native(), new TriamSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
     .trades()
     .call()
     .then(function(resp) { console.log(resp); })

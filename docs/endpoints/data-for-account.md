@@ -30,8 +30,8 @@ This endpoint responds with a value of the data field for the given account. See
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.accounts()
     .accountId("GAKLBGHNHFQ3BMUYG5KU4BEWO6EYQHZHAXEWC33W34PH2RBHZDSQBD75")

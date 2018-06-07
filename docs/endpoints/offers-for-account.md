@@ -2,7 +2,7 @@
 Offers for Account
 ---
 
-People on the Stellar network can make [offers](../resources/offer.md) to buy or sell assets.  This endpoint represents all the offers a particular account makes.
+People on the Triam network can make [offers](../resources/offer.md) to buy or sell assets.  This endpoint represents all the offers a particular account makes.
 
 
 ## Request
@@ -35,8 +35,8 @@ The list of offers.
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.offers('accounts', 'GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4')
     .call()

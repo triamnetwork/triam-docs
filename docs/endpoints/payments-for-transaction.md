@@ -34,8 +34,8 @@ This endpoint responds with a list of payments operations that are part of a giv
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.payments()
     .forTransaction("3c8ef808df9d5d240ba0d495629df9da5653b1be2daf05d43b49c5bcbfe099bd")

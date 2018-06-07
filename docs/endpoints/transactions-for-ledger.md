@@ -34,8 +34,8 @@ This endpoint responds with a list of transactions in a given ledger.  See [tran
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.transactions()
     .forLedger("8365")

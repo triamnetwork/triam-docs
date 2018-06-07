@@ -2,7 +2,7 @@
 Orderbook Details
 ---
 
-People on the Stellar network can make [offers](../resources/offer.md) to buy or sell assets.  These offers are summarized by the assets being bought and sold in [orderbooks](../resources/orderbook.md).
+People on the Triam network can make [offers](../resources/offer.md) to buy or sell assets.  These offers are summarized by the assets being bought and sold in [orderbooks](../resources/orderbook.md).
 
 Horizon will return, for each orderbook, a summary of the orderbook and the bids and asks associated with that orderbook.
 
@@ -39,10 +39,10 @@ The summary of the orderbook and its bids and asks.
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
-  server.orderbook(new StellarSdk.Asset.native(), new StellarSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
+  server.orderbook(new TriamSdk.Asset.native(), new TriamSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
     .call()
     .then(function(resp) { console.log(resp); })
     .catch(function(err) { console.log(err); })

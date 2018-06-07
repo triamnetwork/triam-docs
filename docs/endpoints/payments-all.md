@@ -2,7 +2,7 @@
 All Payments
 ---
 
-This endpoint represents all payment [operations](../resources/operation.md) that are part of validated [transactions](../resources/transaction.md). This endpoint can also be used in [streaming](../responses.md#streaming) mode so it is possible to use it to listen for new payments as they get made in the Stellar network.
+This endpoint represents all payment [operations](../resources/operation.md) that are part of validated [transactions](../resources/transaction.md). This endpoint can also be used in [streaming](../responses.md#streaming) mode so it is possible to use it to listen for new payments as they get made in the Triam network.
 If called in streaming mode Horizon will start at the earliest known payment unless a `cursor` is set. In that case it will start from the `cursor`. You can also set `cursor` value to `now` to only stream payments created since your request time.
 
 ## Request
@@ -42,8 +42,8 @@ This endpoint responds with a list of payments. See [operation resource](../reso
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.payments()
     .call()

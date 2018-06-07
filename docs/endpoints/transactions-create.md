@@ -2,15 +2,15 @@
 Post Transaction
 ---
 
-Posts a new [transaction](../resources/transaction.md) to the Stellar Network.
+Posts a new [transaction](../resources/transaction.md) to the Triam Network.
 Note that creating a valid transaction and signing it properly is the
 responsibility of your client library.
 
 Transaction submission and the subsequent validation and inclusion into the
-Stellar Network's ledger is a [complicated and asynchronous
-process](https://www.stellar.org/developers/learn/concepts/transactions.html#life-cycle).
+Triam Network's ledger is a [complicated and asynchronous
+process](https://www.triamnetwork.com/developers/learn/concepts/transactions.html#life-cycle).
 To reduce the complexity, horizon manages these asynchronous processes for the
-client and will wait to hear results from the Stellar Network before returning
+client and will wait to hear results from the Triam Network before returning
 an HTTP response to a client.
 
 Transaction submission to horizon aims to be
@@ -22,7 +22,7 @@ and not attempt to submit the transaction again. Only in cases where a
 transaction's status is unknown (and thus will have a chance of being included
 into a ledger) will a resubmission to the network occur.
 
-Information about [building transactions](https://www.stellar.org/developers/js-stellar-base/learn/building-transactions.html) in JavaScript.
+Information about [building transactions](https://www.triamnetwork.com/developers/js-stellar-base/learn/building-transactions.html) in JavaScript.
 
 ## Request
 

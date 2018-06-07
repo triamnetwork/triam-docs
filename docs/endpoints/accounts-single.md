@@ -3,7 +3,7 @@ Account Details
 ---
 Returns information and links relating to a single [account](../resources/account.md).
 
-The balances section in the returned JSON will also list all the [trust lines](https://www.stellar.org/developers/learn/concepts/assets.html) this account has set up. Note this will only return trustlines that have the necessary authorization to work. Meaning if an accountA trusts another accountB that has the [authorization required](https://www.stellar.org/developers/guides/concepts/accounts.html#flags) flag set the trustline wont show up until accountB [allows](https://www.stellar.org/developers/guides/concepts/list-of-operations.html#allow-trust) accountA to hold its assets.
+The balances section in the returned JSON will also list all the [trust lines](https://www.triamnetwork.com/developers/learn/concepts/assets.html) this account has set up. Note this will only return trustlines that have the necessary authorization to work. Meaning if an accountA trusts another accountB that has the [authorization required](https://www.triamnetwork.com/developers/guides/concepts/accounts.html#flags) flag set the trustline wont show up until accountB [allows](https://www.triamnetwork.com/developers/guides/concepts/list-of-operations.html#allow-trust) accountA to hold its assets.
 
 ## Request
 
@@ -30,8 +30,8 @@ This endpoint responds with the details of a single account for a given ID. See 
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.accounts()
     .accountId("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")

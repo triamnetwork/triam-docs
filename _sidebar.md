@@ -3,7 +3,7 @@
   * [Transaction Examples](docs/base-examples.md)
   * [Building Transactions](docs/building-transactions.md)
   * [Basic Examples](docs/examples.md)
-  * [API Reference](https://armnetwork.github.io/arm-sdk/)
+  * [API Reference](https://triamnetwork.github.io/triam-sdk/)
 * Rest API
   * [Horizon](docs/restapi.md)
   * Endpoints

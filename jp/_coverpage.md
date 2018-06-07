@@ -10,5 +10,5 @@
 * No statically built html files
 * Multiple themes
 
-[API](https://armnetwork.github.io/arm-sdk/)
+[API](https://triamnetwork.github.io/triam-sdk/)
 [開始する](jp/#querying-horizon)

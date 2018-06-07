@@ -32,8 +32,8 @@ This endpoint responds with a single Ledger.  See [ledger resource](../resources
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk')
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk')
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.ledgers()
     .ledger('69858')

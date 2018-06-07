@@ -3,7 +3,7 @@ All Operations
 ---
 
 This endpoint represents all [operations](../resources/operation.md) that are part of validated [transactions](../resources/transaction.md).
-This endpoint can also be used in [streaming](../responses.md#streaming) mode so it is possible to use it to listen as operations are processed in the Stellar network.
+This endpoint can also be used in [streaming](../responses.md#streaming) mode so it is possible to use it to listen as operations are processed in the Triam network.
 If called in streaming mode Horizon will start at the earliest known operation unless a `cursor` is set. In that case it will start from the `cursor`. You can also set `cursor` value to `now` to only stream operations created since your request time.
 
 ## Request
@@ -36,8 +36,8 @@ This endpoint responds with a list of operations. See [operation resource](../re
   ```
 - JavaScript
   ```js
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.operations()
     .call()

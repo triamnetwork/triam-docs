@@ -14,27 +14,27 @@ The source account is giving the new account 25 XLM as its initial balance. Curr
 
 
 ```javascript
-StellarSdk.Network.useTestNetwork();
+TriamSdk.Network.useTestNetwork();
 var secretString='secret key that corresponds to GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ';
 
 // create an Account object using locally tracked sequence number
-var an_account = new StellarSdk.Account("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ", 46316927324160);
+var an_account = new TriamSdk.Account("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ", 46316927324160);
 
-var transaction = new StellarSdk.TransactionBuilder(an_account)
-    .addOperation(StellarSdk.Operation.createAccount({
+var transaction = new TriamSdk.TransactionBuilder(an_account)
+    .addOperation(TriamSdk.Operation.createAccount({
       destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
       startingBalance: "25"  // in XLM
     }))
     .build();
 
-transaction.sign(StellarSdk.Keypair.fromSecret(seedString)); // sign the transaction
+transaction.sign(TriamSdk.Keypair.fromSecret(seedString)); // sign the transaction
 
 // transaction is now ready to be sent to the network or saved somewhere
 
 ```
 
 ## Assets
-Object of the `Asset` class represents an asset in the Ria network. Right now there are 3 possible types of assets in the Ria network:
+Object of the `Asset` class represents an asset in the Triam network. Right now there are 3 possible types of assets in the Triam network:
 * native `XLM` asset (`ASSET_TYPE_NATIVE`),
 * issued assets with asset code of maximum 4 characters (`ASSET_TYPE_CREDIT_ALPHANUM4`),
 * issued assets with asset code of maximum 12 characters (`ASSET_TYPE_CREDIT_ALPHANUM12`).
@@ -67,8 +67,8 @@ In the example below we're sending 1000 XLM (at max) from `GABJLI6IVBKJ7HIC5NN7H
 The [path payment](#) will cause the destination address to get 5.5 GBP. It will cost the sender no more than 1000 XLM. In this example there will be 3 exchanges, XLM -> USD, USD-> EUR, EUR->GBP.
 
 ```js
-StellarSdk.Network.useTestNetwork();
-var keypair=StellarSdk.Keypair.fromSecret(secretString);
+TriamSdk.Network.useTestNetwork();
+var keypair=TriamSdk.Keypair.fromSecret(secretString);
 
 var source = new Account(keypair.accountId(), 46316927324160);
 var transaction = new TransactionBuilder(source)
@@ -111,7 +111,7 @@ In each example, we'll use the root account.
 
 
 ```js
-StellarSdk.Network.useTestNetwork();
+TriamSdk.Network.useTestNetwork();
 var rootKeypair = Keypair.fromSecret("SBQWY3DNPFWGSZTFNV4WQZLBOJ2GQYLTMJSWK3TTMVQXEY3INFXGO52X")
 var account = new Account(rootKeypair.accountId(), 46316927324160);
 

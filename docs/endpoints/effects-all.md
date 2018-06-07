@@ -4,7 +4,7 @@ All Effects
 
 This endpoint represents all [effects](../resources/effect.md).
 
-This endpoint can also be used in [streaming](../responses.md#streaming) mode so it is possible to use it to listen for new effects as transactions happen in the Stellar network.
+This endpoint can also be used in [streaming](../responses.md#streaming) mode so it is possible to use it to listen for new effects as transactions happen in the Triam network.
 If called in streaming mode Horizon will start at the earliest known effect unless a `cursor` is set. In that case it will start from the `cursor`. You can also set `cursor` value to `now` to only stream effects created since your request time.
 
 ## Request
@@ -35,8 +35,8 @@ The list of effects.
   ```
 - JavaScript
   ```javascript
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.effects()
     .call()

@@ -36,8 +36,8 @@ This endpoint responds with a list of effects that occurred in the ledger. See [
   ```
 - JavaScript
   ```javascript
-  var StellarSdk = require('stellar-sdk');
-  var server = new StellarSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var TriamSdk = require('triam-sdk');
+  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
 
   server.effects()
     .forLedger("2")

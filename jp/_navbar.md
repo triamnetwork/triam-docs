@@ -4,7 +4,7 @@
 
 * [例](/jp/examples.md)
 
-* [API](https://armnetwork.github.io/arm-sdk/)
+* [API](https://triamnetwork.github.io/triam-sdk/)
 
 * :globe_with_meridians:
   * 英語 [:us:](/)
