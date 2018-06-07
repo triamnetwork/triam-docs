@@ -1,5 +1,5 @@
 ---
-title: Stellar Attachment Convention
+Stellar Attachment Convention
 ---
 
 # Attachments
