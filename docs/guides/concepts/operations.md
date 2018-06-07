@@ -1,5 +1,5 @@
 ---
-title: Operations
+Operations
 ---
 
 [Transactions](./transactions.md) are made up of a [list of operations](./list-of-operations.md). Each

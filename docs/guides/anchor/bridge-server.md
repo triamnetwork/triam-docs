@@ -1,5 +1,5 @@
 ---
-title: Bridge Server
+Bridge Server
 sequence:
   previous: readme.md
   next: 3-federation-server.md

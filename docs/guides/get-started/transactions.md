@@ -1,5 +1,5 @@
 ---
-title: Send and Receive Money
+Send and Receive Money
 ---
 
 Now that you have an account, you can send and receive funds through the Stellar network. If you haven’t created an account yet, read [step 2 of the Get Started guide](./create-account.md).

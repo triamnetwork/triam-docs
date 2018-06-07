@@ -1,5 +1,5 @@
 ---
-title: Versioning and Upgrading
+Versioning and Upgrading
 ---
 
 

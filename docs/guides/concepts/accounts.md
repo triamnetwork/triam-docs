@@ -1,5 +1,5 @@
 ---
-title: Accounts
+Accounts
 ---
 
 Accounts are the central data structure in Stellar. Accounts are identified by a public key and saved in the ledger.

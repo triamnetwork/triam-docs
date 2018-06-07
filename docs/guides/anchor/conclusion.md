@@ -1,5 +1,5 @@
 ---
-title: Next Steps
+Next Steps
 sequence:
   previous: 4-compliance-server.md
 ---

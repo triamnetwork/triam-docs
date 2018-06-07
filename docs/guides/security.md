@@ -1,5 +1,5 @@
 ---
-title: Security
+Security
 ---
 
 You’ll trade assets that are very valuable with Stellar, so security is important. The following guidelines can help keep your Stellar integration secure.

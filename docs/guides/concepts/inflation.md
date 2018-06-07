@@ -1,5 +1,5 @@
 ---
-title: Inflation
+Inflation
 ---
 
 The Stellar distributed network has a built-in, fixed, nominal [inflation](#inflation) mechanism. New lumens are added to the network at the rate of 1% each year. Each week, the protocol distributes these lumens to any account that gets over .05% of the "votes" from other accounts in the network. 

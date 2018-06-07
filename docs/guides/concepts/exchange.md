@@ -1,5 +1,5 @@
 ---
-title: Distributed Exchange
+Distributed Exchange
 ---
 
 

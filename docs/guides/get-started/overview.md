@@ -1,5 +1,5 @@
 ---
-title: Stellar Network Overview
+Stellar Network Overview
 ---
 ![Stellar Ecosystem](https://www.stellar.org/wp-content/uploads/2016/06/Stellar-Ecosystem-v031.png)
 

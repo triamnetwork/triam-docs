@@ -1,5 +1,5 @@
 ---
-title: Stellar Smart Contracts
+Stellar Smart Contracts
 ---
 
 Stellar can be used to build sophisticated smart contracts. Smart contracts are computer programs that can automatically execute an agreement based on programmed logic.

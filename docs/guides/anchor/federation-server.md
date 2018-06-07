@@ -1,5 +1,5 @@
 ---
-title: Federation Server
+Federation Server
 sequence:
   previous: 2-bridge-server.md
   next: 4-compliance-server.md

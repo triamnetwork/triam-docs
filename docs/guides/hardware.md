@@ -1,5 +1,5 @@
 ---
-title: Hardware Requirements
+Hardware Requirements
 ---
 
 # Considerations

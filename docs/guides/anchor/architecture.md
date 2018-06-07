@@ -1,5 +1,5 @@
 ---
-title: Architecture
+Architecture
 sequence:
   next: 2-bridge-server.md
 ---

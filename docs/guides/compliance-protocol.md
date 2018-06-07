@@ -1,5 +1,5 @@
 ---
-title: Compliance Protocol
+Compliance Protocol
 ---
 
 # Compliance Protocol

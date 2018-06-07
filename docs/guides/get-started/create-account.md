@@ -1,5 +1,5 @@
 ---
-title: Create an Account
+Create an Account
 ---
 
 The first thing you’ll need to do anything on the Stellar network is an account. Accounts hold all your money inside Stellar and allow you to send and receive payments—in fact, pretty much everything in Stellar is in some way tied to an account.

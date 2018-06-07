@@ -1,5 +1,5 @@
 ---
-title: Stellar.toml
+Stellar.toml
 ---
 
 # Introduction

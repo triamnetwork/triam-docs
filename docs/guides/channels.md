@@ -1,5 +1,5 @@
 ---
-title: Channels
+Channels
 ---
 *Method for submitting transactions to the network at a high rate*
 

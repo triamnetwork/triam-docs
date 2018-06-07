@@ -1,5 +1,5 @@
 ---
-title: Testnet
+Testnet
 ---
 
 The testnet is a small test Stellar network, open to developers.

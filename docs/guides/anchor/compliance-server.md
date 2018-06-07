@@ -1,5 +1,5 @@
 ---
-title: Compliance Server
+Compliance Server
 sequence:
   previous: 3-federation-server.md
   next: 5-conclusion.md

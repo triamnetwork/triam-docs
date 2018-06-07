@@ -1,5 +1,5 @@
 ---
-title: Assets
+Assets
 ---
 
 The Stellar distributed network can be used to track, hold, and transfer any type of **asset**: dollars, euros, bitcoin,

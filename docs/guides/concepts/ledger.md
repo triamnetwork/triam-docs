@@ -1,5 +1,5 @@
 ---
-title: Ledger
+Ledger
 ---
 
 A **ledger** represents the state of the Stellar universe at a given point in time. It contains the list of all the accounts and balances, all the orders in the distributed exchange, and any other data that persists.

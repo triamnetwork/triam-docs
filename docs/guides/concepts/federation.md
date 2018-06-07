@@ -1,5 +1,5 @@
 ---
-title: Federation
+Federation
 ---
 
 The Stellar federation protocol maps Stellar addresses to more information about a given user. It's a way for Stellar client software
