@@ -8,7 +8,7 @@ Basic Examples
 
 ## Creating a payment transaction
 
-js-arm-sdk exposes the [`TransactionBuilder`](https://github.com/triamnetwork/js-triam-base/blob/master/src/transaction_builder.js) class from js-stellar-base.  There are more examples of [building transactions here](#). All those examples can be signed and submitted to Ria in a similar manner as is done below.
+js-triam-sdk exposes the [`TransactionBuilder`](https://github.com/triamnetwork/js-triam-base/blob/master/src/transaction_builder.js) class from js-stellar-base.  There are more examples of [building transactions here](#). All those examples can be signed and submitted to Ria in a similar manner as is done below.
 
 In this example you must ensure that the destination account exists
 
@@ -123,7 +123,7 @@ server.transactions()
 
 ## Streaming payment events
 
-js-arm-sdk provides streaming support for Horizon endpoints using `EventSource`.  You can pass a function to handle any events that occur on the stream.
+js-triam-sdk provides streaming support for Horizon endpoints using `EventSource`.  You can pass a function to handle any events that occur on the stream.
 
 Try submitting a transaction (via the guide above) while running the following code example.
 ```javascript

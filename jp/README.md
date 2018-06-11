@@ -3,14 +3,14 @@ title: Overview
 ---
 The JavaScript Ria SDK facilitates integration with the [Triam Horizon API server](#) and submission of Triam transactions, either on Node.js or in the browser. It has two main uses: [querying Horizon](#querying-horizon) and [building, signing, and submitting transactions to the Triam network](#building-transactions).
 
-[Building and installing js-arm-sdk](https://triamnetwork.github.io/triam-sdk/)<br>
-[Examples of using js-arm-sdk](./examples.md)
+[Building and installing js-triam-sdk](https://triamnetwork.github.io/triam-sdk/)<br>
+[Examples of using js-triam-sdk](./examples.md)
 
 # Querying Horizon
-js-arm-sdk gives you access to all the endpoints exposed by Horizon.
+js-triam-sdk gives you access to all the endpoints exposed by Horizon.
 
 ## Building requests
-js-arm-sdk uses the [Builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) to create the requests to send
+js-triam-sdk uses the [Builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) to create the requests to send
 to Horizon. Starting with a [server](https://triamnetwork.github.io/triam-sdk/Server.html) object, you can chain methods together to generate a query.
 (See the [Horizon reference](https://triamnetwork.github.io/triam-docs/) documentation for what methods are possible.)
 ```js
