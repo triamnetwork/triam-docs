@@ -23,7 +23,7 @@ server.transactions()
 
 // get a list of transactions submitted by a particular account
 server.transactions()
-    .forAccount('GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW')
+    .forAccount('GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID')
     .call().then(function(r){ console.log(r); });
 ```
 
@@ -55,7 +55,7 @@ Horizon API
 
               // get a list of transactions submitted by a particular account
               server.transactions()
-                  .forAccount('GBWCP4PJEIVQKV7QR7DFDTVXZ3L3T7HY7R6KI6TJO5MKEUG2MR4YEM5H')
+                  .forAccount('GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID')
                   .call().then(function(r){
                      $('#json-renderer').jsonViewer(r.records);
                      $('#json-renderer').prepend('<p>results:</p>');
@@ -151,9 +151,9 @@ server
   		var transaction = new TriamSdk.TransactionBuilder(account)
   				// this operation funds the new account with XLM
   				.addOperation(TriamSdk.Operation.payment({
-  					destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
+  					destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
   					asset: TriamSdk.Asset.native(),
-  					amount: "20000000"
+  					amount: "1"
   				}))
   				.build();
 

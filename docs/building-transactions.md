@@ -35,7 +35,7 @@ var account=new TriamBase.Account("GD6WU64OEP5C4LRBH6NK3MHYIA2ADN6K6II6EXPNVUR3E
 var transaction = new TriamBase.TransactionBuilder(account)
         // add a payment operation to the transaction
         .addOperation(TriamBase.Operation.payment({
-                destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
+                destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
                 asset: TriamBase.Asset.native(),
                 amount: "100.50"  // 100.50 XLM
             }))
@@ -78,7 +78,7 @@ There are 5 types of memos:
 var memo = Memo.text('Happy birthday!');
 var transaction = new TriamBase.TransactionBuilder(account, {memo:memo})
         .addOperation(TriamBase.Operation.payment({
-                destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
+                destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
                 asset: TriamBase.Asset.native(),
                 amount: "2000"
             }))
@@ -143,7 +143,7 @@ var account=new TriamBase.Account("GD6WU64OEP5C4LRBH6NK3MHYIA2ADN6K6II6EXPNVUR3E
 
 var transaction = new TriamBase.TransactionBuilder(account)
         .addOperation(TriamBase.Operation.payment({
-                destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
+                destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
                 asset: TriamBase.Asset.native(),
                 amount: "2000"  // 2000 XLM
             }))

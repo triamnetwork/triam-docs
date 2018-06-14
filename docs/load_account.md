@@ -23,9 +23,9 @@ server.loadAccount("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")
         var transaction = new TriamSdk.TransactionBuilder(account)
             // this operation funds the new account with XLM
             .addOperation(TriamSdk.Operation.payment({
-                destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
+                destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
                 asset: TriamSdk.Asset.native(),
-                amount: "20000000"
+                amount: "1"
             }))
             .build();
 
