@@ -31,12 +31,12 @@ The list of offers.
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers"
+  curl "https://testnet-horizon.triamnetwork.com/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.offers('accounts', 'GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4')
     .call()
@@ -48,7 +48,7 @@ The list of offers.
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=offers&endpoint=for_account
+  https://laboratory.triamnetwork.com/#explorer?resource=offers&endpoint=for_account
 
 :::
 ### Example Response
@@ -57,13 +57,13 @@ The list of offers.
 {
   "_links": {
     "self": {
-      "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor="
+      "href": "https://testnet-horizon.triamnetwork.com/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor="
     },
     "next": {
-      "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor=122"
+      "href": "https://testnet-horizon.triamnetwork.com/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=asc&limit=10&cursor=122"
     },
     "prev": {
-      "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=desc&limit=10&cursor=121"
+      "href": "https://testnet-horizon.triamnetwork.com/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4/offers?order=desc&limit=10&cursor=121"
     }
   },
   "_embedded": {
@@ -71,10 +71,10 @@ The list of offers.
       {
         "_links": {
           "self": {
-            "href": "https://testnet-horizon.arm-system-holdings.com//offers/121"
+            "href": "https://testnet-horizon.triamnetwork.com/offers/121"
           },
           "offer_maker": {
-            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.triamnetwork.com/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           }
         },
         "id": 121,
@@ -100,10 +100,10 @@ The list of offers.
       {
         "_links": {
           "self": {
-            "href": "https://testnet-horizon.arm-system-holdings.com//offers/122"
+            "href": "https://testnet-horizon.triamnetwork.com/offers/122"
           },
           "offer_maker": {
-            "href": "https://testnet-horizon.arm-system-holdings.com//accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
+            "href": "https://testnet-horizon.triamnetwork.com/accounts/GCJ34JYMXNI7N55YREWAACMMZECOMTPIYDTFCQBWPUP7BLJQDDTVGUW4"
           }
         },
         "id": 122,

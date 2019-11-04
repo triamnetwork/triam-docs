@@ -28,12 +28,12 @@ This endpoint responds with a single Operation.  See [operation resource](../res
 
 - curl
   ```curl
-  curl https://testnet-horizon.arm-system-holdings.com//operations/77309415424
+  curl https://testnet-horizon.triamnetwork.com/operations/77309415424
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.operations()
     .operation('77309415424')
@@ -48,7 +48,7 @@ This endpoint responds with a single Operation.  See [operation resource](../res
 
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=single
+  https://laboratory.triamnetwork.com/#explorer?resource=operations&endpoint=single
 
 :::
 ### Example Response

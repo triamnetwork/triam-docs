@@ -177,7 +177,7 @@ app.post('/receive', function (request, response) {
     return response.status(200).end();
   }
 
-  // Because we have one Stellar account representing many customers, the
+  // Because we have one Triam account representing many customers, the
   // customer the payment is intended for should be in the transaction memo.
   var customer = getAccountFromDb(payment.memo);
 
@@ -206,7 +206,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * A small Jersey web server for handling callbacks from Stellar services
+ * A small Jersey web server for handling callbacks from Triam services
  */
 @Path("/")
 public class StellarCallbacks {
@@ -228,7 +228,7 @@ public class StellarCallbacks {
       return Response.ok().build();
     }
 
-    // Because we have one Stellar account representing many customers, the
+    // Because we have one Triam account representing many customers, the
     // customer the payment is intended for should be in the transaction memo.
     // (getAccountFromDb is a method you’ll need to implement.)
     Customer customer = getAccountFromDb(memo);
@@ -257,22 +257,22 @@ To test that your receive callback works, let’s try sending 1 USD to a custome
 
 ```js
 var StellarSdk = require('stellar-sdk');
-var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
-var sourceKeys = StellarSdk.Keypair.fromSecret(
+var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var sourceKeys = TriamSdk.Keypair.fromSecret(
   'SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4');
 var destinationId = 'GAIGZHHWK3REZQPLQX5DNUN4A32CSEONTU6CMDBO7GDWLPSXZDSYA4BU';
 
 server.loadAccount(sourceKeys.publicKey())
   .then(function(sourceAccount) {
-    var transaction = new StellarSdk.TransactionBuilder(sourceAccount)
-      .addOperation(StellarSdk.Operation.payment({
+    var transaction = new TriamSdk.TransactionBuilder(sourceAccount)
+      .addOperation(TriamSdk.Operation.payment({
         destination: destinationId,
-        asset: new StellarSdk.Asset(
+        asset: new TriamSdk.Asset(
           'USD', 'GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ'),
         amount: '1'
       }))
       // Use the memo to indicate the customer this payment is intended for.
-      .addMemo(StellarSdk.Memo.text('Amy'))
+      .addMemo(TriamSdk.Memo.text('Amy'))
       .build();
     transaction.sign(sourceKeys);
     return server.submitTransaction(transaction);

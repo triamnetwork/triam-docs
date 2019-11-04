@@ -34,12 +34,12 @@ This endpoint responds with a [page](../resources/page.md) of [payment operation
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//account/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/payments?limit=25&order=desc"
+  curl "https://testnet-horizon.triamnetwork.com/account/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/payments?limit=25&order=desc"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.payments()
     .forAccount("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")
@@ -52,7 +52,7 @@ This endpoint responds with a [page](../resources/page.md) of [payment operation
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=for_account
+  https://laboratory.triamnetwork.com/#explorer?resource=payments&endpoint=for_account
 
 :::
 ### Example Response
@@ -84,7 +84,7 @@ This endpoint responds with a [page](../resources/page.md) of [payment operation
       "sender": "GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ",
       "receiver": "GCXKG6RN4ONIEPCMNFB732A436Z5PNDSRLGWK7GBLCMQLIFO4S7EYWVU",
       "asset": {
-        "code": "XLM"
+        "code": "RIA"
       },
       "amount": 1000000000,
       "amount_f": 100.00

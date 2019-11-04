@@ -34,12 +34,12 @@ See [transaction resource](../resources/transaction.md) for reference.
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//transactions?limit=200&order=desc"
+  curl "https://testnet-horizon.triamnetwork.com/transactions?limit=200&order=desc"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.transactions()
     .call()
@@ -56,7 +56,7 @@ See [transaction resource](../resources/transaction.md) for reference.
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=all
+  https://laboratory.triamnetwork.com/#explorer?resource=transactions&endpoint=all
 
 :::
 ### Example Response

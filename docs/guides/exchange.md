@@ -2,7 +2,7 @@
 Add Stellar to your Exchange
 ---
 
-This guide will walk you through the integration steps to add Stellar to your exchange. This example uses Node.js and the [JS Stellar SDK](https://github.com/stellar/js-stellar-sdk), but it should be easy to adapt to other languages.
+This guide will walk you through the integration steps to add Stellar to your exchange. This example uses Node.js and the [JS Triam SDK](https://github.com/triamnetwork/js-triam-sdk), but it should be easy to adapt to other languages.
 
 There are many ways to architect an exchange. This guide uses the following design:
  - `issuing account`: One Stellar account that holds the majority of customer deposits offline.
@@ -29,7 +29,7 @@ If your exchange doesn't see a lot of volume, you don't need to set up your own 
 An issuing account is typically used to keep the bulk of customer funds secure. An issuing account is a Stellar account whose secret keys are not on any device that touches the Internet. Transactions are manually initiated by a human and signed locally on the offline machine—a local install of `js-stellar-sdk` creates a `tx_blob` containing the signed transaction. This `tx_blob` can be transported to a machine connected to the Internet via offline methods (e.g., USB or by hand). This design makes the issuing account secret key much harder to compromise.
 
 ### Base account
-A base account contains a more limited amount of funds than an issuing account. A base account is a Stellar account used on a machine that is connected to the Internet. It handles the day-to-day sending and receiving of lumens. The limited amount of funds in a base account restricts loss in the event of a security breach.
+A base account contains a more limited amount of funds than an issuing account. A base account is a Stellar account used on a machine that is connected to the Internet. It handles the day-to-day sending and receiving of RIA. The limited amount of funds in a base account restricts loss in the event of a security breach.
 
 ### Database
 - Need to create a table for pending withdrawals, `StellarTransactions`.
@@ -64,11 +64,11 @@ config.horizon = 'https://horizon-testnet.stellar.org';
 // It provides a client-side interface to Horizon
 var StellarSdk = require('stellar-sdk');
 // uncomment for live network:
-// StellarSdk.Network.usePublicNetwork();
+// TriamSdk.Network.usePublicNetwork();
 
 // Initialize the Stellar SDK with the Horizon instance
 // You want to connect to
-var server = new StellarSdk.Server(config.horizon);
+var server = new TriamSdk.Server(config.horizon);
 
 // Get the latest cursor position
 var lastToken = latestFromDB("StellarCursor");
@@ -93,9 +93,9 @@ server.loadAccount(config.baseAccount)
 ```
 
 ## Listening for deposits
-When a user wants to deposit lumens in your exchange, instruct them to send XLM to your base account address with the customerID in the memo field of the transaction.
+When a user wants to deposit RIA in your exchange, instruct them to send RIA to your base account address with the customerID in the memo field of the transaction.
 
-You must listen for payments to the base account and credit any user that sends XLM there. Here's code that listens for these payments:
+You must listen for payments to the base account and credit any user that sends RIA there. Here's code that listens for these payments:
 
 ```js
 // Start listening for payments from where you last stopped
@@ -116,7 +116,7 @@ callBuilder.stream({onmessage: handlePaymentResponse});
 For every payment received by the base account, you must:<br>
 -check the memo field to determine which user sent the deposit.<br>
 -record the cursor in the `StellarCursor` table so you can resume payment processing where you left off.<br>
--credit the user's account in the DB with the number of XLM they sent to deposit.
+-credit the user's account in the DB with the number of RIA they sent to deposit.
 
 So, you pass this function as the `onmessage` option when you stream payments:
 
@@ -133,10 +133,10 @@ function handlePaymentResponse(record) {
         return;
       }
       if (record.asset_type != 'native') {
-         // If you are a XLM exchange and the customer sends
+         // If you are a RIA exchange and the customer sends
          // you a non-native asset, some options for handling it are
          // 1. Trade the asset to native and credit that amount
-         // 2. Send it back to the customer  
+         // 2. Send it back to the customer
       } else {
         // Credit the customer in the memo field
         if (checkExists(customer, "ExchangeUsers")) {
@@ -163,7 +163,7 @@ function handlePaymentResponse(record) {
 
 
 ## Submitting withdrawals
-When a user requests a lumen withdrawal from your exchange, you must generate a Stellar transaction to send them the lumens. Here is additional documentation about [Building Transactions](https://www.stellar.org/developers/js-stellar-base/learn/building-transactions.html).
+When a user requests a RIA withdrawal from your exchange, you must generate a Stellar transaction to send them the RIA. Here is additional documentation about [Building Transactions](https://www.stellar.org/developers/js-stellar-base/learn/building-transactions.html).
 
 The function `handleRequestWithdrawal` will queue up a transaction in the exchange's `StellarTransactions` table whenever a withdrawal is requested.
 
@@ -174,14 +174,14 @@ function handleRequestWithdrawal(userID,amountLumens,destinationAddress) {
     // Read the user's balance from the exchange's database
     var userBalance = getBalance('userID');
 
-    // Check that user has the required lumens
+    // Check that user has the required RIA
     if (amountLumens <= userBalance) {
-      // Debit the user's internal lumen balance by the amount of lumens they are withdrawing
+      // Debit the user's internal RIA balance by the amount of RIA they are withdrawing
       store([userID, userBalance - amountLumens], "UserBalances");
       // Save the transaction information in the StellarTransactions table
       store([userID, destinationAddress, amountLumens, "pending"], "StellarTransactions");
     } else {
-      // If the user doesn't have enough XLM, you can alert them
+      // If the user doesn't have enough RIA, you can alert them
     }
   });
 }
@@ -190,7 +190,7 @@ function handleRequestWithdrawal(userID,amountLumens,destinationAddress) {
 Then, you should run `submitPendingTransactions`, which will check `StellarTransactions` for pending transactions and submit them.
 
 ```js
-StellarSdk.Network.useTestNetwork();
+TriamSdk.Network.useTestNetwork();
 // This is the function that handles submitting a single transaction
 
 function submitTransaction(exchangeAccount, destinationAddress, amountLumens) {
@@ -203,32 +203,32 @@ function submitTransaction(exchangeAccount, destinationAddress, amountLumens) {
   server.loadAccount(destinationAddress)
     // If so, continue by submitting a transaction to the destination
     .then(function(account) {
-      var transaction = new StellarSdk.TransactionBuilder(exchangeAccount)
-        .addOperation(StellarSdk.Operation.payment({
+      var transaction = new TriamSdk.TransactionBuilder(exchangeAccount)
+        .addOperation(TriamSdk.Operation.payment({
           destination: destinationAddress,
-          asset: StellarSdk.Asset.native(),
+          asset: TriamSdk.Asset.native(),
           amount: amountLumens
         }))
         // Sign the transaction
         .build();
 
-      transaction.sign(StellarSdk.Keypair.fromSecret(config.baseAccountSecret));
+      transaction.sign(TriamSdk.Keypair.fromSecret(config.baseAccountSecret));
 
       // POST https://horizon-testnet.stellar.org/transactions
       return server.submitTransaction(transaction);
     })
     //But if the destination doesn't exist...
-    .catch(StellarSdk.NotFoundError, function(err) {
+    .catch(TriamSdk.NotFoundError, function(err) {
       // create the account and fund it
-      var transaction = new StellarSdk.TransactionBuilder(exchangeAccount)
-        .addOperation(StellarSdk.Operation.createAccount({
+      var transaction = new TriamSdk.TransactionBuilder(exchangeAccount)
+        .addOperation(TriamSdk.Operation.createAccount({
           destination: destinationAddress,
-          // Creating an account requires funding it with XLM
+          // Creating an account requires funding it with RIA
           startingBalance: amountLumens
         }))
         .build();
 
-      transaction.sign(StellarSdk.Keypair.fromSecret(config.baseAccountSecret));
+      transaction.sign(TriamSdk.Keypair.fromSecret(config.baseAccountSecret));
 
       // POST https://horizon-testnet.stellar.org/transactions
       return server.submitTransaction(transaction);
@@ -282,29 +282,29 @@ If you're an exchange, it's easy to become a Stellar anchor as well. The integra
 To learn more about what it means to be an anchor, see the [anchor guide](./anchor/index.html).
 
 ### Accepting non-native assets
-First, open a [trustline](https://www.stellar.org/developers/guides/concepts/assets.html#trustlines) with the issuing account of the non-native asset -- without this you cannot begin to accept this asset. 
+First, open a [trustline](https://www.stellar.org/developers/guides/concepts/assets.html#trustlines) with the issuing account of the non-native asset -- without this you cannot begin to accept this asset.
 
 ```js
-var someAsset = new StellarSdk.Asset('ASSET_CODE', issuingKeys.publicKey());
+var someAsset = new TriamSdk.Asset('ASSET_CODE', issuingKeys.publicKey());
 
-transaction.addOperation(StellarSdk.Operation.changeTrust({
+transaction.addOperation(TriamSdk.Operation.changeTrust({
         asset: someAsset
 }))
 ```
 If the asset issuer has `authorization_required` set to true, you will need to wait for the trustline to be authorized before you can begin accepting this asset. Read more about [trustline authorization here](https://www.stellar.org/developers/guides/concepts/assets.html#controlling-asset-holders).
 
 Then, make a few small changes to the example code above:
-* In the `handlePaymentResponse` function, we dealt with the case of incoming non-native assets. Since we are now accepting non-native assets, you will need to change this condition; if the user sends us lumens  we will either:
-	1. Trade lumens for the desired non-native asset
-	2. Send the lumens back to the sender
+* In the `handlePaymentResponse` function, we dealt with the case of incoming non-native assets. Since we are now accepting non-native assets, you will need to change this condition; if the user sends us RIA  we will either:
+	1. Trade RIA for the desired non-native asset
+	2. Send the RIA back to the sender
 
 *Note*: the user cannot send us non-native assets whose issuing account we have not explicitly opened a trustline with.
 
-* In the `withdraw` function, when we add an operation to the transaction, we must specify the details of the asset we are sending. For example: 
+* In the `withdraw` function, when we add an operation to the transaction, we must specify the details of the asset we are sending. For example:
 ```js
-var someAsset = new StellarSdk.Asset('ASSET_CODE', issuingKeys.publicKey());
+var someAsset = new TriamSdk.Asset('ASSET_CODE', issuingKeys.publicKey());
 
-transaction.addOperation(StellarSdk.Operation.payment({
+transaction.addOperation(TriamSdk.Operation.payment({
         destination: receivingKeys.publicKey(),
         asset: someAsset,
         amount: '10'

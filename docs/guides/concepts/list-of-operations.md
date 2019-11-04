@@ -33,7 +33,7 @@ Parameters:
 | Parameter        | Type       | Description                                                                                |
 | ---------------- | ---------- | ------------------------------------------------------------------------------------------ |
 | Destination      | account ID | Account address that is created and funded.                                                |
-| Starting Balance | integer    | Amount of XLM to send to the newly created account. This XLM comes from the source account.|
+| Starting Balance | integer    | Amount of RIA to send to the newly created account. This RIA comes from the source account.|
 
 
 Possible errors:
@@ -41,8 +41,8 @@ Possible errors:
 | Error | Code | Description |
 | ----- | ---- | ------|
 |CREATE_ACCOUNT_MALFORMED| -1| The `destination` is invalid.|
-|CREATE_ACCOUNT_UNDERFUNDED| -2| The source account performing the command does not have enough funds to give `destination` the `starting balance` amount of XLM and still maintain its minimum XLM reserve.  |
-|CREATE_ACCOUNT_LOW_RESERVE| -3| This operation would create an account with fewer than the minimum number of XLM an account must hold.|
+|CREATE_ACCOUNT_UNDERFUNDED| -2| The source account performing the command does not have enough funds to give `destination` the `starting balance` amount of RIA and still maintain its minimum RIA reserve.  |
+|CREATE_ACCOUNT_LOW_RESERVE| -3| This operation would create an account with fewer than the minimum number of RIA an account must hold.|
 |CREATE_ACCOUNT_ALREADY_EXIST| -4| The `destination` account already exists.|
 
 
@@ -69,7 +69,7 @@ Possible errors:
 |Error| Code| Description|
 | --- | --- | --- |
 |PAYMENT_MALFORMED| -1| The input to the payment is invalid.|
-|PAYMENT_UNDERFUNDED| -2| The source account (sender) does not have enough funds to send this transaction.  Note that the sender has a minimum reserve of XLM it must hold at all times.|
+|PAYMENT_UNDERFUNDED| -2| The source account (sender) does not have enough funds to send this transaction.  Note that the sender has a minimum reserve of RIA it must hold at all times.|
 |PAYMENT_SRC_NO_TRUST| -3| The source account does not trust the issuer of the asset it is trying to send.|
 |PAYMENT_SRC_NOT_AUTHORIZED| -4| The source account is not authorized to send this payment.|
 |PAYMENT_NO_DESTINATION| -5| The receiving account does not exist.|
@@ -81,7 +81,7 @@ Possible errors:
 ## Path Payment
 [JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.pathPayment) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/PathPaymentOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#PayWithPath)
 
-Sends an amount in a specific asset to a destination account through a path of offers. This allows the asset sent (e.g., 450 XLM) to be different from the asset received (e.g, 6 BTC).
+Sends an amount in a specific asset to a destination account through a path of offers. This allows the asset sent (e.g., 450 RIA) to be different from the asset received (e.g, 6 BTC).
 
 Threshold: Medium
 
@@ -96,14 +96,14 @@ Parameters:
 |Destination| account ID| Account ID of the recipient.|
 |Destination asset| asset| The asset the destination account receives.|
 |Destination amount| integer| The amount of `destination asset` the destination account receives.|
-|Path| list of assets| The assets (other than `send asset` and `destination asset`) involved in the offers the path takes. For example, if you can only find a path from USD to EUR through XLM and BTC, the path would be USD -> XLM -> BTC -> EUR and the `path` field would contain XLM and BTC.|
+|Path| list of assets| The assets (other than `send asset` and `destination asset`) involved in the offers the path takes. For example, if you can only find a path from USD to EUR through RIA and BTC, the path would be USD -> RIA -> BTC -> EUR and the `path` field would contain RIA and BTC.|
 
 Possible errors:
 
 | Error | Code | Description |
 | ----- | ---- | ------|
 |PATH_PAYMENT_MALFORMED| -1| The input to this path payment is invalid.|
-|PATH_PAYMENT_UNDERFUNDED| -2| The source account (sender) does not have enough funds to send this transaction. Note that the sender has a minimum reserve of XLM it must hold at all times.|
+|PATH_PAYMENT_UNDERFUNDED| -2| The source account (sender) does not have enough funds to send this transaction. Note that the sender has a minimum reserve of RIA it must hold at all times.|
 |PATH_PAYMENT_SRC_NO_TRUST| -3| The source account does not trust the issuer of the asset it is trying to send.|
 |PATH_PAYMENT_SRC_NOT_AUTHORIZED| -4| The source account is not authorized to send this payment. |
 |PATH_PAYMENT_NO_DESTINATION| -5| The receiving account does not exist. |
@@ -135,7 +135,7 @@ Result: `ManageOfferResult`
 | Selling| asset| Asset the offer creator is selling. |
 | Buying| asset| Asset the offer creator is buying. |
 | Amount| integer| Amount of `selling` being sold. Set to `0` if you want to delete an existing offer. |
-| Price| {numerator, denominator} | Price of 1 unit of `selling` in terms of `buying`.  For example, if you wanted to sell 30 XLM and buy 5 BTC, the price would be {5,30}.|
+| Price| {numerator, denominator} | Price of 1 unit of `selling` in terms of `buying`.  For example, if you wanted to sell 30 RIA and buy 5 BTC, the price would be {5,30}.|
 | Offer ID| unsigned integer| The ID of the offer. `0` for new offer. Set to existing offer ID to update or delete. |
 
 Possible errors:
@@ -153,13 +153,13 @@ Possible errors:
 |MANAGE_OFFER_SELL_NO_ISSUER| -9| The issuer of selling asset does not exist.|
 |MANAGE_OFFER_BUY_NO_ISSUER| -10| The issuer of buying asset does not exist.|
 |MANAGE_OFFER_NOT_FOUND| -11| An offer with that `offerID` cannot be found.|
-|MANAGE_OFFER_LOW_RESERVE| -12| The account creating this offer does not have enough XLM. For every offer an account creates, the minimum amount of XLM that account must hold will increase.|
+|MANAGE_OFFER_LOW_RESERVE| -12| The account creating this offer does not have enough RIA. For every offer an account creates, the minimum amount of RIA that account must hold will increase.|
 
 ## Create Passive Offer
 [JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.createPassiveOffer) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/CreatePassiveOfferOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#ManageOfferBuilder)
 
 A passive offer is an offer that does not act on and take a reverse offer of equal price. Instead, they only take offers
-of lesser price. For example, if an offer exists to buy 5 BTC for 30 XLM, and you make a passive offer to buy 30 XLM for 5 BTC,
+of lesser price. For example, if an offer exists to buy 5 BTC for 30 RIA, and you make a passive offer to buy 30 RIA for 5 BTC,
 your passive offer *does not* take the first offer.
 
 Note that regular offers made later than your passive offer can act on and take your passive offer, even if the regular
@@ -179,7 +179,7 @@ Result: `CreatePassiveOfferResult`
 |Selling| asset| The asset you would like to sell. |
 |Buying| asset| The asset you would like to buy.|
 |Amount| integer| Amount of `selling` being sold.|
-|Price| {numerator, denominator}| Price of 1 unit of `selling` in terms of `buying`.  For example, if you wanted to sell 30 XLM and buy 5 BTC, the price would be {5,30}. |
+|Price| {numerator, denominator}| Price of 1 unit of `selling` in terms of `buying`.  For example, if you wanted to sell 30 RIA and buy 5 BTC, the price would be {5,30}. |
 
 Possible errors:
 
@@ -197,7 +197,7 @@ Possible errors:
 |MANAGE_OFFER_SELL_NO_ISSUER| -9| The issuer of selling asset does not exist.|
 |MANAGE_OFFER_BUY_NO_ISSUER| -10| The issuer of buying asset does not exist.|
 |MANAGE_OFFER_NOT_FOUND| -11| An offer with that `offerID` cannot be found.|
-|MANAGE_OFFER_LOW_RESERVE| -12| The account creating this offer does not have enough XLM. For every offer an account creates, the minimum amount of XLM that account must hold will increase.|
+|MANAGE_OFFER_LOW_RESERVE| -12| The account creating this offer does not have enough RIA. For every offer an account creates, the minimum amount of RIA that account must hold will increase.|
 
 
 ## Set Options
@@ -231,7 +231,7 @@ Possible errors:
 
 | Error | Code | Description |
 | ----- | ---- | ------|
-|SET_OPTIONS_LOW_RESERVE| -1| The account setting the options does not have enough XLM. For every new signer added to an account, the minimum reserve of XLM that account must hold increases.|
+|SET_OPTIONS_LOW_RESERVE| -1| The account setting the options does not have enough RIA. For every new signer added to an account, the minimum reserve of RIA that account must hold increases.|
 |SET_OPTIONS_TOO_MANY_SIGNERS| -2| 20 is the maximum number of signers an account can have, and adding another signer would exceed that.|
 |SET_OPTIONS_BAD_FLAGS| -3| The flags set and/or cleared are invalid by themselves or in combination.|
 |SET_OPTIONS_INVALID_INFLATION| -4| The destination account set in the `inflation` field does not exist.|
@@ -262,7 +262,7 @@ Possible errors:
 |CHANGE_TRUST_MALFORMED| -1| The input to this operation is invalid.|
 |CHANGE_TRUST_NO_ISSUER| -2| The issuer of the asset cannot be found.|
 |CHANGE_TRUST_INVALID_LIMIT| -3| This operation would drop the `limit` of this trustline below the amount of the asset the account currently holds.|
-|CHANGE_TRUST_LOW_RESERVE| -4| The account does not have enough lumens.  For every new trustline added by the account, the minimum reserve of XLM it must hold increases.|
+|CHANGE_TRUST_LOW_RESERVE| -4| The account does not have enough RIA.  For every new trustline added by the account, the minimum reserve of RIA it must hold increases.|
 
 
 
@@ -295,7 +295,7 @@ Possible errors:
 ## Account Merge
 [JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.accountMerge) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/AccountMergeOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#AccountMergeBuilder)
 
-Transfers the native balance (the amount of XLM an account holds) to another account and removes the source account from the ledger.
+Transfers the native balance (the amount of RIA an account holds) to another account and removes the source account from the ledger.
 
 Threshold: High
 
@@ -303,7 +303,7 @@ Result: `AccountMergeResult`
 
 |Parameters| Type| Description|
 | --- | --- | --- |
-|Destination| account ID| The account that receives the remaining XLM balance of the source account.|
+|Destination| account ID| The account that receives the remaining RIA balance of the source account.|
 
 Possible errors:
 
@@ -352,6 +352,5 @@ Possible errors:
 | ----- | ---- | ------|
 |MANAGE_DATA_NOT_SUPPORTED_YET| -1| The network hasn't moved to this protocol change yet. This failure means the network doesn't support this feature yet.|
 |MANAGE_DATA_NAME_NOT_FOUND| -2| Trying to remove a Data Entry that isn't there. This will happen if Name is set (and Value isn't) but the Account doesn't have a DataEntry with that Name.|
-|MANAGE_DATA_LOW_RESERVE| -3| Not enough lumens in the account to create a new Data Entry. Each additional Data Entry increases the minimum balance of the Account.|
+|MANAGE_DATA_LOW_RESERVE| -3| Not enough RIA in the account to create a new Data Entry. Each additional Data Entry increases the minimum balance of the Account.|
 |MANAGE_DATA_INVALID_NAME| -4| Name not a valid string.|
-

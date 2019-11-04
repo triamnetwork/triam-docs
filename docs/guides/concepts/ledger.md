@@ -44,9 +44,9 @@ Every ledger header has the following fields:
 
 - **Ledger sequence**: The sequence number of this ledger.
 
-- **Total coins**: Total number of lumens in existence.
+- **Total coins**: Total number of RIA in existence.
 
-- **Fee pool**: Number of lumens that have been paid in fees. This number will be added to the inflation pool and reset to 0 the next time inflation runs. Note this is denominated in lumens, even though a transaction’s [`fee`](./transactions.md#fee) field is in stroops.
+- **Fee pool**: Number of RIA that have been paid in fees. This number will be added to the inflation pool and reset to 0 the next time inflation runs. Note this is denominated in RIA, even though a transaction’s [`fee`](./transactions.md#fee) field is in stroops.
 
 - **Inflation sequence**: Number of times inflation has been run.
 
@@ -54,7 +54,7 @@ Every ledger header has the following fields:
 
 - **Maximum Number of Transactions**: The maximum number of [transactions](./transactions.md) the validators have agreed to process in a given ledger. If more transactions are submitted than this number, the validators will include those with the highest fees.
 
-- **Base fee**: The [fee](./fees.md#transaction-fee) the network charges per [operation](./operations.md) in a [transaction](./transactions.md). This field is in stroops, which are 1/10,000,000th of a lumen.
+- **Base fee**: The [fee](./fees.md#transaction-fee) the network charges per [operation](./operations.md) in a [transaction](./transactions.md). This field is in stroops, which are 1/10,000,000th of a RIA.
 
 - **Base reserve**: The [reserve](./fees.md#minimum-account-balance) the network uses when calculating an account's minimum balance.
 
@@ -71,7 +71,7 @@ The ledger is a collection of **entries**. Currently there are 4 types of ledger
 This entry represents an [account](./accounts.md). In Stellar, everything is built around accounts: transactions are performed by accounts, and accounts control the access rights to balances.
 
 Other entries are add-ons, owned by a main account entry. With every new entry
-attached to the account, the minimum balance in XLM goes up for the
+attached to the account, the minimum balance in RIA goes up for the
 account. For details, see [fees and minimum balance](./fees.md#minimum-account-balance).
 
 ## Trustline entry

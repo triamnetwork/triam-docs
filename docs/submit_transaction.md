@@ -19,7 +19,7 @@ var TriamSdk = require('js-triam-sdk')
 var server = new TriamSdk.Server('testnet-horizon.triamnetwork.com');
 
 var transaction = new TriamSdk.TransactionBuilder(account)
-        // this operation funds the new account with XLM
+        // this operation funds the new account with RIA
         .addOperation(TriamSdk.Operation.payment({
             destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
             asset: TriamSdk.Asset.native(),

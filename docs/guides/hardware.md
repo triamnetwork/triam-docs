@@ -4,7 +4,7 @@ Hardware Requirements
 
 # Considerations
 
-The Stellar Network is a live system and the hardware requirements will grow along with usage of the network. Please keep this in mind as you decide what hardware you want to use for your Stellar integration.
+The Triam Network is a live system and the hardware requirements will grow along with usage of the network. Please keep this in mind as you decide what hardware you want to use for your Triam integration.
 
 If you opt to go with the minimum requirements that we have listed below, you may experience some lag during times of peak traffic on the network as your node tries to catch up to the rest of the network. For a smooth experience you should opt to go with the recommended hardware requirements listed for each service.
 
@@ -12,9 +12,9 @@ We will do our best to keep this doc up-to-date as we make further improvements 
 
 # Nodes
 
-## Stellar-Core
+## Triam-Core
 
-Instances of Stellar-Core are part of the network as a node and therefore need to be large enough to support the volume on the network.
+Instances of Triam-Core are part of the network as a node and therefore need to be large enough to support the volume on the network.
 
 ### Minimum
 **CPU**: 4-Core (8-Thread) Intel i7/Xeon or equivalent (c5.xlarge on AWS)\

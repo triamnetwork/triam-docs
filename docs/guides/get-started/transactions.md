@@ -10,21 +10,21 @@ Most of the time, you’ll be sending money to someone else who has their own ac
 
 Actions that change things in Stellar, like sending payments, changing your account, or making offers to trade various kinds of currencies, are called **operations.**[^1] In order to actually perform an operation, you create a **transaction**, which is just a group of operations accompanied by some extra information, like what account is making the transaction and a cryptographic signature to verify that the transaction is authentic.[^2]
 
-If any operation in the transaction fails, they all fail. For example, let’s say you have 100 lumens and you make two payment operations of 60 lumens each. If you make two transactions (each with one operation), the first will succeed and the second will fail because you don’t have enough lumens. You’ll be left with 40 lumens. However, if you group the two payments into a single transaction, they will both fail and you’ll be left with the full 100 lumens still in your account.
+If any operation in the transaction fails, they all fail. For example, let’s say you have 100 RIA and you make two payment operations of 60 RIA each. If you make two transactions (each with one operation), the first will succeed and the second will fail because you don’t have enough RIA. You’ll be left with 40 RIA. However, if you group the two payments into a single transaction, they will both fail and you’ll be left with the full 100 RIA still in your account.
 
-Finally, every transaction costs a small fee. Like the minimum balance on accounts, this fee helps stop people from overloading the system with lots of transactions. Known as the **base fee**, it is very small—100 stroops per operation (that’s 0.00001 XLM; stroops are easier to talk about than such tiny fractions of a lumen). A transaction with two operations would cost 200 stroops.[^3]
+Finally, every transaction costs a small fee. Like the minimum balance on accounts, this fee helps stop people from overloading the system with lots of transactions. Known as the **base fee**, it is very small—100 stroops per operation (that’s 0.00001 RIA; stroops are easier to talk about than such tiny fractions of a RIA). A transaction with two operations would cost 200 stroops.[^3]
 
 ### Building a Transaction
 
-Stellar stores and communicates transaction data in a binary format called XDR.[^4] Luckily, the Stellar SDKs provide tools that take care of all that. Here’s how you might send 10 lumens to another account:
+Stellar stores and communicates transaction data in a binary format called XDR.[^4] Luckily, the Stellar SDKs provide tools that take care of all that. Here’s how you might send 10 RIA to another account:
 
 <code-example name="Submitting a Transaction">
 
 ```js
 var StellarSdk = require('stellar-sdk');
-StellarSdk.Network.useTestNetwork();
-var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
-var sourceKeys = StellarSdk.Keypair
+TriamSdk.Network.useTestNetwork();
+var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var sourceKeys = TriamSdk.Keypair
   .fromSecret('SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4');
 var destinationId = 'GA2C5RFPE6GCKMY3US5PAB6UZLKIGSPIUKSLRB6Q723BM2OARMDUYEJ5';
 // Transaction will hold a built transaction we can resubmit if the result is unknown.
@@ -35,7 +35,7 @@ var transaction;
 // the transaction fee when the transaction fails.
 server.loadAccount(destinationId)
   // If the account is not found, surface a nicer error message for logging.
-  .catch(StellarSdk.NotFoundError, function (error) {
+  .catch(TriamSdk.NotFoundError, function (error) {
     throw new Error('The destination account does not exist!');
   })
   // If there was no error, load up-to-date information on your account.
@@ -44,17 +44,17 @@ server.loadAccount(destinationId)
   })
   .then(function(sourceAccount) {
     // Start building the transaction.
-    transaction = new StellarSdk.TransactionBuilder(sourceAccount)
-      .addOperation(StellarSdk.Operation.payment({
+    transaction = new TriamSdk.TransactionBuilder(sourceAccount)
+      .addOperation(TriamSdk.Operation.payment({
         destination: destinationId,
         // Because Stellar allows transaction in many currencies, you must
         // specify the asset type. The special "native" asset represents Lumens.
-        asset: StellarSdk.Asset.native(),
+        asset: TriamSdk.Asset.native(),
         amount: "10"
       }))
       // A memo allows you to add your own metadata to a transaction. It's
       // optional and does not affect how Stellar treats the transaction.
-      .addMemo(StellarSdk.Memo.text('Test Transaction'))
+      .addMemo(TriamSdk.Memo.text('Test Transaction'))
       .build();
     // Sign the transaction to prove you are actually the person sending it.
     transaction.sign(sourceKeys);
@@ -217,7 +217,7 @@ What exactly happened there? Let’s break it down.
     <code-example name="Build a Transaction">
 
     ```js
-    var transaction = new StellarSdk.TransactionBuilder(sourceAccount)
+    var transaction = new TriamSdk.TransactionBuilder(sourceAccount)
     ```
 
     ```java
@@ -232,14 +232,14 @@ What exactly happened there? Let’s break it down.
 
     </code-example>
 
-4. Add the payment operation to the account. Note that you need to specify the type of asset you are sending—Stellar’s “native” currency is the lumen, but you can send any type of asset or currency you like, from dollars to bitcoin to any sort of asset you trust the issuer to redeem [(more details below)](#transacting-in-other-currencies). For now, though, we’ll stick to lumens, which are called “native” assets in the SDK:
+4. Add the payment operation to the account. Note that you need to specify the type of asset you are sending—Stellar’s “native” currency is the RIA, but you can send any type of asset or currency you like, from dollars to bitcoin to any sort of asset you trust the issuer to redeem [(more details below)](#transacting-in-other-currencies). For now, though, we’ll stick to RIA, which are called “native” assets in the SDK:
 
     <code-example name="Add an Operation">
 
     ```js
-    .addOperation(StellarSdk.Operation.payment({
+    .addOperation(TriamSdk.Operation.payment({
       destination: destinationId,
-      asset: StellarSdk.Asset.native(),
+      asset: TriamSdk.Asset.native(),
       amount: "10"
     }))
     ```
@@ -270,7 +270,7 @@ What exactly happened there? Let’s break it down.
     <code-example name="Add a Memo">
 
     ```js
-    .addMemo(StellarSdk.Memo.text('Test Transaction'))
+    .addMemo(TriamSdk.Memo.text('Test Transaction'))
     ```
 
     ```java
@@ -334,7 +334,7 @@ A simple program that watches the network for payments and prints each one might
 ```js
 var StellarSdk = require('stellar-sdk');
 
-var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
 var accountId = 'GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF';
 
 // Create an API call to query payments involving the account.
@@ -364,7 +364,7 @@ payments.stream({
     // asset types have more detailed information.
     var asset;
     if (payment.asset_type === 'native') {
-      asset = 'lumens';
+      asset = 'RIA';
     }
     else {
       asset = payment.asset_code + ':' + payment.asset_issuer;
@@ -422,7 +422,7 @@ paymentsRequest.stream(new EventListener<OperationResponse>() {
       Asset asset = ((PaymentOperationResponse) payment).getAsset();
       String assetName;
       if (asset.equals(new AssetTypeNative())) {
-        assetName = "lumens";
+        assetName = "RIA";
       } else {
         StringBuilder assetNameBuilder = new StringBuilder();
         assetNameBuilder.append(((AssetTypeCreditAlphaNum) asset).getCode());
@@ -560,7 +560,7 @@ page = page.getNextPage();
 
 One of the amazing things about the Stellar network is that you can send and receive many types of assets, such as US dollars, Nigerian naira, digital currencies like bitcoin, or even your own new kind of asset.
 
-While Stellar’s native asset, the lumen, is fairly simple, all other assets can be thought of like a credit issued by a particular account. In fact, when you trade US dollars on the Stellar network, you don’t actually trade US dollars—you trade US dollars *from a particular account.* That’s why the assets in the example above had both a `code` and an `issuer`. The `issuer` is the ID of the account that created the asset. Understanding what account issued the asset is important—you need to trust that, if you want to redeem your dollars on the Stellar network for actual dollar bills, the issuer will be able to provide them to you. Because of this, you’ll usually only want to trust major financial institutions for assets that represent national currencies.
+While Stellar’s native asset, the RIA, is fairly simple, all other assets can be thought of like a credit issued by a particular account. In fact, when you trade US dollars on the Stellar network, you don’t actually trade US dollars—you trade US dollars *from a particular account.* That’s why the assets in the example above had both a `code` and an `issuer`. The `issuer` is the ID of the account that created the asset. Understanding what account issued the asset is important—you need to trust that, if you want to redeem your dollars on the Stellar network for actual dollar bills, the issuer will be able to provide them to you. Because of this, you’ll usually only want to trust major financial institutions for assets that represent national currencies.
 
 Stellar also supports payments sent as one type of asset and received as another. You can send Nigerian naira to a friend in Germany and have them receive euros. These multi-currency transactions are made possible by a built-in market mechanism where people can make offers to buy and sell different types of assets. Stellar will automatically find the best people to exchange currencies with in order to convert your naira to euros. This system is called [distributed exchange](../concepts/exchange.md).
 

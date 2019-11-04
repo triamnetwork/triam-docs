@@ -20,7 +20,7 @@ In this example you must ensure that the destination account exists
 // 2. Public key of an existing account as a recipient
 //    These two keys can be created and funded by the friendbot at
 //    https://www.triamnetwork.com/laboratory/ under the heading "Quick Start: Test Account"
-// 3. Access to JS Triam SDK (https://github.com/stellar/js-triam-sdk)
+// 3. Access to JS Triam SDK (https://github.com/triamnetwork/js-triam-sdk)
 //    either through Node.js or in the browser.
 
 // This code can be run in the browser at https://www.triamnetwork.com/laboratory/
@@ -64,7 +64,6 @@ server.loadAccount(sourcePublicKey)
         // to avoid errors from the use of the JavaScript Number data structure.
         amount: '350.1234567',
       }))
-      // Uncomment to add a memo (https://www.triamnetwork.com/developers/learn/concepts/transactions.html)
       // .addMemo(TriamSdk.Memo.text('Hello world!'))
       .build();
 

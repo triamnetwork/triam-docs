@@ -21,7 +21,7 @@ server.loadAccount("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")
     .then(function (account) {
         // build the transaction with the account as the source
         var transaction = new TriamSdk.TransactionBuilder(account)
-            // this operation funds the new account with XLM
+            // this operation funds the new account with RIA
             .addOperation(TriamSdk.Operation.payment({
                 destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
                 asset: TriamSdk.Asset.native(),

@@ -32,12 +32,12 @@ This endpoint responds with a list of effects that occurred in the ledger. See [
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859/effects"
+  curl "https://testnet-horizon.triamnetwork.com/ledgers/69859/effects"
   ```
 - JavaScript
   ```javascript
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.effects()
     .forLedger("2")
@@ -52,7 +52,7 @@ This endpoint responds with a list of effects that occurred in the ledger. See [
 
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=for_ledger
+  https://laboratory.triamnetwork.com/#explorer?resource=effects&endpoint=for_ledger
 
 :::
 ### Example Response

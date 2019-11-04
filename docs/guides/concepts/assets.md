@@ -2,34 +2,34 @@
 Assets
 ---
 
-The Stellar distributed network can be used to track, hold, and transfer any type of **asset**: dollars, euros, bitcoin,
+The Triam distributed network can be used to track, hold, and transfer any type of **asset**: dollars, euros, bitcoin,
 stocks, gold, and other tokens of value. Any asset on the network can be traded and exchanged with any other.
 
-Other than lumens (see below), all assets have
+Other than RIA (see below), all assets have
 - **Asset type**: e.g., USD or BTC
 - **Issuer**: the account that created the asset
 
 ## Trustlines
-When you hold assets in Stellar, you're actually holding credit from a particular issuer. The issuer has agreed that it
-will trade you its credit on the Stellar network for the corresponding asset--e.g., fiat currency, precious metal--outside
-of Stellar. Let's say that Scott issues oranges as credit on the network. If you hold orange credits, you and Scott have
-an agreement based on trust, or a trustline: you both agree that when you give Scott an orange credit, he gives you an orange.
+When you hold assets in TriamNetwork, you're actually holding credit from a particular issuer. The issuer has agreed that it
+will trade you its credit on the Triam network for the corresponding asset--e.g., fiat currency, precious metal--outside
+of TriamNetwork. Let's say that Bob issues oranges as credit on the network. If you hold orange credits, you and Bob have
+an agreement based on trust, or a trustline: you both agree that when you give Bob an orange credit, he gives you an orange.
 
-When you hold an asset, you must trust the issuer to properly redeem its credit. Since users of Stellar will not want to
+When you hold an asset, you must trust the issuer to properly redeem its credit. Since users of TriamNetwork will not want to
 trust just any issuer, accounts must explicitly trust an issuing account before they're able to hold the issuer's credit.
-In the example above, you must explicitly trust Scott before you can hold orange credits.
+In the example above, you must explicitly trust Bob before you can hold orange credits.
 
-To trust an issuing account, you create a **trustline.** Trustlines are entries that persist in the Stellar ledger. They
+To trust an issuing account, you create a **trustline.** Trustlines are entries that persist in the TriamNetwork ledger. They
 track the limit for which your account trusts the issuing account and the amount of credit from the issuing account that your account currently holds.
 
-## Lumens (XLM)
-**Lumens (XLM)** are the native currency of the network. A lumen is the only asset type that can be used on the Stellar
+## RIA
+**RIA** are the native currency of the network. A RIA is the only asset type that can be used on the Triam
 network that doesn't require an issuer or a trustline.
-Any account can hold lumens. You can trade lumens for other assets in the network.
+Any account can hold RIAs. You can trade RIAs for other assets in the network.
 
 
 ## Anchors: issuing assets
-Any account can issue assets on the Stellar network. Entities that issue assets are called **anchors.** Anchors can be
+Any account can issue assets on the Triam network. Entities that issue assets are called **anchors.** Anchors can be
 run by individuals, small businesses, local communities, nonprofits, organizations, etc. Any type of financial institution--a bank, a payment processor--can be an anchor.
 
 Each anchor has an **issuing account** from which it issues the asset.
@@ -65,7 +65,7 @@ By default, anyone can create a trustline with an asset issuer to accept an asse
 
 **An alternative flow:** note it is possible to set these flags later. Maybe you originally allow anyone to open a trustline but later realize this was not a great idea. After issuing this asset, you can then set **both** of the above flags. At this point, everyone with an open trustline retains their authorized status, however you can now revoke trust (assuming you have not adjusted your master key weight and/or [account thresholds](./multi-sig.md#thresholds)) .
 
-**Note:** when anchors issue assets, they often wish to limit the supply of tokens in circulation. It is still possible to create this limited supply and maintain the ability to authorize and revoke because the [Allow Trust](./list-of-operations.md#allow-trust)  operation is `low threshold` while the [Set Options](./list-of-operations.md#set-options)  and [Payment](./list-of-operations.md#payment) operations are `high/medium threshold`. To learn more about creating assets and limiting token supply [read here](../walkthroughs/custom-assets.md#optional-transaction-a-limit-token-supply). 
+**Note:** when anchors issue assets, they often wish to limit the supply of tokens in circulation. It is still possible to create this limited supply and maintain the ability to authorize and revoke because the [Allow Trust](./list-of-operations.md#allow-trust)  operation is `low threshold` while the [Set Options](./list-of-operations.md#set-options)  and [Payment](./list-of-operations.md#payment) operations are `high/medium threshold`. To learn more about creating assets and limiting token supply [read here](../walkthroughs/custom-assets.md#optional-transaction-a-limit-token-supply).
 
 **Ensuring asset holders they won't be revoked**: the above functionalities are great for asset issuers who wish to control who can and cannot hold/transact their asset. However, what if I am an asset holder and I am worried that an issuer may freeze the assets I hold? To instill trust in potential asset holders, the issuing account can enable the following flag:
 
@@ -78,11 +78,11 @@ The smallest non-zero amount unit is `0.0000001` (one ten-millionth) represented
 
 The numbers are represented as `int64`s. Amount values are stored as only signed integers to avoid bugs that arise from mixing signed and unsigned integers.
 
-### Relevance in Horizon and Stellar client libraries
-In Horizon and client side libraries such as `js-stellar-sdk`, the integer encoded value is abstracted away. Many APIs expect amount unit value (the scaled up amount displayed to end users).
+### Relevance in Horizon and Triam client libraries
+In Horizon and client side libraries such as `js-triam-sdk`, the integer encoded value is abstracted away. Many APIs expect amount unit value (the scaled up amount displayed to end users).
 
 ### Maintaining precision with "big number" libraries
 Some programming languages (such as JavaScript) have problems with maintaining precision on a number amount. It is recommended to use "big number" libraries that can record arbitrary precision decimal numbers without a loss of precision.
 
 ### One stroop, multiple stroops
-A "stroop" is the smallest amount unit. It is one ten-millionth: `1/10000000` or `0.0000001`. The term stroop is used as a convenient way to refer to these small measurements of amounts. The plural form is "stroops" (e.g. "100 stroops"). Fun fact: this term is derived from Stroopy, the name of the Stellar mascot whose name is derived from [stroopwafels](https://en.wikipedia.org/wiki/Stroopwafel).
+A "stroop" is the smallest amount unit. It is one ten-millionth: `1/10000000` or `0.0000001`. The term stroop is used as a convenient way to refer to these small measurements of amounts. The plural form is "stroops" (e.g. "100 stroops"). Fun fact: this term is derived from Stroopy, the name of the Triam mascot whose name is derived from [stroopwafels](https://en.wikipedia.org/wiki/Stroopwafel).

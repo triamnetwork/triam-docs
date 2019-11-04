@@ -36,7 +36,7 @@
     * [Transaction Details](docs/endpoints/transactions-single.md)
   * Guides
     * Get Started
-      * [Stellar Network Overview](docs/guides/get-started/overview.md)
+      * [Triam Network Overview](docs/guides/get-started/overview.md)
       * [Create an Account](docs/guides/get-started/create-account.md)
       * [Send and Receive Money](docs/guides/get-started/transactions.md)
     * Concepts
@@ -50,21 +50,19 @@
       * [List of Operations](docs/guides/concepts/list-of-operations.md)
       * [Multisignature](docs/guides/concepts/multi-sig.md)
       * [Operations](docs/guides/concepts/operations.md)
-      * [Stellar Consensus Protocol](docs/guides/concepts/scp.md)
-      * [Stellar.toml](docs/guides/concepts/stellar-toml.md)
+      * [Triam Consensus Protocol](docs/guides/concepts/scp.md)
       * [Testnet](docs/guides/concepts/test-net.md)
       * [Transactions](docs/guides/concepts/transactions.md)
       * [Versioning and Upgrading](docs/guides/concepts/versioning.md)
       * [XDR](docs/guides/concepts/xdr.md)
     * Walkthroughs
       * [Custom Assets](docs/guides/walk-throughs/custom-assets.md)
-      * [Stellar Smart Contracts](docs/guides/walk-throughs/stellar-smart-contracts.md)
-    * [Stellar Attachment Convention](docs/guides/attachment.md)
+      * [Triam Smart Contracts](docs/guides/walk-throughs/stellar-smart-contracts.md)
+    * [Triam Attachment Convention](docs/guides/attachment.md)
     * [Channels](docs/guides/channels.md)
-    * [Compliance Protocol](docs/guides/compliance-protocol.md)
-    * [Add Stellar to your Exchange](docs/guides/exchange.md)
+    * [Add Triam to your Exchange](docs/guides/exchange.md)
     * [Hardware Requirements](docs/guides/hardware.md)
     * [Issuing Assets](docs/guides/issuing-assets.md)
     * [Security](docs/guides/security.md)
-    * [Build Stellar Apps](docs/guides/things-to-build.md)
-    * [Contribution Guide](docs/guides/contributing.md)
+    * [Build Triam Apps](docs/guides/things-to-build.md)
+    <!-- * [Contribution Guide](docs/guides/contributing.md) -->

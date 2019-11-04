@@ -30,12 +30,12 @@ This endpoint responds with a list of payments operations that are part of a giv
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//transactions/3c8ef808df9d5d240ba0d495629df9da5653b1be2daf05d43b49c5bcbfe099bd/payments"
+  curl "https://testnet-horizon.triamnetwork.com/transactions/3c8ef808df9d5d240ba0d495629df9da5653b1be2daf05d43b49c5bcbfe099bd/payments"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.payments()
     .forTransaction("3c8ef808df9d5d240ba0d495629df9da5653b1be2daf05d43b49c5bcbfe099bd")
@@ -48,7 +48,7 @@ This endpoint responds with a list of payments operations that are part of a giv
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=for_transaction
+  https://laboratory.triamnetwork.com/#explorer?resource=payments&endpoint=for_transaction
 
 :::
 ### Example Response

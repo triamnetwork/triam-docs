@@ -35,12 +35,12 @@ The summary of the orderbook and its bids and asks.
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//order_book?selling_asset_type=native&buying_asset_type=credit_alphanum4&buying_asset_code=FOO&buying_asset_issuer=GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG"
+  curl "https://testnet-horizon.triamnetwork.com/order_book?selling_asset_type=native&buying_asset_type=credit_alphanum4&buying_asset_code=FOO&buying_asset_issuer=GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.orderbook(new TriamSdk.Asset.native(), new TriamSdk.Asset('FOO', 'GBAUUA74H4XOQYRSOW2RZUA4QL5PB37U3JS5NE3RTB2ELJVMIF5RLMAG'))
     .call()
@@ -48,7 +48,7 @@ The summary of the orderbook and its bids and asks.
     .catch(function(err) { console.log(err); })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=order_book&endpoint=details
+  https://laboratory.triamnetwork.com/#explorer?resource=order_book&endpoint=details
 
 :::
 ## Example Response

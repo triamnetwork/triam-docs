@@ -31,7 +31,7 @@ Implement a simple [Federation server](https://www.stellar.org/developers/guides
 You can also contribute to the [federation server](https://github.com/stellar/go/tree/master/services/federation) maintained by Stellar Development Foundation.
 
 # Lumens to any email address
-Allow anyone to send lumens from their Stellar client to any email address. They would simply enter something like `<emailaddress>*domain.com` and then they are able to send it lumens. If the recipient doesn't have a stellar account already one will be created for them and they will get an email alerting them that they have lumens.
+Allow anyone to send RIA from their Stellar client to any email address. They would simply enter something like `<emailaddress>*domain.com` and then they are able to send it RIA. If the recipient doesn't have a stellar account already one will be created for them and they will get an email alerting them that they have RIA.
 
 This would be a service hosted at `domain.com` that does the following:
 - Runs a federation server.
@@ -42,9 +42,9 @@ This would be a service hosted at `domain.com` that does the following:
   - Watch the network to see if that account is created.
   - If the account is created, you send an email to the given email address with the private half of the keypair with links to a Stellar client.
 
-*Advanced* allow people to manage the stellar account you just created for them by sending emails to control@domain.com. This makes someone's inbox a Stellar client. For example: `send 100 XLM to bob@gmail.com`
+*Advanced* allow people to manage the stellar account you just created for them by sending emails to control@domain.com. This makes someone's inbox a Stellar client. For example: `send 100 RIA to bob@gmail.com`
 
-[Adding this feature to a wallet](https://galactictalk.org/d/37-project-idea-sending-lumens-to-any-address)
+[Adding this feature to a wallet](https://galactictalk.org/d/37-project-idea-sending-RIA-to-any-address)
 
 # Distributed Exchange
 Description and discussion [here.](https://galactictalk.org/d/26-project-idea-distributed-exchange)
@@ -54,13 +54,13 @@ Description and discussion [here.](https://galactictalk.org/d/26-project-idea-di
 Let's say you have a public-facing service, perhaps for streaming or open wifi. You want to allow other people to use this service if they pay you small amounts. These payments could be used for spam prevention or to support your business. This is a job for the **toll collector**...
 
 ## Toll Collector
-A simple service that keeps track of any XLM sent to a `toll address`. The toll collector has a database of public keys and amounts of XLM it has sent to the toll address. It watches for payments to the toll address on the Stellar network and adds them to this DB.
+A simple service that keeps track of any RIA sent to a `toll address`. The toll collector has a database of public keys and amounts of RIA it has sent to the toll address. It watches for payments to the toll address on the Stellar network and adds them to this DB.
 
 The toll collector service has one RPC or endpoint that you can call:
 
-  - `charge(publicKey, amount of XLM)` returns
-    - `amount XLM charged`
-    - `amount of XLM this key has left`
+  - `charge(publicKey, amount of RIA)` returns
+    - `amount RIA charged`
+    - `amount of RIA this key has left`
 
 Your app can publish its Stellar toll address for payments. When someone tries to use your service, the server has them authenticate their public key and calls `charge` on the Toll Collector to decrements the consumer's balance in the DB. You can send the consumer a message when their balance is zero.
 
