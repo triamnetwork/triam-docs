@@ -30,12 +30,12 @@ This endpoint responds with a list of effects on the ledger as a result of a giv
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//operations/77309415424/effects"
+  curl "https://testnet-horizon.triamnetwork.com/operations/77309415424/effects"
   ```
 - JavaScript
   ```javascript
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.effects()
     .forOperation("141733924865")
@@ -50,7 +50,7 @@ This endpoint responds with a list of effects on the ledger as a result of a giv
 
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=for_operation
+  https://laboratory.triamnetwork.com/#explorer?resource=effects&endpoint=for_operation
 
 :::
 ### Example Response

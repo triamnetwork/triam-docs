@@ -4,24 +4,24 @@ Issuing Assets
 
 One of Stellar’s most powerful features is the ability to trade any kind of asset, US dollars, Nigerian naira, bitcoins, special coupons, [ICO tokens](https://www.stellar.org/blog/tokens-on-stellar/) or just about anything you like.
 
-This works in Stellar because an asset is really just a credit from a particular account. When you trade US dollars on the Stellar network, you don’t actually trade US dollars—you trade US dollars *credited from a particular account.* Often, that account will be a bank, but if your neighbor had a banana plant, they might issue banana assets that you could trade with other people.
+This works in Triam because an asset is really just a credit from a particular account. When you trade US dollars on the Triam network, you don’t actually trade US dollars—you trade US dollars *credited from a particular account.* Often, that account will be a bank, but if your neighbor had a banana plant, they might issue banana assets that you could trade with other people.
 
-Every asset type (except lumens) is defined by two properties:
+Every asset type (except RIA) is defined by two properties:
 
 - `asset_code`: a short identifier of 1–12 letters or numbers, such as `USD`, or `EUR`. It can be anything you like, even `AstroDollars`.
 - `asset_issuer`: the ID of the account that issues the asset.
 
-In the Stellar SDK, assets are represented with the `Asset` class:
+In the Triam SDK, assets are represented with the `Asset` class:
 
 <code-example name="Representing Assets">
 
 ```js
-var astroDollar = new StellarSdk.Asset(
+var astroDollar = new TriamSdk.Asset(
   'AstroDollar', 'GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF');
 ```
 
 ```java
-KeyPair issuer = StellarSdk.Keypair.fromAccountId(
+KeyPair issuer = TriamSdk.Keypair.fromAccountId(
   "GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF");
 Asset astroDollar = Asset.createNonNativeAsset("AstroDollar", issuer);
 ```
@@ -32,7 +32,7 @@ Asset astroDollar = Asset.createNonNativeAsset("AstroDollar", issuer);
   "asset_code": "AstroDollar",
   "asset_issuer": "GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF",
   // `asset_type` is used to determine how asset data is stored.
-  // It can be `native` (lumens), `credit_alphanum4`, or `credit_alphanum12`.
+  // It can be `native` (RIA), `credit_alphanum4`, or `credit_alphanum12`.
   "asset_type": "credit_alphanum12"
 }
 ```
@@ -44,39 +44,39 @@ Asset astroDollar = Asset.createNonNativeAsset("AstroDollar", issuer);
 
 To issue a new type of asset, all you need to do is choose a code. It can be any combination of up to 12 letters or numbers, but you should use the appropriate [ISO 4217 code][ISO 4217] (e.g. `USD` for US dollars)  or [ISIN] for national currencies or securities. Once you’ve chosen a code, you can begin paying people using that asset code. You don’t need to do anything to declare your asset on the network.
 
-However, other people can’t receive your asset until they’ve chosen to trust it. Because a Stellar asset is really a credit, you should trust that the issuer can redeem that credit if necessary later on. You might not want to trust your neighbor to issue banana assets if they don’t even have a banana plant, for example.
+However, other people can’t receive your asset until they’ve chosen to trust it. Because a Triam asset is really a credit, you should trust that the issuer can redeem that credit if necessary later on. You might not want to trust your neighbor to issue banana assets if they don’t even have a banana plant, for example.
 
-An account can create a *trustline,* or a declaration that it trusts a particular asset, using the [change trust operation](concepts/list-of-operations.md#change-trust). A trustline can also be limited to a particular amount. If your banana-growing neighbor only has a few plants, you might not want to trust them for more than about 200 bananas. *Note: each trustline increases an account’s minimum balance by 0.5 lumens (the base reserve). For more details, see the [fees guide](concepts/fees.html#minimum-balance).*
+An account can create a *trustline,* or a declaration that it trusts a particular asset, using the [change trust operation](concepts/list-of-operations.md#change-trust). A trustline can also be limited to a particular amount. If your banana-growing neighbor only has a few plants, you might not want to trust them for more than about 200 bananas. *Note: each trustline increases an account’s minimum balance by 0.5 RIA (the base reserve). For more details, see the [fees guide](concepts/fees.html#minimum-balance).*
 
 Once you’ve chosen an asset code and someone else has created a trustline for your asset, you’re free to start making payment operations to them using your asset. If someone you want to pay doesn’t trust your asset, you might also be able to use the [distributed exchange](concepts/exchange.md).
 
 ### Try it Out
 
-Sending and receiving custom assets is very similar to [sending and receiving lumens](get-started/transactions.md#building-a-transaction). Here’s a simple example:
+Sending and receiving custom assets is very similar to [sending and receiving RIA](get-started/transactions.md#building-a-transaction). Here’s a simple example:
 
 <code-example name="Send Custom Assets">
 
 ```js
 var StellarSdk = require('stellar-sdk');
-StellarSdk.Network.useTestNetwork();
-var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+TriamSdk.Network.useTestNetwork();
+var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
 
 // Keys for accounts to issue and receive the new asset
-var issuingKeys = StellarSdk.Keypair
+var issuingKeys = TriamSdk.Keypair
   .fromSecret('SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4');
-var receivingKeys = StellarSdk.Keypair
+var receivingKeys = TriamSdk.Keypair
   .fromSecret('SDSAVCRE5JRAI7UFAVLE5IMIZRD6N6WOJUWKY4GFN34LOBEEUS4W2T2D');
 
 // Create an object to represent the new asset
-var astroDollar = new StellarSdk.Asset('AstroDollar', issuingKeys.publicKey());
+var astroDollar = new TriamSdk.Asset('AstroDollar', issuingKeys.publicKey());
 
 // First, the receiving account must trust the asset
 server.loadAccount(receivingKeys.publicKey())
   .then(function(receiver) {
-    var transaction = new StellarSdk.TransactionBuilder(receiver)
+    var transaction = new TriamSdk.TransactionBuilder(receiver)
       // The `changeTrust` operation creates (or alters) a trustline
       // The `limit` parameter below is optional
-      .addOperation(StellarSdk.Operation.changeTrust({
+      .addOperation(TriamSdk.Operation.changeTrust({
         asset: astroDollar,
         limit: '1000'
       }))
@@ -90,8 +90,8 @@ server.loadAccount(receivingKeys.publicKey())
     return server.loadAccount(issuingKeys.publicKey())
   })
   .then(function(issuer) {
-    var transaction = new StellarSdk.TransactionBuilder(issuer)
-      .addOperation(StellarSdk.Operation.payment({
+    var transaction = new TriamSdk.TransactionBuilder(issuer)
+      .addOperation(TriamSdk.Operation.payment({
         destination: receivingKeys.publicKey(),
         asset: astroDollar,
         amount: '10'
@@ -190,14 +190,14 @@ if err != nil { log.Fatal(err) }
 
 ## Discoverablity and Meta information
 
-Another thing that is important when you issue an asset is to provide clear information about what your asset represents. This info can be discovered and displayed by clients so users know exactly what they are getting when they hold your asset. 
+Another thing that is important when you issue an asset is to provide clear information about what your asset represents. This info can be discovered and displayed by clients so users know exactly what they are getting when they hold your asset.
 To do this you must do two simple things. First, add a section in your [stellar.toml file](concepts/stellar-toml.html) that contains the necessary meta fields:
 ```
 # stellar.toml example asset
 [[CURRENCIES]]
 code="GOAT"
 issuer="GD5T6IPRNCKFOHQWT264YPKOZAWUMMZOLZBJ6BNQMUGPWGRLBK3U7ZNP"
-display_decimals=2 
+display_decimals=2
 name="goat share"
 desc="1 GOAT token entitles you to a share of revenue from Elkins Goat Farm."
 conditions="There will only ever be 10,000 GOAT tokens in existence. We will distribute the revenue share annually on Jan. 15th"
@@ -210,17 +210,17 @@ Second, use the [set options operation](https://www.stellar.org/developers/guide
 
 ```js
 var StellarSdk = require('stellar-sdk');
-StellarSdk.Network.useTestNetwork();
-var server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+TriamSdk.Network.useTestNetwork();
+var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
 
 // Keys for issuing account
-var issuingKeys = StellarSdk.Keypair
+var issuingKeys = TriamSdk.Keypair
   .fromSecret('SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4');
 
 server.loadAccount(issuingKeys.publicKey())
   .then(function(issuer) {
-    var transaction = new StellarSdk.TransactionBuilder(issuer)
-      .addOperation(StellarSdk.Operation.setOptions({
+    var transaction = new TriamSdk.TransactionBuilder(issuer)
+      .addOperation(TriamSdk.Operation.setOptions({
         homeDomain: 'yourdomain.com',
       }))
       .build();
@@ -258,13 +258,13 @@ Once you begin issuing your own assets, there are a few smart practices you can 
 
 ### Specialized Issuing Accounts
 
-In the simplest situations, you can issue assets from your everyday Stellar account. However, if you operate a financial institution or a business, you should keep a separate account specifically for issuing assets. Why?
+In the simplest situations, you can issue assets from your everyday Triam account. However, if you operate a financial institution or a business, you should keep a separate account specifically for issuing assets. Why?
 
 - Easier tracking: because an asset represents a credit, it disappears when it is sent back to the account that issued it. To better track and control the amount of your asset in circulation, pay a fixed amount of the asset from the issuing account to the working account that you use for normal transactions.
 
-  The issuing account can issue the asset when more of the underlying value (like actual bananas or dollar bills) is on hand and the accounts involved in public transactions never have to worry about how much is available outside Stellar.
+  The issuing account can issue the asset when more of the underlying value (like actual bananas or dollar bills) is on hand and the accounts involved in public transactions never have to worry about how much is available outside Triam.
 
-- Keeping trust simple: as your usage of Stellar grows, you might consider having multiple accounts for a variety of reasons, such as making transactions at high rates. Keeping a canonical issuing account makes it easier for others to know which account to trust.
+- Keeping trust simple: as your usage of Triam grows, you might consider having multiple accounts for a variety of reasons, such as making transactions at high rates. Keeping a canonical issuing account makes it easier for others to know which account to trust.
 
 
 ### Requiring or Revoking Authorization
@@ -278,11 +278,11 @@ The following example sets authorization to be both required and revocable:
 <code-example name="Asset Authorization">
 
 ```js
-StellarSdk.Network.useTestNetwork();
-var flags = StellarSdk.xdr.AccountFlags;
-var transaction = new StellarSdk.TransactionBuilder(issuingAccount)
-  .addOperation(StellarSdk.Operation.setOptions({
-    setFlags: StellarSdk.AuthRevocableFlag | StellarSdk.AuthRequiredFlag
+TriamSdk.Network.useTestNetwork();
+var flags = TriamSdk.xdr.AccountFlags;
+var transaction = new TriamSdk.TransactionBuilder(issuingAccount)
+  .addOperation(TriamSdk.Operation.setOptions({
+    setFlags: TriamSdk.AuthRevocableFlag | TriamSdk.AuthRequiredFlag
   }))
   .build();
 transaction.sign(issuingKeys);

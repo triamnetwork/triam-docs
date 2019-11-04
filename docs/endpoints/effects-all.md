@@ -31,12 +31,12 @@ The list of effects.
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//effects"
+  curl "https://testnet-horizon.triamnetwork.com/effects"
   ```
 - JavaScript
   ```javascript
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.effects()
     .call()
@@ -50,7 +50,7 @@ The list of effects.
 
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=effects&endpoint=all
+  https://laboratory.triamnetwork.com/#explorer?resource=effects&endpoint=all
 
 :::
 ### Example Response

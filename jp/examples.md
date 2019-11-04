@@ -42,7 +42,7 @@ var receiverPublicKey = 'GAIRISXKPLOWZBMFRPU5XRGUUX3VMA3ZEWKBM5MSNRU3CHV6P4PYZ74
 
 // Configure TriamSdk to talk to the horizon instance hosted by Triamnetwork.com
 // To use the live network, set the hostname to 'horizon.triamnetwork.com'
-var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com');
+var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com');
 
 // Uncomment the following line to build transactions for the live network. Be
 // sure to also change the horizon hostname.
@@ -57,9 +57,9 @@ server.loadAccount(sourcePublicKey)
       // Add a payment operation to the transaction
       .addOperation(TriamSdk.Operation.payment({
         destination: receiverPublicKey,
-        // The term native asset refers to lumens
+        // The term native asset refers to RIA
         asset: TriamSdk.Asset.native(),
-        // Specify 350.1234567 lumens. Lumens are divisible to seven digits past
+        // Specify 350.1234567 RIA. Lumens are divisible to seven digits past
         // the decimal. They are represented in JS Triam SDK in string format
         // to avoid errors from the use of the JavaScript Number data structure.
         amount: '350.1234567',
@@ -101,7 +101,7 @@ Let's say you want to look at an account's transaction history.  You can use the
 
 ```javascript
 var TriamSdk = require('triam-sdk')
-var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com');
+var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com');
 var accountId = 'GBBORXCY3PQRRDLJ7G7DWHQBXPCJVFGJ4RGMJQVAX6ORAUH6RWSPP6FM';
 
 server.transactions()
@@ -128,7 +128,7 @@ js-triam-sdk provides streaming support for Horizon endpoints using `EventSource
 Try submitting a transaction (via the guide above) while running the following code example.
 ```javascript
 var TriamSdk = require('triam-sdk')
-var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com');
+var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com');
 
 // Get a message any time a payment occurs. Cursor is set to "now" to be notified
 // of payments happening starting from when this script runs (as opposed to from

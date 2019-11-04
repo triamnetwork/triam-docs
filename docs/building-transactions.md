@@ -28,19 +28,19 @@ The returned transaction will contain the sequence number of the source account.
 
 ```js
 TriamSdk.Network.useTestNetwork();
-// TriamBase.Network.usePublicNetwork(); if this transaction is for the public network
+// TriamSdk.Network.usePublicNetwork(); if this transaction is for the public network
 // Create an Account object from an address and sequence number.
-var account=new TriamBase.Account("GD6WU64OEP5C4LRBH6NK3MHYIA2ADN6K6II6EXPNVUR3ERBXT4AN4ACD","2319149195853854");
+var account=new TriamSdk.Account("GD6WU64OEP5C4LRBH6NK3MHYIA2ADN6K6II6EXPNVUR3ERBXT4AN4ACD","2319149195853854");
 
-var transaction = new TriamBase.TransactionBuilder(account)
+var transaction = new TriamSdk.TransactionBuilder(account)
         // add a payment operation to the transaction
-        .addOperation(TriamBase.Operation.payment({
+        .addOperation(TriamSdk.Operation.payment({
                 destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
-                asset: TriamBase.Asset.native(),
-                amount: "100.50"  // 100.50 XLM
+                asset: TriamSdk.Asset.native(),
+                amount: "100.50"  // 100.50 RIA
             }))
         // add a set options operation to the transaction
-        .addOperation(TriamBase.Operation.setOptions({
+        .addOperation(TriamSdk.Operation.setOptions({
                 signer: {
                     ed25519PublicKey: secondAccountAddress,
                     weight: 1
@@ -76,10 +76,10 @@ There are 5 types of memos:
 
 ```js
 var memo = Memo.text('Happy birthday!');
-var transaction = new TriamBase.TransactionBuilder(account, {memo:memo})
-        .addOperation(TriamBase.Operation.payment({
+var transaction = new TriamSdk.TransactionBuilder(account, { memo:memo })
+        .addOperation(TriamSdk.Operation.payment({
                 destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
-                asset: TriamBase.Asset.native(),
+                asset: TriamSdk.Asset.native(),
                 amount: "2000"
             }))
         .build();
@@ -134,18 +134,18 @@ var keypair = Keypair.random();
 
 
 ```js
-TriamBase.Network.useTestNetwork();
+TriamSdk.Network.useTestNetwork();
 var key1 = Keypair.fromSecret('SBK2VIYYSVG76E7VC3QHYARNFLY2EAQXDHRC7BMXBBGIFG74ARPRMNQM');
 var key2 = Keypair.fromSecret('SAMZUAAPLRUH62HH3XE7NVD6ZSMTWPWGM6DS4X47HLVRHEBKP4U2H5E7');
 
 // Create an Account object from an address and sequence number.
-var account=new TriamBase.Account("GD6WU64OEP5C4LRBH6NK3MHYIA2ADN6K6II6EXPNVUR3ERBXT4AN4ACD","2319149195853854");
+var account=new TriamSdk.Account("GD6WU64OEP5C4LRBH6NK3MHYIA2ADN6K6II6EXPNVUR3ERBXT4AN4ACD","2319149195853854");
 
-var transaction = new TriamBase.TransactionBuilder(account)
-        .addOperation(TriamBase.Operation.payment({
+var transaction = new TriamSdk.TransactionBuilder(account)
+        .addOperation(TriamSdk.Operation.payment({
                 destination: "GASGUKGJA6I5YMLSGD2H5IYFVER4NCIUWXK3XZ6HYMYYJ4YWZD52LRID",
-                asset: TriamBase.Asset.native(),
-                amount: "2000"  // 2000 XLM
+                asset: TriamSdk.Asset.native(),
+                amount: "2000"  // 2000 RIA
             }))
         .build();
 

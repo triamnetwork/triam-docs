@@ -2,7 +2,7 @@
 Accounts
 ---
 
-Accounts are the central data structure in Stellar. Accounts are identified by a public key and saved in the ledger.
+Accounts are the central data structure in Triam. Accounts are identified by a public key and saved in the ledger.
 Everything else in the ledger, such as offers or [trustlines](./assets.md#trustlines), are owned by a particular account.
 
 Accounts are created with the [Create Account](./list-of-operations.md#create-account) operation.
@@ -20,7 +20,7 @@ Accounts have the following fields:
 > The public key that was first used to create the account. You can replace the key used for signing the account's transactions with a different public key, but the original account ID will always be used to identify the account.
 >
 > #### Balance
-> The number of lumens held by the account. The balance is denominated in 1/10,000,000th of a lumen, the smallest divisible unit of a lumen.
+> The number of RIA held by the account. The balance is denominated in 1/10,000,000th of a RIA, the smallest divisible unit of a RIA.
 >
 > #### Sequence number
 > The current transaction sequence number of the account. This number starts equal to the ledger number at which the account was created.

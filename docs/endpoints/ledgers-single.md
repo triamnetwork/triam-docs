@@ -28,12 +28,12 @@ This endpoint responds with a single Ledger.  See [ledger resource](../resources
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859"
+  curl "https://testnet-horizon.triamnetwork.com/ledgers/69859"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk')
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.ledgers()
     .ledger('69858')
@@ -47,7 +47,7 @@ This endpoint responds with a single Ledger.  See [ledger resource](../resources
 
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=ledgers&endpoint=single
+  https://laboratory.triamnetwork.com/#explorer?resource=ledgers&endpoint=single
 
 :::
 ### Example Response

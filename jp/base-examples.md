@@ -10,7 +10,7 @@ title: Transaction Examples
 ## Creating an account
 
 In the example below account `GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ` is creating account `GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW`.
-The source account is giving the new account 25 XLM as its initial balance. Current sequence number of the source account in the ledger is `46316927324160`.
+The source account is giving the new account 25 RIA as its initial balance. Current sequence number of the source account in the ledger is `46316927324160`.
 
 
 ```javascript
@@ -23,7 +23,7 @@ var an_account = new TriamSdk.Account("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEY
 var transaction = new TriamSdk.TransactionBuilder(an_account)
     .addOperation(TriamSdk.Operation.createAccount({
       destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
-      startingBalance: "25"  // in XLM
+      startingBalance: "25"  // in RIA
     }))
     .build();
 
@@ -35,7 +35,7 @@ transaction.sign(TriamSdk.Keypair.fromSecret(seedString)); // sign the transacti
 
 ## Assets
 Object of the `Asset` class represents an asset in the Triam network. Right now there are 3 possible types of assets in the Triam network:
-* native `XLM` asset (`ASSET_TYPE_NATIVE`),
+* native `RIA` asset (`ASSET_TYPE_NATIVE`),
 * issued assets with asset code of maximum 4 characters (`ASSET_TYPE_CREDIT_ALPHANUM4`),
 * issued assets with asset code of maximum 12 characters (`ASSET_TYPE_CREDIT_ALPHANUM12`).
 
@@ -57,14 +57,14 @@ var googleStockAsset = new Asset('US38259P7069', 'GBBM6BKZPEHWYO3E3YKREDPQXMS4VK
 
 ## Path payment
 
-In the example below we're sending 1000 XLM (at max) from `GABJLI6IVBKJ7HIC5NN7HHDCIEW3CMWQ2DWYHREQQUFWSWZ2CDAMZZX4` to
+In the example below we're sending 1000 RIA (at max) from `GABJLI6IVBKJ7HIC5NN7HHDCIEW3CMWQ2DWYHREQQUFWSWZ2CDAMZZX4` to
 `GBBM6BKZPEHWYO3E3YKREDPQXMS4VK35YLNU7NFBRI26RAN7GI5POFBB`. Destination Asset will be `GBP` issued by
 `GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW`. Assets will be exchanged using the following path:
 
 * `USD` issued by `GBBM6BKZPEHWYO3E3YKREDPQXMS4VK35YLNU7NFBRI26RAN7GI5POFBB`,
 * `EUR` issued by `GDTNXRLOJD2YEBPKK7KCMR7J33AAG5VZXHAJTHIG736D6LVEFLLLKPDL`.
 
-The [path payment](#) will cause the destination address to get 5.5 GBP. It will cost the sender no more than 1000 XLM. In this example there will be 3 exchanges, XLM -> USD, USD-> EUR, EUR->GBP.
+The [path payment](#) will cause the destination address to get 5.5 GBP. It will cost the sender no more than 1000 RIA. In this example there will be 3 exchanges, RIA -> USD, USD-> EUR, EUR->GBP.
 
 ```js
 TriamSdk.Network.useTestNetwork();
@@ -140,7 +140,7 @@ var transaction = new TransactionBuilder(account)
     .addOperation(Operation.payment({
         destination: "GBTVUCDT5CNSXIHJTDHYSZG3YJFXBAJ6FM4CKS5GKSAWJOLZW6XX7NVC",
         asset: Asset.native(),
-        amount: "2000" // 2000 XLM
+        amount: "2000" // 2000 RIA
     }))
     .build();
 

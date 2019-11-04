@@ -33,7 +33,7 @@ This endpoint responds with a list of ledgers.  See [ledger resource](../resourc
 - curl
   ```bash
   # Retrieve the 200 latest ledgers, ordered chronologically
-  curl "https://testnet-horizon.arm-system-holdings.com//ledgers?limit=200&order=desc"
+  curl "https://testnet-horizon.triamnetwork.com/ledgers?limit=200&order=desc"
   ```
 - JavaScript
   ```js
@@ -53,7 +53,7 @@ This endpoint responds with a list of ledgers.  See [ledger resource](../resourc
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=ledgers&endpoint=all
+  https://laboratory.triamnetwork.com/#explorer?resource=ledgers&endpoint=all
 
 :::
 ### Example Response

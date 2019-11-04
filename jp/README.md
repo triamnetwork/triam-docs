@@ -15,7 +15,7 @@ to Horizon. Starting with a [server](https://triamnetwork.github.io/triam-sdk/Se
 (See the [Horizon reference](https://triamnetwork.github.io/triam-docs/) documentation for what methods are possible.)
 ```js
 var TriamSdk = require('triam-sdk');
-var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com');
+var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com');
 // get a list of transactions that occurred in ledger 1400
 server.transactions()
     .forLedger(1400)
@@ -36,7 +36,7 @@ Horizon API
 
   export default class Application extends React.Component {
     callHorizon() {
-      var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+      var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
       // get a list of transactions that occurred in ledger 1400
       server.transactions()
           .forLedger(1400)
@@ -78,7 +78,7 @@ For example, to log instances of transactions from a particular account:
 
 ```javascript
 var TriamSdk = require('triam-sdk')
-var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com');
+var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com');
 var lastCursor=0; // or load where you left off
 
 var txHandler = function (txResponse) {
@@ -139,13 +139,13 @@ Once you have built your transaction, you can submit it to the Triam network wit
 ```js
 var TriamSdk = require('triam-sdk')
 TriamSdk.Network.useTestNetwork();
-var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com');
+var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com');
 
 server
   .loadAccount(publicKey)
   .then(function(account){
   		var transaction = new TriamSdk.TransactionBuilder(account)
-  				// this operation funds the new account with XLM
+  				// this operation funds the new account with RIA
   				.addOperation(TriamSdk.Operation.payment({
   					destination: "GASOCNHNNLYFNMDJYQ3XFMI7BYHIOCFW3GJEOWRPEGK2TDPGTG2E5EDW",
   					asset: TriamSdk.Asset.native(),

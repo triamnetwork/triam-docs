@@ -32,12 +32,12 @@ This endpoint responds with a list of transactions that changed a given account'
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//accounts/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/transactions?limit=1"
+  curl "https://testnet-horizon.triamnetwork.com/accounts/GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ/transactions?limit=1"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.transactions()
     .forAccount("GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ")
@@ -50,7 +50,7 @@ This endpoint responds with a list of transactions that changed a given account'
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=transactions&endpoint=for_account
+  https://laboratory.triamnetwork.com/#explorer?resource=transactions&endpoint=for_account
 
 :::
 ### Example Response

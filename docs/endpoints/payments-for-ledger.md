@@ -31,12 +31,12 @@ This endpoint responds with a list of payment operations in a given ledger.  See
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//ledgers/69859/payments"
+  curl "https://testnet-horizon.triamnetwork.com/ledgers/69859/payments"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk')
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.payments()
     .forLedger("10866")
@@ -49,7 +49,7 @@ This endpoint responds with a list of payment operations in a given ledger.  See
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=for_ledger
+  https://laboratory.triamnetwork.com/#explorer?resource=payments&endpoint=for_ledger
 
 :::
 ### Example Response

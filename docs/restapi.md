@@ -6,7 +6,7 @@ Horizon API
 
 ```curl
 curl -X GET \
-  https://testnet-horizon.arm-system-holdings.com/getKeypair \
+  https://testnet-horizon.triamnetwork.com/getKeypair \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 87887390-8ad8-1e95-7046-5dbf6076cf89'
@@ -32,7 +32,7 @@ Horizon API
     export default {
         methods: {
             callHorizon() {
-              fetch('https://testnet-horizon.arm-system-holdings.com/getKeypair')
+              fetch('https://testnet-horizon.triamnetwork.com/getKeypair')
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer').jsonViewer(responseJSON);
@@ -54,7 +54,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/createAccount \
+  https://testnet-horizon.triamnetwork.com/createAccount \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: f08d110c-c1e6-0fb1-46c9-915ed72f11a1' \
@@ -97,7 +97,7 @@ Horizon API
                 }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/createAccount', options)
+              fetch('https://testnet-horizon.triamnetwork.com/createAccount', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-createAccount').jsonViewer(responseJSON);
@@ -117,7 +117,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/getAccountInfo \
+  https://testnet-horizon.triamnetwork.com/getAccountInfo \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 4499c6ba-778c-92d4-c24c-5430499ea908' \
@@ -156,7 +156,7 @@ Horizon API
                 }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/getAccountInfo', options)
+              fetch('https://testnet-horizon.triamnetwork.com/getAccountInfo', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-getAccountInfo').jsonViewer(responseJSON);
@@ -176,7 +176,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/mergeAccount \
+  https://testnet-horizon.triamnetwork.com/mergeAccount \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 81aa68f7-0bb3-ad8b-579c-970693673e54' \
@@ -217,7 +217,7 @@ Horizon API
                 }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/mergeAccount', options)
+              fetch('https://testnet-horizon.triamnetwork.com/mergeAccount', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-mergeAccount').jsonViewer(responseJSON);
@@ -237,7 +237,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/setOption \
+  https://testnet-horizon.triamnetwork.com/setOption \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: b3e32283-b000-0803-d3c1-7d1181c4db57' \
@@ -278,7 +278,7 @@ Horizon API
           			}),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/setOption', options)
+              fetch('https://testnet-horizon.triamnetwork.com/setOption', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-setAccountOptions').jsonViewer(responseJSON);
@@ -299,7 +299,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/findPathPayment \
+  https://testnet-horizon.triamnetwork.com/findPathPayment \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 504a49be-b644-2395-2676-cc83c1648467' \
@@ -352,7 +352,7 @@ Horizon API
               }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/findPathPayment', options)
+              fetch('https://testnet-horizon.triamnetwork.com/findPathPayment', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-findPathPayment').jsonViewer(responseJSON);
@@ -373,7 +373,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/findPathPayment \
+  https://testnet-horizon.triamnetwork.com/findPathPayment \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 504a49be-b644-2395-2676-cc83c1648467' \
@@ -433,7 +433,7 @@ Horizon API
             		}),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/pathPayment', options)
+              fetch('https://testnet-horizon.triamnetwork.com/pathPayment', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-pathPayment').jsonViewer(responseJSON);
@@ -454,7 +454,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/changeTrust \
+  https://testnet-horizon.triamnetwork.com/changeTrust \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: aacd1f8c-d68e-a22b-1616-1cc0222f0ebf' \
@@ -499,7 +499,7 @@ Horizon API
                     }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/changeTrust', options)
+              fetch('https://testnet-horizon.triamnetwork.com/changeTrust', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-changeTrust').jsonViewer(responseJSON);
@@ -520,7 +520,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/payment \
+  https://testnet-horizon.triamnetwork.com/payment \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: fb0b07ea-363b-7ffb-ce64-ada89314ac82' \
@@ -573,7 +573,7 @@ Horizon API
           		 }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/payment', options)
+              fetch('https://testnet-horizon.triamnetwork.com/payment', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-payment').jsonViewer(responseJSON);
@@ -593,7 +593,7 @@ Horizon API
 
 ```curl
 curl -X POST \
-  https://testnet-horizon.arm-system-holdings.com/transactions \
+  https://testnet-horizon.triamnetwork.com/transactions \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 93efad50-87dc-8cfe-0f0e-f32e80bd7aa3' \
@@ -632,7 +632,7 @@ Horizon API
                 }),
               };
 
-              fetch('https://testnet-horizon.arm-system-holdings.com/transactions', options)
+              fetch('https://testnet-horizon.triamnetwork.com/transactions', options)
                 .then((response) => response.json())
                 .then((responseJSON) => {
                     $('#json-renderer-submitTransaction').jsonViewer(responseJSON);

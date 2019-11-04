@@ -32,18 +32,18 @@ This endpoint responds with a list of payments. See [operation resource](../reso
 - curl
   ```bash
   # Retrieve the first 200 payments, ordered chronologically.
-  curl "https://testnet-horizon.arm-system-holdings.com//payments?limit=200"
+  curl "https://testnet-horizon.triamnetwork.com/payments?limit=200"
   ```
 
   ```bash
   # Retrieve a page of payments to occur immediately before the transaction
   # specified by the paging token "1234".
-  curl "https://testnet-horizon.arm-system-holdings.com//payments?cursor=1234&order=desc"
+  curl "https://testnet-horizon.triamnetwork.com/payments?cursor=1234&order=desc"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.payments()
     .call()
@@ -55,7 +55,7 @@ This endpoint responds with a list of payments. See [operation resource](../reso
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=payments&endpoint=all
+  https://laboratory.triamnetwork.com/#explorer?resource=payments&endpoint=all
 
 :::
 ### Example Response

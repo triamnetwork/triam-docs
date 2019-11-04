@@ -3,10 +3,10 @@ Multisignature
 ---
 
 ## Transaction signatures
-Stellar uses **signatures** as authorization. Transactions always need authorization from at least one public key in order
+Triam uses **signatures** as authorization. Transactions always need authorization from at least one public key in order
 to be considered valid. Generally, transactions only need authorization from the public key of the source account.
 
-Transaction signatures are created by cryptographically signing the transaction object contents with a secret key. Stellar
+Transaction signatures are created by cryptographically signing the transaction object contents with a secret key. Triam
 currently uses the ed25519 signature scheme, but there's also a mechanism for adding additional types of public/private
 key schemes. A transaction with an attached signature is considered to have authorization from that public key.
 
@@ -42,7 +42,7 @@ Accounts are identified by a public key. The private key that corresponds to thi
 
 If the weight of the master key is ever updated to 0, the master key is considered to be an invalid key and you cannot sign any transactions with it (even for operations with a threshold value of 0). If there are other signers listed on the account, they can still continue to sign transactions.
 
-"Signers" refers to the master key or to any signing keys added later. A signer is defined as the pair: public key, weight. 
+"Signers" refers to the master key or to any signing keys added later. A signer is defined as the pair: public key, weight.
 
 Each additional signer beyond the master key increases the account's [minimum balance](./fees.md#minimum-account-balance).
 

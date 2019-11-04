@@ -32,12 +32,12 @@ This endpoint responds with a list of operations. See [operation resource](../re
 
 - curl
   ```curl
-  curl "https://testnet-horizon.arm-system-holdings.com//operations?limit=200&order=desc"
+  curl "https://testnet-horizon.triamnetwork.com/operations?limit=200&order=desc"
   ```
 - JavaScript
   ```js
   var TriamSdk = require('triam-sdk');
-  var server = new TriamSdk.Server('https://testnet-horizon.arm-system-holdings.com/');
+  var server = new TriamSdk.Server('https://testnet-horizon.triamnetwork.com/');
 
   server.operations()
     .call()
@@ -55,7 +55,7 @@ This endpoint responds with a list of operations. See [operation resource](../re
     })
   ```
 - Try it out
-  https://laboratory.arm-system-holdings.com/#explorer?resource=operations&endpoint=all
+  https://laboratory.triamnetwork.com/#explorer?resource=operations&endpoint=all
 
 :::
 ### Example Response
