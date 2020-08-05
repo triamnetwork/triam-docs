@@ -3,12 +3,18 @@ Upgrading triam to version 2
 ---
 
 ## Overview
+At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also atracts more users to join Triam network. 
 
-At this time, Triam network allows many issuers to issue the same token (same token name). This is easy to be confused. Besides, some issuers want to have exclusive rights on a token name. So that, we implemented new feature that allows a token name to be owned by only one issuer and more other features. This makes it not only easy for developing the bussinesses of third parties but also atracts more users to join Triam network. These features (operations) are described as below.
+We created 3 new operations to:
+- Has token's info for setting token fee in exchange.
+- Change the holding fee wallet.
+- Limit an amount of token in market for preventing inflation.
+
+These features (operations) are described as below.
 
 ## New features - New Operations
 ### Create Asset
-**CreateAsset** is used to create a new unique token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We create a Asset table to save this data.
+**CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We create a Asset table to save this data.
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
@@ -171,3 +177,25 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
   console.error(e);
 });
 ```
+## How to upgrade current triam core to new version
+- Downloading triam-core binary file at [here]()
+- Adding new fields into triam.cfg file:
+  ```
+  ASSET_HARD_CODE_MODE=true
+  IS_PRODUCTION=true
+  REFUND_ACCOUNT="$RefundAccount"
+  ```
+  $RefundAccount is a account that has enough RIA to send back to issuers for frozing
+- Replacing current triam-core binary file for new one
+- Opening terminal (Ctrl + Alt + T) and cd /path/to/triam-core (the directory contains triam-core binary file)
+- Running
+  ```
+  pm2 stop triam-core
+  ./triam-core --conf triam-core.cfg --forcescp
+  pm2 start ./triam-core --interpreter none -x -- --conf triam-core.cfg
+  ```
+- Setting time that triam-core will be upgraded by url:
+  ```
+  http://$IP:$PORT/upgrades?mode=set&upgradetime=$TIME&protocolversion=9
+  ```
+  Time format: yyyy-mm-ddThh:mm:ssZ. Example: 2020-7-10T03:24:00Z
