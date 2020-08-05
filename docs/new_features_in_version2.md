@@ -95,31 +95,31 @@ Possible errors:
 
  Some of possible errors will appear on old operations for this changing.
 
- ###Payment
+ ### Payment
 | Error | Code | Description |
 | --- | --- | --- |
 | PAYMENT_ASSET_STOP_ISSUING | -10 | Asset was stoppted issuing. Issuer cannot issuing more|
 | PAYMENT_BENEFICIARY_NOT_TRUST_YET | -11 | Beneficiary hasn't still trust yet|
 | PAYMENT_NO_NEW_ASSET | -12 | Asset code doesn't exist in Asset table|
 
- ###PathPayment
+ ### PathPayment
 | Error | Code | Description |
 | --- | --- | --- |
 | PATH_PAYMENT_ASSET_STOP_ISSUING | -13 | Asset was stoppted issuing. Issuer cannot issuing more|
 | PATH_PAYMENT_BENEFICIARY_NOT_TRUST_YET | -14 | Beneficiary hasn't still trust yet|
 | PATH_PAYMENT_NO_NEW_ASSET | -15 | Asset code doesn't exist in Asset table|
 
- ###ManageOffer
+ ### ManageOffer
 | Error | Code | Description |
 | --- | --- | --- |
 | MANAGE_OFFER_NO_NEW_ASSET | -13 | Asset code doesn't exist in Asset table|
 
- ###ChangeTrust
+ ### ChangeTrust
 | Error | Code | Description |
 | --- | --- | --- |
 | CHANGE_TRUST_NO_NEW_ASSET | -6 | Asset code doesn't exist in Asset table|
 
- ###AllowTrust
+ ### AllowTrust
 | Error | Code | Description |
 | --- | --- | --- |
 | ALLOW_TRUST_NO_NEW_ASSET | -6 | Asset code doesn't exist in Asset table|
@@ -131,31 +131,31 @@ Possible errors:
 var TriamSdk = require('triam-sdk');
 var server = new TriamSdk.Server('testnet-horizon.triamnetwork.com');
 
-const newToken = new StellarSdk.Asset('SAY' ,'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ');
+const newToken = new TriamSdk.Asset('SAY' ,'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ');
 
 server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
 .then(function(account) {
 
-  var transaction = new StellarSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.createAsset({
+  var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
+  .addOperation(TriamSdk.Operation.createAsset({
     beneficiary: 'GCTUHZGU4DCONDKHXMQ3IG6Y7HCVC2JP6DRE3YFQHJKXSSJMMGBMR6PI',
     asset: newToken,
     fee: 0,
     ratio: 1000,
     minfee: '0.1'
   }))
-  .addOperation(StellarSdk.Operation.changeAsset({
+  .addOperation(TriamSdk.Operation.changeAsset({
     asset: newToken,
     beneficiary: 'GBAQ6RHTTQKZEMFDBN2BVCRNV4EMMX7GRWUP44Y35EN3V3QYLVJNRZKR'
   }))
-  .addOperation(StellarSdk.Operation.limitAsset({
+  .addOperation(TriamSdk.Operation.limitAsset({
     asset: newToken,
     islimited: 1
   }))
-  .addMemo(StellarSdk.Memo.text('Create Asset'))
+  .addMemo(TriamSdk.Memo.text('Create Asset'))
   .build();
   
-  transaction.sign(StellarSdk.Keypair.fromSecret("SBJNGPLNMHQ7A4TRDLBIHGNBWP5BRBP62DXC2N5UMZI3FHRY2ON3WAYL"));
+  transaction.sign(TriamSdk.Keypair.fromSecret("SBJNGPLNMHQ7A4TRDLBIHGNBWP5BRBP62DXC2N5UMZI3FHRY2ON3WAYL"));
   
   server.submitTransaction(transaction)
   .then(function(transactionResult) {
