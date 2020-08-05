@@ -14,13 +14,13 @@ These features (operations) are described as below.
 
 ## New features - New Operations
 ### Create Asset
-**CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We create a Asset table to save this data.
+**CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We created an Asset table to save this data.
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
-| beneficiary | string | It is the holding fee wallet which will receive token fee from exchange using that token. Length: empty or 56 character|
-| fee | uint32 | Rate of exchange amount need to pay for token fee. Range: 0 - 10000. Formula: Token fee = fee * exchange amount/10000.|
-| ratio | uint32 | When we starts issuing the token into market, our account will be locked an amount of RIA corresponding. Ratio will be used by formula: RIA's amount for locking =  amount for issuing / ratio.|
+| beneficiary | string | It is the holding fee wallet which will receive token fee from exchange using that token. Length: empty or 56 characters|
+| fee | uint32 | Rate of exchange's amount need to pay for token fee. Range: 0 - 10000. Formula: Token fee = fee * exchange's amount/10000.|
+| ratio | uint32 | When we starts issuing the token into market, our accounts will be locked an amount of RIA corresponding. Ratio will be used by formula: RIA's amount for locking =  amount for issuing / ratio.|
 | minfee | int64 | A minimum amount for token fee.|
 
 Possible errors:
@@ -30,7 +30,7 @@ Possible errors:
 | CREATE_ASSET_NO_ISSUER | -2 | Issuer doesn't exist|
 | CREATE_ASSET_ASSET_EXIST | -3 | Asset code (token) exists|
 | CREATE_ASSET_NO_BENEFICIARY | -4 | Beneficiary doesn't exist|
-| CREATE_ASSET_TRUST_SELF | -5 | Beneficiary can't be source account  |
+| CREATE_ASSET_TRUST_SELF | -5 | Beneficiary can't be the source account  |
 | CREATE_ASSET_ISSUER_DIFF_SIGNER | -6 | Signer is difference from issuer |
 | CREATE_ASSET_UNDERFUNDED | -7 | Balance of issuer's account is underfunded|
 | CREATE_ASSET_LOW_RESERVE | -8 | Account must has a minimum amount in it|
@@ -178,7 +178,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
 });
 ```
 ## How to upgrade current triam core to new version
-- Downloading triam-core binary file at [here]()
+- Downloading triam-core binary file [here]()
 - Adding new fields into triam.cfg file:
   ```
   ASSET_HARD_CODE_MODE=true
@@ -186,7 +186,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
   REFUND_ACCOUNT="$RefundAccount"
   ```
   $RefundAccount is a account that has enough RIA to send back to issuers for frozing
-- Replacing current triam-core binary file for new one
+- Replacing current triam-core binary file by new one
 - Opening terminal (Ctrl + Alt + T) and cd /path/to/triam-core (the directory contains triam-core binary file)
 - Running
   ```
