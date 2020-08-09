@@ -14,7 +14,7 @@ These features (operations) are described as below.
 
 ## New features - New Operations
 ### Create Asset
-**CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We created an Asset table to save this data.
+**CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We created an Asset table to save this data. The following table describes **CreateAsset** operation:
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
