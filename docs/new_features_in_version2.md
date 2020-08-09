@@ -92,7 +92,7 @@ Possible errors:
  B, C and D trusts this token. After that, A (issuer) starts issuing 1000 SAY to C. Account of A will be locked 10 RIA (1000/ratio) corresponding. C sends to D 50 SAY. This case, C will be lost 50 SAY and token fee. D is received 50 SAY. B (beneficiry) is received token fee with the formula:
 
  Token fee = (fee\*amount/10000 > minfee) ? fee\*amount/10000 : minfee
- => Token fee = (0\*50/1000 > 0.1) ? 0\*50.1000 : 0.1. Finally token fee is 0.1
+ <=> (0\*50/1000 > 0.1) ? 0\*50.1000 : 0.1. <=> 0.1
 
  Similar to pathpayment operation, the fist asset in assets path will be calculated as above.
  If any trustor sends token back to issuer, the account of issuer will be unlocked an amount corresponding. We call this is "Burning asset". Other, when we limit a token, that token will be stoppted issuing into market. Example:
