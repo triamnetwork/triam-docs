@@ -3,7 +3,7 @@ Upgrading triam to version 2
 ---
 
 ## Overview
-At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also atracts more users to join Triam network. 
+At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also attracts more users to join Triam network. 
 
 We created 3 new operations to:
 - Has token's info for setting token fee in exchange.
@@ -68,7 +68,7 @@ Possible errors:
 | CHANGE_ASSET_MALFORMED_NATIVE_ASSET | -11 | From version 10, we don't use native asset in trustline |
 
 ### Limit Asset
-**LimitAsset** is used to stop issuing more amount of the tokens.This will prevent the inflation.
+**LimitAsset** is used to stop issuing more amount of the tokens. This will prevent the inflation.
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset |  The token will be limited|
@@ -87,9 +87,9 @@ Possible errors:
 
 ## Changes
 
- When we starts issuing token into market, our account will be freezon an amount of RIA corresponding. So a field named "amountlock" was added into the account records in Accounts table  to store this amount. Besides, the flow of payment or pathpayment will be redefine as below:
- A creates token named SAY with ratio is 100, minfee is 0.1, fee is zero, B is beneficiary. 
- B, C and D trusts this token. After that, A starts issuing 1000 SAY to C. Account of A will be locked 10 RIA (1000/ratio) corresponding. C sends to D 50 SAY. This case, C will be lost 50 SAY and token fee. D is received 50 SAY. B (beneficiry) is received token fee with the formula:
+ When we starts issuing token into market, our account will be frozen an amount of RIA corresponding. So a field named "amountlock" was added into the account records in Accounts table  to store this amount. Besides, the flow of payment or pathpayment will be redefine as below:
+ A creates token named SAY with ratio is 100, minfee is 0.1, fee is zero and B is beneficiary. 
+ B, C and D trusts this token. After that, A (issuer) starts issuing 1000 SAY to C. Account of A will be locked 10 RIA (1000/ratio) corresponding. C sends to D 50 SAY. This case, C will be lost 50 SAY and token fee. D is received 50 SAY. B (beneficiry) is received token fee with the formula:
 
  Token fee = (fee\*amount/10000 > minfee) ? fee\*amount/10000 : minfee
  => Token fee = (0\*50/1000 > 0.1) ? 0\*50.1000 : 0.1. Finally token fee is 0.1
@@ -185,7 +185,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
   IS_PRODUCTION=true
   REFUND_ACCOUNT="$RefundAccount"
   ```
-  $RefundAccount is a account that has enough RIA to send back to issuers for frozing
+  $RefundAccount is a account that has enough RIA to send back to issuers for freezing
 - Replacing current triam-core binary file by new one
 - Opening terminal (Ctrl + Alt + T) and cd /path/to/triam-core (the directory contains triam-core binary file)
 - Running
