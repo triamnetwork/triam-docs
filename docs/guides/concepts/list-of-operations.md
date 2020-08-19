@@ -17,10 +17,13 @@ For the protocol specification, see [stellar-transactions.x](https://github.com/
 - [Account Merge](#account-merge)
 - [Inflation](#inflation)
 - [Manage Data](#manage-data)
+- [CreateAsset](#createasset)
+- [ChangeAsset](#changeasset)
+- [LimitAsset](#limitasset)
 
 
 ## Create Account
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.createAccount) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/CreateAccountOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#CreateAccountBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.createAccount) 
 
 This operation creates and funds a new account with the specified starting balance.
 
@@ -48,7 +51,7 @@ Possible errors:
 
 
 ## Payment
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.payment) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/PaymentOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#PaymentBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.payment) 
 
 Sends an amount in a specific asset to a destination account.
 
@@ -77,9 +80,12 @@ Possible errors:
 |PAYMENT_NOT_AUTHORIZED| -7| The destination account is not authorized by the asset's issuer to hold the asset.|
 |PAYMENT_LINE_FULL| -8| The receiving account only trusts an asset's issuer for a certain amount of credit.  If this transaction succeeded, the receiver's trust limit would be exceeded.|
 |PAYMENT_NO_ISSUER| -9| The issuer of the asset does not exist.|
+| PAYMENT_ASSET_STOP_ISSUING | -10 | Asset was stoppted issuing. Issuer cannot issuing more|
+| PAYMENT_BENEFICIARY_NOT_TRUST_YET | -11 | Beneficiary hasn't still trust yet|
+| PAYMENT_NO_NEW_ASSET | -12 | Asset code doesn't exist in Asset table|
 
 ## Path Payment
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.pathPayment) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/PathPaymentOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#PayWithPath)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.pathPayment) 
 
 Sends an amount in a specific asset to a destination account through a path of offers. This allows the asset sent (e.g., 450 RIA) to be different from the asset received (e.g, 6 BTC).
 
@@ -114,9 +120,12 @@ Possible errors:
 |PATH_PAYMENT_TOO_FEW_OFFERS| -10| There is no path of offers connecting the `send asset` and `destination asset`.  Stellar only considers paths of length 5 or shorter.|
 |PATH_PAYMENT_OFFER_CROSS_SELF| -11| The payment would cross one of its own offers.|
 |PATH_PAYMENT_OVER_SENDMAX| -12| The paths that could send `destination amount` of `destination asset` would exceed `send max`.|
+| PATH_PAYMENT_ASSET_STOP_ISSUING | -13 | Asset was stoppted issuing. Issuer cannot issuing more|
+| PATH_PAYMENT_BENEFICIARY_NOT_TRUST_YET | -14 | Beneficiary hasn't still trust yet|
+| PATH_PAYMENT_NO_NEW_ASSET | -15 | Asset code doesn't exist in Asset table|
 
 ## Manage Offer
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.manageOffer) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/ManageOfferOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#ManageOfferBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.manageOffer)
 
 Creates, updates, or deletes an offer.
 
@@ -154,9 +163,10 @@ Possible errors:
 |MANAGE_OFFER_BUY_NO_ISSUER| -10| The issuer of buying asset does not exist.|
 |MANAGE_OFFER_NOT_FOUND| -11| An offer with that `offerID` cannot be found.|
 |MANAGE_OFFER_LOW_RESERVE| -12| The account creating this offer does not have enough RIA. For every offer an account creates, the minimum amount of RIA that account must hold will increase.|
+| MANAGE_OFFER_NO_NEW_ASSET | -13 | Asset code doesn't exist in Asset table|
 
 ## Create Passive Offer
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.createPassiveOffer) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/CreatePassiveOfferOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#ManageOfferBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.createPassiveOffer) 
 
 A passive offer is an offer that does not act on and take a reverse offer of equal price. Instead, they only take offers
 of lesser price. For example, if an offer exists to buy 5 BTC for 30 RIA, and you make a passive offer to buy 30 RIA for 5 BTC,
@@ -201,7 +211,7 @@ Possible errors:
 
 
 ## Set Options
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.setOptions) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/SetOptionsOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#SetOptionsBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.setOptions) 
 
 This operation sets the options for an account.
 
@@ -242,7 +252,7 @@ Possible errors:
 |SET_OPTIONS_INVALID_HOME_DOMAIN| -9| Home domain is malformed.|
 
 ## Change Trust
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.changeTrust) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/ChangeTrustOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#ChangeTrustBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.changeTrust) 
 
 Creates, updates, or deletes a trustline.  For more on trustlines, please refer to the [assets documentation](./assets.md).
 
@@ -263,11 +273,14 @@ Possible errors:
 |CHANGE_TRUST_NO_ISSUER| -2| The issuer of the asset cannot be found.|
 |CHANGE_TRUST_INVALID_LIMIT| -3| This operation would drop the `limit` of this trustline below the amount of the asset the account currently holds.|
 |CHANGE_TRUST_LOW_RESERVE| -4| The account does not have enough RIA.  For every new trustline added by the account, the minimum reserve of RIA it must hold increases.|
+| CHANGE_TRUST_SELF_NOT_ALLOWED | -5 | Trusting self is not allowed|
+| CHANGE_TRUST_NO_NEW_ASSET | -6 | Asset code doesn't exist in Asset table|
+
 
 
 
 ## Allow Trust
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.allowTrust) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/AllowTrustOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#AllowTrustBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.allowTrust) 
 
 Updates the `authorized` flag of an existing trustline. This can only be called by the issuer of a trustline's [asset](./assets.md).
 
@@ -291,9 +304,12 @@ Possible errors:
 |ALLOW_TRUST_NO_TRUST_LINE| -2| The `trustor` does not have a trustline with the issuer performing this operation.|
 |ALLOW_TRUST_TRUST_NOT_REQUIRED| -3| The source account (issuer performing this operation) does not require trust.  In other words, it does not have the flag `AUTH_REQUIRED_FLAG` set.|
 |ALLOW_TRUST_CANT_REVOKE| -4| The source account is trying to revoke the trustline of the `trustor`, but it cannot do so.|
+| ALLOW_TRUST_SELF_NOT_ALLOWED | -5 | Trusting self is not allowed|
+| ALLOW_TRUST_NO_NEW_ASSET | -6 | Asset code doesn't exist in Asset table|
+
 
 ## Account Merge
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.accountMerge) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/AccountMergeOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#AccountMergeBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.accountMerge) 
 
 Transfers the native balance (the amount of RIA an account holds) to another account and removes the source account from the ledger.
 
@@ -315,7 +331,7 @@ Possible errors:
 |ACCOUNT_MERGE_HAS_SUB_ENTRIES | -4| The source account has trust lines/offers.|
 
 ## Inflation
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.inflation) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/InflationOperation.html) | [Go](https://godoc.org/github.com/stellar/go/build#InflationBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.inflation)
 
 This operation runs inflation.
 
@@ -331,7 +347,7 @@ Possible errors:
 
 
 ## Manage Data
-[JavaScript](http://stellar.github.io/js-stellar-sdk/Operation.html#.manageData) | [Java](http://stellar.github.io/java-stellar-sdk/org/stellar/sdk/ManageDataOperation.Builder.html) | [Go](https://godoc.org/github.com/stellar/go/build#ManageDataBuilder)
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.manageData) 
 
 Allows you to set,modify or delete a Data Entry (name/value pair) that is attached to a particular account. An account can have an arbitrary amount of DataEntries attached to it. Each DataEntry increases the minimum balance needed to be held by the account.
 
@@ -354,3 +370,104 @@ Possible errors:
 |MANAGE_DATA_NAME_NOT_FOUND| -2| Trying to remove a Data Entry that isn't there. This will happen if Name is set (and Value isn't) but the Account doesn't have a DataEntry with that Name.|
 |MANAGE_DATA_LOW_RESERVE| -3| Not enough RIA in the account to create a new Data Entry. Each additional Data Entry increases the minimum balance of the Account.|
 |MANAGE_DATA_INVALID_NAME| -4| Name not a valid string.|
+
+## CreateAsset
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.createAsset) 
+
+**CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We created an Asset table to save this data.
+
+Threshold: Medium
+
+Result: `CreateAssetResult`
+
+Parameters:
+| Parameters | Type | Description |
+| --- | --- | --- |
+| asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
+| beneficiary | string | It is the holding fee wallet which will receive token fee from exchange using that token. Length: empty or 56 characters|
+| fee | uint32 | Rate of exchange's amount need to pay for token fee. Range: 0 - 10000. Formula: Token fee = fee * exchange's amount/10000.|
+| ratio | uint32 | When we starts issuing the token into market, our accounts will be locked an amount of RIA corresponding. Ratio will be used by formula: RIA's amount for locking =  amount for issuing / ratio.|
+| minfee | int64 | A minimum amount for token fee.|
+
+Possible errors:
+
+| Error | Code | Description |
+| --- | --- | --- |
+| CREATE_ASSET_MALFORMED | -1 | Invalid input|
+| CREATE_ASSET_NO_ISSUER | -2 | Issuer doesn't exist|
+| CREATE_ASSET_ASSET_EXIST | -3 | Asset code (token) exists|
+| CREATE_ASSET_NO_BENEFICIARY | -4 | Beneficiary doesn't exist|
+| CREATE_ASSET_TRUST_SELF | -5 | Beneficiary can't be the source account  |
+| CREATE_ASSET_ISSUER_DIFF_SIGNER | -6 | Signer is difference from issuer |
+| CREATE_ASSET_UNDERFUNDED | -7 | Balance of issuer's account is underfunded|
+| CREATE_ASSET_LOW_RESERVE | -8 | Account must has a minimum amount in it|
+| CREATE_ASSET_BENEFICIARY_MUST_BE_EMPTY | -9 | Appearing when fee and minfee are equal zero but beneficiary is not empty|
+| CREATE_ASSET_INVALID_BENEFICIARY | -10 | Invalid beneficiary format. It need be a public key string|
+| CREATE_ASSET_NO_ADMIN | -11 | This case for hard-code. The refund-account doesn't exist|
+| CREATE_ASSET_INVALID_ASSET_JSON_FILE | -12 | This case for hard-code. The asset json file is invalid or the asset json file doesn't exist|
+| CREATE_ASSET_DIFF_ISSUER_ON_TRUSTLINE | -13 | Asset code exist on trustline but this issuer is difference on there|
+| CREATE_ASSET_MALFORMED_NEGATIVE_MINFEE | -14 | Invalid minfee|
+| CREATE_ASSET_MALFORMED_OUT_OF_RANGE_FEE | -15 | Range of fee: 0 - 10000|
+| CREATE_ASSET_MALFORMED_OUT_OF_RANGE_RATIO | -16 | Range of ratio: 0 - 2100000000|
+| CREATE_ASSET_MALFORMED_INVALID_ASSET | -17 | Invalid asset|
+| CREATE_ASSET_MALFORMED_NATIVE_ASSET | -18 
+
+## ChangeAsset
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.payment)
+
+**ChangeAsset** is used to change the beneficiary (the holding fee wallet)
+
+Threshold: Medium
+
+Result: `ChangeAssetResult`
+
+Parameters:
+
+|Parameters| Type| Description|
+| --- | --- | --- |
+| asset | Asset | The token will be changed.|
+| beneficiary | string | The new beneficiary of token|
+
+Possible errors:
+
+|Error| Code| Description|
+| --- | --- | --- |
+| CHANGE_ASSET_MALFORMED | -1 | Invalid input|
+| CHANGE_ASSET_ASSET_NO_EXIST | -2 | Asset code doesn't exist|
+| CHANGE_ASSET_NO_BENEFICIARY | -3 | Beneficiary doesn't exist|
+| CHANGE_ASSET_TRUST_SELF | -4 | Beneficiary can't be source account |
+| CHANGE_ASSET_ISSUER_DIFF_SIGNER | -5 | Signer is difference from issuer |
+| CHANGE_TRUST_INVALID_NUM_ENTRIES | -6 | Removed|
+| CHANGE_ASSET_BENEFICIARY_MUST_BE_EMPTY | -7 | Appearing when fee and minfee are equal zero but beneficiary is not empty|
+| CHANGE_ASSET_INVALID_BENEFICIARY | -8 | Invalid beneficiary format. It need be a public key string|
+| CHANGE_ASSET_LOW_RESERVE | -9 |Account must has a minimum amount in it after minusing fee|
+| CHANGE_ASSET_MALFORMED_INVALID_ASSET | -10 | Invalid asset|
+| CHANGE_ASSET_MALFORMED_NATIVE_ASSET | -11 | From version 10, we don't use native asset in trustline |
+
+## LimitAsset
+[JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.payment)
+
+**LimitAsset** is used to stop issuing more amount of the tokens. This will prevent the inflation.
+
+Threshold: Medium
+
+Result: `LimitAssetResult`
+
+Parameters:
+
+|Parameters| Type| Description|
+| --- | --- | --- |
+| asset | Asset |  The token will be limited|
+| islimited | uint32 | Values: 0 or 1. 1 for limiting. 0 for countinue issuing. |
+
+Possible errors:
+
+|Error| Code| Description|
+| --- | --- | --- |
+| LIMIT_ASSET_MALFORMED | -1 | Invalid input|
+| LIMIT_ASSET_ASSET_NO_EXIST | -2 | Asset code doesn't exist|
+| LIMIT_ASSET_ISSUER_DIFF_SIGNER | -3 | Signer is difference from issuer|
+| LIMIT_ASSET_ASSET_STOP_ISSUING | -4 | Asset was stopped issuing and cannot reopen|
+| LIMIT_ASSET_MALFORMED_INVALID_ASSET | -5 | Invalid asset|
+| LIMIT_ASSET_MALFORMED_NATIVE_ASSET | -6 | From version 10, we don't use native asset in trustline|
+| LIMIT_ASSET_MALFORMED_INVALID_ISLIMITED | -7 | Values: 0 or 1|
