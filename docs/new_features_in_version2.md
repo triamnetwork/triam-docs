@@ -45,6 +45,8 @@ Possible errors:
 | CREATE_ASSET_MALFORMED_INVALID_ASSET | -17 | Invalid asset|
 | CREATE_ASSET_MALFORMED_NATIVE_ASSET | -18 | From version 10, we don't use native asset in trustline|
 
+View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.createAsset)
+
 ### Change Asset
 **ChangeAsset** is used to change the beneficiary (the holding fee wallet)
 | Fields | Param Type | Description |
@@ -67,6 +69,8 @@ Possible errors:
 | CHANGE_ASSET_MALFORMED_INVALID_ASSET | -10 | Invalid asset|
 | CHANGE_ASSET_MALFORMED_NATIVE_ASSET | -11 | From version 10, we don't use native asset in trustline |
 
+View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.changeAsset)
+
 ### Limit Asset
 **LimitAsset** is used to stop issuing more amount of the tokens. This will prevent the inflation.
 | Fields | Param Type | Description |
@@ -84,6 +88,8 @@ Possible errors:
 | LIMIT_ASSET_MALFORMED_INVALID_ASSET | -5 | Invalid asset|
 | LIMIT_ASSET_MALFORMED_NATIVE_ASSET | -6 | From version 10, we don't use native asset in trustline|
 | LIMIT_ASSET_MALFORMED_INVALID_ISLIMITED | -7 | Values: 0 or 1|
+
+View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.limitAsset)
 
 ## Changes
 
