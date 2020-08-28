@@ -2,9 +2,9 @@
 List of Operations
 ---
 
-For a description of how operations work in Stellar, see [Operations](./operations.md).
+For a description of how operations work in Triam, see [Operations](./operations.md).
 
-For the protocol specification, see [stellar-transactions.x](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-transaction.x).
+For the protocol specification, see [triam-transactions.x](https://github.com/triam/triam-core/blob/master/src/xdr/Triam-transaction.x).
 
 - [Create Account](#create-account)
 - [Payment](#payment)
@@ -117,7 +117,7 @@ Possible errors:
 |PATH_PAYMENT_NOT_AUTHORIZED| -7| The destination account is not authorized by the asset's issuer to hold the asset. |
 |PATH_PAYMENT_LINE_FULL| -8| The receiving account only trusts an asset's issuer for a certain amount of credit.  If this transaction succeeded, the receiver's trust limit would be exceeded.|
 |PATH_PAYMENT_NO_ISSUER| -9| The issuer on one of assets is missing.|
-|PATH_PAYMENT_TOO_FEW_OFFERS| -10| There is no path of offers connecting the `send asset` and `destination asset`.  Stellar only considers paths of length 5 or shorter.|
+|PATH_PAYMENT_TOO_FEW_OFFERS| -10| There is no path of offers connecting the `send asset` and `destination asset`.  Triam only considers paths of length 5 or shorter.|
 |PATH_PAYMENT_OFFER_CROSS_SELF| -11| The payment would cross one of its own offers.|
 |PATH_PAYMENT_OVER_SENDMAX| -12| The paths that could send `destination amount` of `destination asset` would exceed `send max`.|
 | PATH_PAYMENT_ASSET_STOP_ISSUING | -13 | Asset was stoppted issuing. Issuer cannot issuing more|
@@ -351,7 +351,7 @@ Possible errors:
 
 Allows you to set,modify or delete a Data Entry (name/value pair) that is attached to a particular account. An account can have an arbitrary amount of DataEntries attached to it. Each DataEntry increases the minimum balance needed to be held by the account.
 
-DataEntries can be used for application specific things. They are not used by the core Stellar protocol.
+DataEntries can be used for application specific things. They are not used by the core Triam protocol.
 
 Threshold: Medium
 
