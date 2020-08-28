@@ -4,7 +4,7 @@ List of Operations
 
 For a description of how operations work in Triam, see [Operations](./operations.md).
 
-For the protocol specification, see [triam-transactions.x](https://github.com/triam/triam-core/blob/master/src/xdr/Triam-transaction.x).
+For the protocol specification, see bellow:
 
 - [Create Account](#create-account)
 - [Payment](#payment)
