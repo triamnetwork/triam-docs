@@ -17,6 +17,9 @@ Here are the possible operation types:
 - [Account Merge](./list-of-operations.md#account-merge)
 - [Inflation](./list-of-operations.md#inflation)
 - [Manage Data](./list-of-operations.md#manage-data)
+- [Create Asset](./list-of-operations.md#create-asset)
+- [Change Asset](./list-of-operations.md#change-asset)
+- [Limit Asset](./list-of-operations.md#limit-asset)
 
 Operations are executed on behalf of the source account specified in the
 transaction, unless there is an override defined for the operation.

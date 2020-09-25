@@ -55,8 +55,10 @@
       * [Transactions](docs/guides/concepts/transactions.md)
       * [Versioning and Upgrading](docs/guides/concepts/versioning.md)
       * [XDR](docs/guides/concepts/xdr.md)
+      * [New Concepts in version 2](docs/guides/concepts/new-concepts-v2.md)
     * Walkthroughs
       * [Custom Assets](docs/guides/walk-throughs/custom-assets.md)
+      * [Custom Assets on version 2](docs/guides/walk-throughs/custom-assets-v2.md)
       * [Triam Smart Contracts](docs/guides/walk-throughs/stellar-smart-contracts.md)
     * [Triam Attachment Convention](docs/guides/attachment.md)
     * [Channels](docs/guides/channels.md)
