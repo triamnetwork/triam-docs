@@ -4,7 +4,8 @@ Overview
 The JavaScript Triam SDK facilitates integration with the [Triam Horizon API server](#) and submission of Triam transactions, either on Node.js or in the browser. It has two main uses: [querying Horizon](#querying-horizon) and [building, signing, and submitting transactions to the Triam network](#building-transactions).
 
 [Building and installing js-triam-sdk](https://triamnetwork.github.io/triam-sdk/)<br>
-[Examples of using js-triam-sdk](./examples.md)
+[Examples of using js-triam-sdk](../docs/examples.md)<br>
+[New features of triam-core v2](../docs/new_features_in_version2.md)
 
 # Querying Horizon
 js-triam-sdk gives you access to all the endpoints exposed by Horizon.

@@ -32,9 +32,46 @@ When we starts issuing token into market, our account will be frozen an amount o
 #### Transaction 1: Issuer will create an asset.
 **Account**: source account (issuer)
 **Operations**:	
-- [Create Asset](https://triamnetwork.github.io/triam-docs/#/docs/guides/concepts/list-of-operations?id=create-account): create an Asset
+- [Create Asset](https://triamnetwork.github.io/triam-docs/#/docs/guides/concepts/list-of-operations?id=create-asset): create an Asset
 
 **Signers**: source account (issuer)
+
+```js
+var TriamSdk = require('triam-sdk');
+var server = new TriamSdk.Server('testnet-horizon.triamnetwork.com');
+
+const newToken = new TriamSdk.Asset('SAY' ,'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ');
+
+server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
+.then(function(account) {
+
+  var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
+  .addOperation(TriamSdk.Operation.createAsset({
+    beneficiary: 'GCTUHZGU4DCONDKHXMQ3IG6Y7HCVC2JP6DRE3YFQHJKXSSJMMGBMR6PI',
+    asset: newToken,
+    fee: 0,
+    ratio: 1000,
+    minfee: '0.1'
+  }))
+  .addMemo(TriamSdk.Memo.text('Create Asset'))
+  .build();
+  
+  transaction.sign(TriamSdk.Keypair.fromSecret("SBJNGPLNMHQ7A4TRDLBIHGNBWP5BRBP62DXC2N5UMZI3FHRY2ON3WAYL"));
+  
+  server.submitTransaction(transaction)
+  .then(function(transactionResult) {
+    console.log('\nSuccess! View the transaction at: ');
+    console.log(transactionResult._links.transaction.href);
+  })
+  .catch(function(err) {
+    console.log('An error has occured:');
+    console.log(err.response.data.extras);
+  });
+})
+.catch(function(e) {
+  console.error(e);
+});
+```
 
 #### Transaction 2: Trustors and Beneficiary will trust the above asset
 **Account**: source account (trustors or beneficiary)
@@ -80,9 +117,77 @@ When we starts issuing token into market, our account will be frozen an amount o
 
 **Signers**: issuer
 
+```js
+var TriamSdk = require('triam-sdk');
+var server = new TriamSdk.Server('testnet-horizon.triamnetwork.com');
+
+const newToken = new TriamSdk.Asset('SAY' ,'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ');
+
+server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
+.then(function(account) {
+
+  var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
+  .addOperation(TriamSdk.Operation.changeAsset({
+    asset: newToken,
+    beneficiary: 'GBAQ6RHTTQKZEMFDBN2BVCRNV4EMMX7GRWUP44Y35EN3V3QYLVJNRZKR'
+  }))
+  .addMemo(TriamSdk.Memo.text('Create Asset'))
+  .build();
+  
+  transaction.sign(TriamSdk.Keypair.fromSecret("SBJNGPLNMHQ7A4TRDLBIHGNBWP5BRBP62DXC2N5UMZI3FHRY2ON3WAYL"));
+  
+  server.submitTransaction(transaction)
+  .then(function(transactionResult) {
+    console.log('\nSuccess! View the transaction at: ');
+    console.log(transactionResult._links.transaction.href);
+  })
+  .catch(function(err) {
+    console.log('An error has occured:');
+    console.log(err.response.data.extras);
+  });
+})
+.catch(function(e) {
+  console.error(e);
+});
+```
+
 #### Transaction 8: Issuer stop issuing asset
 **Account**: issuer
 **Operations**:
 - [Limit Asset](https://triamnetwork.github.io/triam-docs/#/docs/guides/concepts/list-of-operations?id=limit-asset): stop issuing asset to prevent inflation
 
 **Signers**: issuer
+
+```js
+var TriamSdk = require('triam-sdk');
+var server = new TriamSdk.Server('testnet-horizon.triamnetwork.com');
+
+const newToken = new TriamSdk.Asset('SAY' ,'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ');
+
+server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
+.then(function(account) {
+
+  var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
+  .addOperation(TriamSdk.Operation.limitAsset({
+    asset: newToken,
+    islimited: 1
+  }))
+  .addMemo(TriamSdk.Memo.text('Create Asset'))
+  .build();
+  
+  transaction.sign(TriamSdk.Keypair.fromSecret("SBJNGPLNMHQ7A4TRDLBIHGNBWP5BRBP62DXC2N5UMZI3FHRY2ON3WAYL"));
+  
+  server.submitTransaction(transaction)
+  .then(function(transactionResult) {
+    console.log('\nSuccess! View the transaction at: ');
+    console.log(transactionResult._links.transaction.href);
+  })
+  .catch(function(err) {
+    console.log('An error has occured:');
+    console.log(err.response.data.extras);
+  });
+})
+.catch(function(e) {
+  console.error(e);
+});
+```
