@@ -42,7 +42,47 @@ Asset astroDollar = Asset.createNonNativeAsset("AstroDollar", issuer);
 
 ## Issuing a New Asset Type
 
-To issue a new type of asset, all you need to do is choose a code. It can be any combination of up to 12 letters or numbers, but you should use the appropriate [ISO 4217 code][ISO 4217] (e.g. `USD` for US dollars)  or [ISIN] for national currencies or securities. Once you’ve chosen a code, you can begin paying people using that asset code. You don’t need to do anything to declare your asset on the network.
+To issue a new type of asset, all you need to do is choose a code. It can be any combination of up to 12 letters or numbers, but you should use the appropriate [ISO 4217 code][ISO 4217] (e.g. `USD` for US dollars)  or [ISIN] for national currencies or securities. Once you’ve chosen a code, you can begin paying people using that asset code. The following code is an example about create an asset (this is one of new features at triam-corev2):
+
+<code-example name="Create New Asset">
+
+```js
+var TriamSdk = require('triam-sdk');
+var server = new TriamSdk.Server('testnet-horizon.triamnetwork.com');
+
+const newToken = new TriamSdk.Asset('SAY' ,'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ');
+
+server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
+.then(function(account) {
+
+  var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
+  .addOperation(TriamSdk.Operation.createAsset({
+    beneficiary: 'GCTUHZGU4DCONDKHXMQ3IG6Y7HCVC2JP6DRE3YFQHJKXSSJMMGBMR6PI',
+    asset: newToken,
+    fee: 0,
+    ratio: 1000,
+    minfee: '0.1'
+  }))
+  .addMemo(TriamSdk.Memo.text('Create Asset'))
+  .build();
+  
+  transaction.sign(TriamSdk.Keypair.fromSecret("SBJNGPLNMHQ7A4TRDLBIHGNBWP5BRBP62DXC2N5UMZI3FHRY2ON3WAYL"));
+  
+  server.submitTransaction(transaction)
+  .then(function(transactionResult) {
+    console.log('\nSuccess! View the transaction at: ');
+    console.log(transactionResult._links.transaction.href);
+  })
+  .catch(function(err) {
+    console.log('An error has occured:');
+    console.log(err.response.data.extras);
+  });
+})
+.catch(function(e) {
+  console.error(e);
+});
+```
+</code-example>
 
 However, other people can’t receive your asset until they’ve chosen to trust it. Because a Triam asset is really a credit, you should trust that the issuer can redeem that credit if necessary later on. You might not want to trust your neighbor to issue banana assets if they don’t even have a banana plant, for example.
 

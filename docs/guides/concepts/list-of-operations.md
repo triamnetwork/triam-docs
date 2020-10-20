@@ -381,6 +381,7 @@ Threshold: Medium
 Result: `CreateAssetResult`
 
 Parameters:
+
 | Parameters | Type | Description |
 | --- | --- | --- |
 | asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
