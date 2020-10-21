@@ -4,8 +4,8 @@ Overview
 The JavaScript Triam SDK facilitates integration with the [Triam Horizon API server](#) and submission of Triam transactions, either on Node.js or in the browser. It has two main uses: [querying Horizon](#querying-horizon) and [building, signing, and submitting transactions to the Triam network](#building-transactions).
 
 [Building and installing js-triam-sdk](https://triamnetwork.github.io/triam-sdk/)<br>
-[Examples of using js-triam-sdk](../docs/examples.md)<br>
-[New features of triam-core v2](../docs/new_features_in_version2.md)
+[Examples of using js-triam-sdk](docs/examples.md)<br>
+[New features of triam-core v2](#new-features-in-core-v2)
 
 # Querying Horizon
 js-triam-sdk gives you access to all the endpoints exposed by Horizon.
@@ -169,3 +169,7 @@ server
   	console.error(err);
   });
 ```
+
+# New features in core v2
+At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also attracts more users to join Triam network. View [more](docs/new_features_in_version2.md). <br>
+We have some of [concepts](docs/guides/concepts/new-concepts-v2.md) you need to know before making an example about triam-core v2. We also have made an example for you to know the follow of new features. Let's have a look on [it](docs/guides/walk-throughs/custom-assets-v2.md)

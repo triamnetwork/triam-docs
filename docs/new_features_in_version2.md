@@ -15,6 +15,7 @@ These features (operations) are described as below.
 ## New features - New Operations
 ### Create Asset
 **CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We created an Asset table to save this data. The following table describes **CreateAsset** operation:
+
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
@@ -24,6 +25,7 @@ These features (operations) are described as below.
 | minfee | int64 | A minimum amount for token fee.|
 
 Possible errors:
+
 | Error | Code | Description |
 | --- | --- | --- |
 | CREATE_ASSET_MALFORMED | -1 | Invalid input|
@@ -49,12 +51,14 @@ View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.crea
 
 ### Change Asset
 **ChangeAsset** is used to change the beneficiary (the holding fee wallet)
+
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset | The token will be changed.|
 | beneficiary | string | The new beneficiary of token|
 
 Possible errors:
+
 | Error | Code | Description |
 | --- | --- | --- |
 | CHANGE_ASSET_MALFORMED | -1 | Invalid input|
@@ -73,12 +77,14 @@ View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.chan
 
 ### Limit Asset
 **LimitAsset** is used to stop issuing more amount of the tokens. This will prevent the inflation.
+
 | Fields | Param Type | Description |
 | --- | --- | --- |
 | asset | Asset |  The token will be limited|
 | islimited | uint32 | Values: 0 or 1. 1 for limiting. 0 for countinue issuing. |
 
 Possible errors:
+
 | Error | Code | Description |
 | --- | --- | --- |
 | LIMIT_ASSET_MALFORMED | -1 | Invalid input|
@@ -108,6 +114,7 @@ View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.limi
  Some of possible errors will appear on old operations for this changing.
 
  ### Payment
+
 | Error | Code | Description |
 | --- | --- | --- |
 | PAYMENT_ASSET_STOP_ISSUING | -10 | Asset was stoppted issuing. Issuer cannot issuing more|
@@ -115,6 +122,7 @@ View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.limi
 | PAYMENT_NO_NEW_ASSET | -12 | Asset code doesn't exist in Asset table|
 
  ### PathPayment
+
 | Error | Code | Description |
 | --- | --- | --- |
 | PATH_PAYMENT_ASSET_STOP_ISSUING | -13 | Asset was stoppted issuing. Issuer cannot issuing more|
@@ -122,16 +130,19 @@ View details [here](http://triamnetwork.github.io/triam-sdk/Operation.html#.limi
 | PATH_PAYMENT_NO_NEW_ASSET | -15 | Asset code doesn't exist in Asset table|
 
  ### ManageOffer
+
 | Error | Code | Description |
 | --- | --- | --- |
 | MANAGE_OFFER_NO_NEW_ASSET | -13 | Asset code doesn't exist in Asset table|
 
  ### ChangeTrust
+
 | Error | Code | Description |
 | --- | --- | --- |
 | CHANGE_TRUST_NO_NEW_ASSET | -6 | Asset code doesn't exist in Asset table|
 
  ### AllowTrust
+ 
 | Error | Code | Description |
 | --- | --- | --- |
 | ALLOW_TRUST_NO_NEW_ASSET | -6 | Asset code doesn't exist in Asset table|

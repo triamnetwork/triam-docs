@@ -65,7 +65,7 @@
     * [Add Triam to your Exchange](docs/guides/exchange.md)
     * [Hardware Requirements](docs/guides/hardware.md)
     * [New Features In Version2](docs/new_features_in_version2.md)
-    * [Issuing Assets](docs/guides/issuing-assets.md)
+    <!-- * [Issuing Assets](docs/guides/issuing-assets.md) -->
     * [Security](docs/guides/security.md)
     * [Build Triam Apps](docs/guides/things-to-build.md)
     <!-- * [Contribution Guide](docs/guides/contributing.md) -->

@@ -2,7 +2,7 @@
 Compliance Server
 ---
 
-The task of an anchor is handling regulatory compliance, like Anti-Money Laundering (<abbr title="Anti-Money Laundering">AML</abbr>). To accomplish that, you should use the [Stellar compliance protocol](../compliance-protocol.md), a standard way to exchange compliance information and pre-approve a transaction with another financial institution.
+The task of an anchor is handling regulatory compliance, like Anti-Money Laundering (<abbr title="Anti-Money Laundering">AML</abbr>). To accomplish that, you should use the [Triam compliance protocol](../compliance-protocol.md), a standard way to exchange compliance information and pre-approve a transaction with another financial institution.
 
 You can write your own server that matches the compliance protocol, but Stellar.org also provides a [compliance server](https://github.com/stellar/bridge-server/blob/master/readme_compliance.md) that takes care of most of the work for you.
 
@@ -17,7 +17,7 @@ When another compliance server contacts yours to clear a transaction, a series o
 
 ## Create a Database
 
-The compliance server requires a MySQL or PostgreSQL database in order to save transaction and compliance information. Create a new database named `stellar_compliance` and a user to manage it. You don’t need to add any tables; the server includes [a command to configure and update your database](#start-the-server).
+The compliance server requires a MySQL or PostgreSQL database in order to save transaction and compliance information. Create a new database named `triam_compliance` and a user to manage it. You don’t need to add any tables; the server includes [a command to configure and update your database](#start-the-server).
 
 
 ## Download and Configure Compliance Server
@@ -37,7 +37,7 @@ network_passphrase = "Test SDF Network ; September 2015"
 
 [database]
 type = "mysql" # Or "postgres" if you created a PostgreSQL database
-url = "dbuser:dbpassword@/stellar_compliance"
+url = "dbuser:dbpassword@/triam_compliance"
 
 [keys]
 # This should be the secret seed for your base account (or another account that
@@ -302,13 +302,13 @@ In the server configuration file, there are three callback URLs, much like those
 To keep things simple, we’ll add all three callbacks to the same server we are using for the bridge server callbacks. However, you can implement them on any service that makes sense in your infrastructure. Just make sure they’re reachable at the URLs in your config file.
 
 
-## Update Stellar.toml
+## Update Triam.toml
 
-When other organizations need to contact your compliance server to authorize a payment to one of your customers, they consult your domain’s `stellar.toml` file for the address, just as when finding your federation server.
+When other organizations need to contact your compliance server to authorize a payment to one of your customers, they consult your domain’s `triam.toml` file for the address, just as when finding your federation server.
 
-For compliance operations, you’ll need to list two new properties in your `stellar.toml`:
+For compliance operations, you’ll need to list two new properties in your `triam.toml`:
 
-<code-example name="stellar.toml">
+<code-example name="triam.toml">
 
 ```toml
 FEDERATION_SERVER = "https://www.your_org.com:8002/federation"

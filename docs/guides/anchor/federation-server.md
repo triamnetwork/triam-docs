@@ -4,7 +4,7 @@ Federation Server
 
 When testing the bridge server, we added a `memo` to the transaction in order to identify what customer account to credit. However, other people and organizations using Stellar might not know they need to do that. How do they find out?
 
-The [Stellar federation protocol](../concepts/federation.md) allows you to convert a human-readable address like `amy*your_org.com`[^friendly_names] to an account ID. It also includes information about what should be in a transaction’s `memo`. When sending a payment, you contact a federation server first to determine what Stellar account ID to pay. Luckily, the bridge server does this for you.
+The [Triam federation protocol](../concepts/federation.md) allows you to convert a human-readable address like `amy*your_org.com`[^friendly_names] to an account ID. It also includes information about what should be in a transaction’s `memo`. When sending a payment, you contact a federation server first to determine what Stellar account ID to pay. Luckily, the bridge server does this for you.
 
 ![Payment flow diagram](assets/anchor-send-payment-federation.png)
 
@@ -13,7 +13,7 @@ Stellar.org provides a [prebuilt federation server](https://github.com/stellar/g
 
 ## Create a Database
 
-The Stellar federation server is designed to connect to any existing SQL database you might have with a list of account names. It essentially translates a federation request into a SQL query. The server supports MySQL, PostgreSQL, and SQLite3.
+The Triam federation server is designed to connect to any existing SQL database you might have with a list of account names. It essentially translates a federation request into a SQL query. The server supports MySQL, PostgreSQL, and SQLite3.
 
 At a minimum, your database should have a table with a column identifying the name to use for each account record.[^federation_tables] In your existing system, you might have a table named `accounts` that looks something like:
 
@@ -61,7 +61,7 @@ The `federation` query is a SQL query that should return the columns `id`, `memo
 
 Since we are mapping all addresses to our base account, we always return the base account ID for `id`. As in the first section, we want the account’s `friendly_id` as a text memo.
 
-The `reverse-federation` query is required, but because all customer accounts map to a single Stellar account in our design, we need to make sure this query always returns no rows.
+The `reverse-federation` query is required, but because all customer accounts map to a single Triam account in our design, we need to make sure this query always returns no rows.
 
 Now run the server! (Unlike the bridge server, there’s there no custom database to migrate.)
 
@@ -70,15 +70,15 @@ Now run the server! (Unlike the bridge server, there’s there no custom databas
 ```
 
 
-## Update Stellar.toml
+## Update Triam.toml
 
-Finally, others have to know the URL of your federation server. The [`stellar.toml` file](../concepts/stellar-toml.md) is publicly available file where others can find information about your Stellar integration. It should always be stored at:
+Finally, others have to know the URL of your federation server. The [`triam.toml` file](../concepts/triam-toml.md) is publicly available file where others can find information about your Stellar integration. It should always be stored at:
 
-`https://[YOUR DOMAIN]/.well-known/stellar.toml`
+`https://[YOUR DOMAIN]/.well-known/triam.toml`
 
-It can list all sorts of properties, but the one we care about now is the URL for your federation server. Your `stellar.toml` file should look something like:
+It can list all sorts of properties, but the one we care about now is the URL for your federation server. Your `triam.toml` file should look something like:
 
-<code-example name="stellar.toml">
+<code-example name="triam.toml">
 
 ```toml
 FEDERATION_SERVER = "https://www.your_org.com:8002/federation"
@@ -148,7 +148,7 @@ You should get a response like:
 
 ```json
 {
-  "stellar_address": "tunde_adebayo*your_org.com",
+  "triam_address": "tunde_adebayo*your_org.com",
   "account_id": "GAIGZHHWK3REZQPLQX5DNUN4A32CSEONTU6CMDBO7GDWLPSXZDSYA4BU",
   "memo_type": "text",
   "memo": "tunde_adebayo"

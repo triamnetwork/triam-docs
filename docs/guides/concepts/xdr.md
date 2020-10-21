@@ -2,7 +2,7 @@
 XDR
 ---
 
-**XDR**, also known as _External Data Representation_, is used throughout the Triam network and protocol.  The ledger, transactions, results, history, and even the messages passed between computers running stellar-core are encoded using XDR.
+**XDR**, also known as _External Data Representation_, is used throughout the Triam network and protocol.  The ledger, transactions, results, history, and even the messages passed between computers running triam-core are encoded using XDR.
 
 XDR is specified in [RFC 4506](http://tools.ietf.org/html/rfc4506.html) and is similar to tools like Protocol Buffers or Thrift. XDR provides a few important features:
 

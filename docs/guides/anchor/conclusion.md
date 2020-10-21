@@ -24,12 +24,10 @@ As you prepare to move your services into production and support transactions on
 
 While you’ve now learned to handle the core operations of an anchor, there are many more things anchors might want to learn about or should consider:
 
-<!-- - [Operate your own node and horizon server on the Triam network](https://stellar.org/developers/stellar-core/software/admin.html). Doing so makes you less reliant on other providers and makes the whole Triam network stronger. -->
 - Read our guide on [security](../security.md).
 - Make offers to [buy and sell assets on the distributed exchange](../concepts/exchange.md).
 - Explore [multisignature systems](../concepts/multi-sig.md) to make critical accounts more secure.
 - Use [channels](../channels.md) to submit more transactions at a time.
-<!-- - Talk with other Triam developers in [Triam’s Slack community](http://slack.stellar.org/)
 - [Contribute](../contributing.md) your own fixes and improvements to Triam software. -->
 
 <nav class="sequence-navigation">

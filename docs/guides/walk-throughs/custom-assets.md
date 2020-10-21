@@ -8,6 +8,8 @@ Most of the Stellar documentation is centered on financial institutions as ancho
 
 The following presents a breakdown of the transactions required to create a custom token. The transactions can be translated to API requests or can be executed using [Triam Laboratory](https://laboratory.triamnetwork.com).
 
+Notes: this specification belongs to version 1. View version 2 [here](docs/guides/walk-throughs/custom-assets-v2.md)
+
 
 ## Steps
 

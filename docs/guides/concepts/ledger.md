@@ -6,7 +6,7 @@ A **ledger** represents the state of the Stellar universe at a given point in ti
 
 The first ledger in the history of the network is called the genesis ledger.
 
-Every [Stellar Consensus Protocol (SCP)](https://www.stellar.org/developers/learn/concepts/scp.html) round, the network reaches consensus on which [transaction set](./transactions.md#transaction-set) to apply to the last closed ledger; when the new set is applied, a new "last closed ledger" is defined.
+Every [Triam Consensus Protocol (SCP)](https://www.stellar.org/developers/learn/concepts/scp.html) round, the network reaches consensus on which [transaction set](./transactions.md#transaction-set) to apply to the last closed ledger; when the new set is applied, a new "last closed ledger" is defined.
 
 Each ledger is cryptographically linked to a unique previous ledger, creating a historical ledger chain that goes back to the genesis ledger.
 
@@ -22,7 +22,7 @@ You can think of the historical ledger chain as a linked list of ledger headers:
 [Genesis] <---- [LedgerHeader_1] <----- ... <---- [LedgerHeader_n]
 
 See the protocol file for the object definitions.
-[`src/xdr/Stellar-ledger.x`](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-ledger.x)
+[`src/xdr/Triam-ledger.x`](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-ledger.x)
 
 Every ledger header has the following fields:
 
@@ -65,10 +65,10 @@ Every ledger header has the following fields:
 # Ledger Entries
 
 The ledger is a collection of **entries**. Currently there are 4 types of ledger entries. They're specified in
-[`src/xdr/Stellar-ledger-entries.x`](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-ledger-entries.x).
+[`src/xdr/Triam-ledger-entries.x`](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-ledger-entries.x).
 
 ## Account entry
-This entry represents an [account](./accounts.md). In Stellar, everything is built around accounts: transactions are performed by accounts, and accounts control the access rights to balances.
+This entry represents an [account](./accounts.md). In Triam, everything is built around accounts: transactions are performed by accounts, and accounts control the access rights to balances.
 
 Other entries are add-ons, owned by a main account entry. With every new entry
 attached to the account, the minimum balance in RIA goes up for the
