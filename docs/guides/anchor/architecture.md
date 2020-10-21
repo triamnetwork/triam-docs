@@ -18,7 +18,7 @@ As an anchor, you should maintain at least two accounts:
 - An **issuing account** used only for issuing and destroying assets.
 - A **base account** used to transact with other Triam accounts. It holds a balance of assets issued by the *issuing account*.
 
-Create them on the test network using the [laboratory](https://stellar.org/laboratory/) or the steps from the [“get started” guide](../get-started/create-account.md).
+Create them on the test network using the [laboratory](https://triam.org/laboratory/) or the steps from the [“get started” guide](../get-started/create-account.md).
 
 For this guide, we’ll use the following keys:
 
@@ -59,7 +59,7 @@ In order to act as an anchor, your infrastructure will need to:
 - Look up and respond to requests for federated addresses.
 - Comply with Anti-Money Laundering (AML) regulations.
 
-Triam provides a prebuilt [federation server](https://github.com/stellar/go/tree/master/services/federation) and [regulatory compliance server](https://github.com/stellar/bridge-server/blob/master/readme_compliance.md) designed for you to install and integrate with your existing infrastructure. The [bridge server](https://github.com/stellar/bridge-server/blob/master/readme_bridge.md) coordinates them and simplifies interacting with the Triam network. This guide demonstrates how to integrate them with your infrastructure, but you can also write your own customized versions.
+Triam provides a prebuilt [federation server](https://github.com/triamnetwork/go/tree/master/services/federation) and [regulatory compliance server](https://github.com/triamnetwork/bridge-server/blob/master/readme_compliance.md) designed for you to install and integrate with your existing infrastructure. The [bridge server](https://github.com/triamnetwork/bridge-server/blob/master/readme_bridge.md) coordinates them and simplifies interacting with the Triam network. This guide demonstrates how to integrate them with your infrastructure, but you can also write your own customized versions.
 
 ### Making Payments
 

@@ -2,13 +2,13 @@
 Federation Server
 ---
 
-When testing the bridge server, we added a `memo` to the transaction in order to identify what customer account to credit. However, other people and organizations using Stellar might not know they need to do that. How do they find out?
+When testing the bridge server, we added a `memo` to the transaction in order to identify what customer account to credit. However, other people and organizations using Triam might not know they need to do that. How do they find out?
 
-The [Triam federation protocol](../concepts/federation.md) allows you to convert a human-readable address like `amy*your_org.com`[^friendly_names] to an account ID. It also includes information about what should be in a transaction’s `memo`. When sending a payment, you contact a federation server first to determine what Stellar account ID to pay. Luckily, the bridge server does this for you.
+The [Triam federation protocol](../concepts/federation.md) allows you to convert a human-readable address like `amy*your_org.com`[^friendly_names] to an account ID. It also includes information about what should be in a transaction’s `memo`. When sending a payment, you contact a federation server first to determine what Triam account ID to pay. Luckily, the bridge server does this for you.
 
 ![Payment flow diagram](assets/anchor-send-payment-federation.png)
 
-Stellar.org provides a [prebuilt federation server](https://github.com/stellar/go/tree/master/services/federation) that can hook into an existing user database, but you can also write your own.
+Triam.org provides a [prebuilt federation server](https://github.com/triamnetwork/go/tree/master/services/federation) that can hook into an existing user database, but you can also write your own.
 
 
 ## Create a Database
@@ -25,12 +25,12 @@ At a minimum, your database should have a table with a column identifying the na
 | 4  | Steintór   | Jákupsson | steintor_jakupsson  |
 | 5  | Sneha      | Kapoor    | sneha_kapoor        |
 
-Where Tunde’s Stellar address would be `tunde_adebayo*your_org.com`.
+Where Tunde’s Triam address would be `tunde_adebayo*your_org.com`.
 
 
 ## Download and Configure Federation Server
 
-Next, [download the latest federation server](https://github.com/stellar/go/releases) for your platform. Install the executable anywhere you like. In the same directory, create a file named `federation.cfg`. This will store the configuration for the server. It should look something like:
+Next, [download the latest federation server](https://github.com/triamnetwork/go/releases) for your platform. Install the executable anywhere you like. In the same directory, create a file named `federation.cfg`. This will store the configuration for the server. It should look something like:
 
 <code-example name="federation.cfg">
 
@@ -57,7 +57,7 @@ private-key-file = "server.key"
 
 Make sure to update the database connection information with the proper credentials and name for your database. Also update the value of `domain` in the `federation` query to match your actual domain instead of `your_org.com`.
 
-The `federation` query is a SQL query that should return the columns `id`, `memo`, and `memo_type` when supplied with the two parts of a Stellar address, e.g. `tunde_adeboyo` and `your_org.com` for the address `tunde_adebayo*your_org.com`.
+The `federation` query is a SQL query that should return the columns `id`, `memo`, and `memo_type` when supplied with the two parts of a Triam address, e.g. `tunde_adeboyo` and `your_org.com` for the address `tunde_adebayo*your_org.com`.
 
 Since we are mapping all addresses to our base account, we always return the base account ID for `id`. As in the first section, we want the account’s `friendly_id` as a text memo.
 
@@ -72,7 +72,7 @@ Now run the server! (Unlike the bridge server, there’s there no custom databas
 
 ## Update Triam.toml
 
-Finally, others have to know the URL of your federation server. The [`triam.toml` file](../concepts/triam-toml.md) is publicly available file where others can find information about your Stellar integration. It should always be stored at:
+Finally, others have to know the URL of your federation server. The [`triam.toml` file](../concepts/triam-toml.md) is publicly available file where others can find information about your Triam integration. It should always be stored at:
 
 `https://[YOUR DOMAIN]/.well-known/triam.toml`
 

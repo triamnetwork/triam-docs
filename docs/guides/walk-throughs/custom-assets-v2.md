@@ -113,7 +113,7 @@ server.loadAccount("GA2XBCS73Q5TLTQA5LR6OJTKZPS5HDSIDYW3ESAD632JVMR4SFQPCKVI")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.changeTrust({
+  .addOperation(TriamSdk.Operation.changeTrust({
     asset: newToken,
     limit: '922337203685.4775807'
   }))
@@ -147,7 +147,7 @@ server.loadAccount("GDJBQBMOB2FV3BL2NVA4FOJRILXS4JXOALZPEKPOMM4F5QP7Q3OTP6G6")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.changeTrust({
+  .addOperation(TriamSdk.Operation.changeTrust({
     asset: newToken,
     limit: '922337203685.4775807'
   }))
@@ -181,7 +181,7 @@ server.loadAccount("GDHN3DOBHPTFM6EHJ3PLPY2GJ3PWNZYERHT7GZB3RCOQQ5URB4QHX4Q4")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.changeTrust({
+  .addOperation(TriamSdk.Operation.changeTrust({
     asset: newToken,
     limit: '922337203685.4775807'
   }))
@@ -220,7 +220,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
- .addOperation(StellarSdk.Operation.allowTrust({
+ .addOperation(TriamSdk.Operation.allowTrust({
     assetCode: "SAY",
     trustor: 'GA2XBCS73Q5TLTQA5LR6OJTKZPS5HDSIDYW3ESAD632JVMR4SFQPCKVI',
     authorize: true
@@ -253,7 +253,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
- .addOperation(StellarSdk.Operation.allowTrust({
+ .addOperation(TriamSdk.Operation.allowTrust({
     assetCode: "SAY",
     trustor: 'GDJBQBMOB2FV3BL2NVA4FOJRILXS4JXOALZPEKPOMM4F5QP7Q3OTP6G6',
     authorize: true
@@ -286,7 +286,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
- .addOperation(StellarSdk.Operation.allowTrust({
+ .addOperation(TriamSdk.Operation.allowTrust({
     assetCode: "SAY",
     trustor: 'GDHN3DOBHPTFM6EHJ3PLPY2GJ3PWNZYERHT7GZB3RCOQQ5URB4QHX4Q4',
     authorize: true
@@ -328,7 +328,7 @@ server.loadAccount("GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.payment({
+  .addOperation(TriamSdk.Operation.payment({
     destination: 'GDJBQBMOB2FV3BL2NVA4FOJRILXS4JXOALZPEKPOMM4F5QP7Q3OTP6G6',
     asset: newToken,
     amount: '1000',
@@ -370,7 +370,7 @@ server.loadAccount("GDJBQBMOB2FV3BL2NVA4FOJRILXS4JXOALZPEKPOMM4F5QP7Q3OTP6G6")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.payment({
+  .addOperation(TriamSdk.Operation.payment({
     destination: 'GDHN3DOBHPTFM6EHJ3PLPY2GJ3PWNZYERHT7GZB3RCOQQ5URB4QHX4Q4',
     asset: newToken,
     amount: '500',
@@ -413,7 +413,7 @@ server.loadAccount("GDHN3DOBHPTFM6EHJ3PLPY2GJ3PWNZYERHT7GZB3RCOQQ5URB4QHX4Q4")
 .then(function(account) {
 
   var transaction = new TriamSdk.TransactionBuilder(account, { fee: 10000})
-  .addOperation(StellarSdk.Operation.payment({
+  .addOperation(TriamSdk.Operation.payment({
     destination: 'GBOYTLY55G75JHGB5LHQ6AOKUHSWB3IU4OVBQMFZ7RCZ4NBRVST4M3NZ',
     asset: assetBE,
     amount: '100',

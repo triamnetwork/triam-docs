@@ -18,4 +18,4 @@ In addition, the Horizon API server generally exposes the most important parts o
 
 Data structures in XDR are specified in an _interface definition file_ (IDL).
 The IDL files used for the Triam Network are available
-[on GitHub](https://github.com/stellar/stellar-core/tree/master/src/xdr).
+[on GitHub](https://github.com/triamnetwork/triam-core/tree/master/src/xdr).

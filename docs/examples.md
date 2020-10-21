@@ -2,13 +2,13 @@
 Basic Examples
 ---
 
-- [Creating a payment Transaction](#creating-a-payment-transaction)
+- [Creating a payment transaction](#creating-a-payment-transaction)
 - [Loading an account's transaction history](#loading-an-accounts-transaction-history)
 - [Streaming payment events](#streaming-payment-events)
 
 ## Creating a payment transaction
 
-js-triam-sdk exposes the [`TransactionBuilder`](https://github.com/triamnetwork/js-triam-base/blob/master/src/transaction_builder.js) class from js-stellar-base.  There are more examples of [building transactions here](#). All those examples can be signed and submitted to Ria in a similar manner as is done below.
+js-triam-sdk exposes the [`TransactionBuilder`](https://github.com/triamnetwork/js-triam-base/blob/master/src/transaction_builder.js) class from js-triam-base.  There are more examples of [building transactions here](#). All those examples can be signed and submitted to Ria in a similar manner as is done below.
 
 In this example you must ensure that the destination account exists
 

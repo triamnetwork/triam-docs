@@ -4,7 +4,7 @@ Triam.toml
 
 # Introduction
 
-The `triam.toml` file is used to provide a common place where the Internet can find information about your domain's Stellar integration. Any website can publish Stellar network information. You can announce your validation key, your [federation](./federation.md) server, peers you are running, your quorum set, if you are a anchor, etc.
+The `triam.toml` file is used to provide a common place where the Internet can find information about your domain's Triam integration. Any website can publish Triam network information. You can announce your validation key, your [federation](./federation.md) server, peers you are running, your quorum set, if you are a anchor, etc.
 
 The triam.toml file is a text file in the [TOML format](https://github.com/toml-lang/toml).
 
@@ -15,7 +15,7 @@ Given the domain "DOMAIN", the triam.toml will be searched for at the following 
 `https://DOMAIN/.well-known/triam.toml`
 
 ## Enabling cross-origin resource sharing (CORS)
-You must enable CORS on the stellar.toml so people can access this file from other sites. The following HTTP header *must* be set for a HTTP response for `triam.toml` file request.
+You must enable CORS on the triam.toml so people can access this file from other sites. The following HTTP header *must* be set for a HTTP response for `triam.toml` file request.
 
 ```
 Access-Control-Allow-Origin: *
@@ -44,13 +44,13 @@ For other web servers, see: http://enable-cors.org/server.html
 1. Run a curl command in your terminal similar to the following (replace triam.org with the hosting location of your triam.toml file):
 
   ```bash
-  curl --head https://stellar.org/.well-known/stellar.toml
+  curl --head https://Triam.org/.well-known/triam.toml
   ```
 
 2. Verify the `Access-Control-Allow-Origin` header is present as shown below.
 
   ```bash
-  curl --head https://stellar.org/.well-known/stellar.toml
+  curl --head https://Triam.org/.well-known/triam.toml
   HTTP/1.1 200 OK
   Accept-Ranges: bytes
   Access-Control-Allow-Origin: *
@@ -60,13 +60,13 @@ For other web servers, see: http://enable-cors.org/server.html
 
 3. Also run the command on a page that should not have it and verify the `Access-Control-Allow-Origin` header is missing.
 
-## Stellar.toml example
+## Triam.toml example
 
 This file is UTF-8 with Dos-, UNIX-, or Mac-style end of lines.
 Blank lines and lines beginning with '#' are ignored.
 Undefined sections are reserved.
 All sections are optional.
-Many of these sections reflect what would be listed in your [triam-core.cfg](https://github.com/stellar/stellar-core/blob/master/docs/stellar-core_example.cfg)
+Many of these sections reflect what would be listed in your [triam-core.cfg](https://github.com/triamnetwork/triam-core/blob/master/docs/triam-core_example.cfg)
 
 ```toml
 # Sample triam.toml

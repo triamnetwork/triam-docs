@@ -41,11 +41,11 @@ Between ledger closings, all the nodes in the network are collecting transaction
 
 ## Life cycle
 
-1. **Creation**: The user creates a transaction, fills out all the fields, gives it the correct sequence number, adds whatever operations it wants, etc. Try it with [js-triam-sdk](https://www.stellar.org/developers/js-triam-sdk/learn/).
+1. **Creation**: The user creates a transaction, fills out all the fields, gives it the correct sequence number, adds whatever operations it wants, etc. Try it with [js-triam-sdk](https://www.Triam.org/developers/js-triam-sdk/learn/).
 
 2. **Signing**: Once the transaction is filled out, all the needed signatures must be collected and added to the transaction envelope. Commonly it's just the signature of the account doing the transaction, but more complicated setups can require collecting signatures from multiple parties. See [multi-sig](./multi-sig.md).
 
-3. **Submitting**: After signing, the transaction should be valid and can now be submitted to the Triam network. Transactions are typically submitted using [horizon](https://www.stellar.org/developers/horizon/reference/transactions-create.html), but you can also submit the transaction directly to an instance of [triam-core](https://github.com/stellar/stellar-core).
+3. **Submitting**: After signing, the transaction should be valid and can now be submitted to the Triam network. Transactions are typically submitted using [horizon](https://www.Triam.org/developers/horizon/reference/transactions-create.html), but you can also submit the transaction directly to an instance of [triam-core](https://github.com/triamnetwork/triam-core).
 
 4. **Propagating**: Once triam-core receives a transaction, either given to it by a user or another triam-core, it does preliminary checks to see if the transaction is valid. Among other checks, it makes sure that the transaction is correctly formed and the source account has enough to cover the transaction fee. Triam-core doesn't check things that require inspecting the state of the ledger beyond looking up the source account—e.g., that the destination account to which the transaction is trying to send exists, that the account has enough of this asset to sell, that it's a valid path.
 If the preliminary checks pass, then triam-core propagates the transaction to all the other servers to which it's connected. In this way, a valid transaction is flooded to the whole Triam network.

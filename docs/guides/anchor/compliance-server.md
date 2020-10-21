@@ -4,7 +4,7 @@ Compliance Server
 
 The task of an anchor is handling regulatory compliance, like Anti-Money Laundering (<abbr title="Anti-Money Laundering">AML</abbr>). To accomplish that, you should use the [Triam compliance protocol](../compliance-protocol.md), a standard way to exchange compliance information and pre-approve a transaction with another financial institution.
 
-You can write your own server that matches the compliance protocol, but Stellar.org also provides a [compliance server](https://github.com/stellar/bridge-server/blob/master/readme_compliance.md) that takes care of most of the work for you.
+You can write your own server that matches the compliance protocol, but Triam.org also provides a [compliance server](https://github.com/triamnetwork/bridge-server/blob/master/readme_compliance.md) that takes care of most of the work for you.
 
 Your bridge server contacts your compliance server in order to authorize a transaction before sending it. Your compliance server uses the compliance protocol to clear the transaction with the recipient’s compliance server, then lets the bridge server know the transaction is ok to send.
 
@@ -22,7 +22,7 @@ The compliance server requires a MySQL or PostgreSQL database in order to save t
 
 ## Download and Configure Compliance Server
 
-Start by [downloading the latest compliance server](https://github.com/stellar/bridge-server/releases) for your platform and install the executable anywhere you like. In the same directory, create a file named `config_compliance.toml`. This will store the configuration for the compliance server. It should look something like:
+Start by [downloading the latest compliance server](https://github.com/triamnetwork/bridge-server/releases) for your platform and install the executable anywhere you like. In the same directory, create a file named `config_compliance.toml`. This will store the configuration for the compliance server. It should look something like:
 
 <code-example name="config_compliance.toml">
 
@@ -70,7 +70,7 @@ You’ll also need to tell your bridge server that you now have a compliance ser
 
 ```toml
 port = 8001
-horizon = "https://horizon-testnet.stellar.org"
+horizon = "https://horizon-testnet.Triam.org"
 network_passphrase = "Test SDF Network ; September 2015"
 compliance = "https://your_org.com:8004"
 
@@ -96,7 +96,7 @@ In the server configuration file, there are three callback URLs, much like those
       var friendlyId = addressParts[0];
 
       // You need to create `accountDatabase.findByFriendlyId()`. It should look
-      // up a customer by their Stellar account and return account information.
+      // up a customer by their Triam account and return account information.
       accountDatabase.findByFriendlyId(friendlyId)
         .then(function(account) {
           // This can be any data you determine is useful and is not limited to
@@ -126,7 +126,7 @@ In the server configuration file, there are three callback URLs, much like those
       String friendlyId = address.split("\\*", 2)[0];
 
       // You need to create `accountDatabase.findByFriendlyId()`. It should
-      // find customers by their Stellar account and return account information.
+      // find customers by their Triam account and return account information.
       try {
         Account account = accountDatabase.findByFriendlyId(friendlyId);
         return Response.ok(
@@ -435,6 +435,6 @@ For a more realistic test, set up a duplicate copy of your bridge, federation, a
 </nav>
 
 
-[^compliance_memos]: Compliance transactions with the bridge server don’t support the `memo` field. The actual transaction’s `memo` will store a hash used to verify that the transaction submitted to the Stellar network matches the one agreed upon during initial compliance checks. Your `extra_memo` data will be transmitted instead during the compliance checks. For details, see [the compliance protocol](../compliance-protocol.md).
+[^compliance_memos]: Compliance transactions with the bridge server don’t support the `memo` field. The actual transaction’s `memo` will store a hash used to verify that the transaction submitted to the Triam network matches the one agreed upon during initial compliance checks. Your `extra_memo` data will be transmitted instead during the compliance checks. For details, see [the compliance protocol](../compliance-protocol.md).
 
 [^ssl]: Requiring that public services are available via SSL helps keep things secure. While testing, you can get free certificates from http://letsencrypt.org. You can also generate your own self-signed certificates, but you must add them to all the computers in your tests.

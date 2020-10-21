@@ -59,7 +59,7 @@
     * Walkthroughs
       * [Custom Assets](docs/guides/walk-throughs/custom-assets.md)
       * [Custom Assets on version 2](docs/guides/walk-throughs/custom-assets-v2.md)
-      * [Triam Smart Contracts](docs/guides/walk-throughs/stellar-smart-contracts.md)
+      * [Triam Smart Contracts](docs/guides/walk-throughs/triam-smart-contracts.md)
     * [Triam Attachment Convention](docs/guides/attachment.md)
     * [Channels](docs/guides/channels.md)
     * [Add Triam to your Exchange](docs/guides/exchange.md)

@@ -20,7 +20,7 @@ ask contributors to follow so that we can merge your changes quickly.
 
 ## Finding things to work on
 
-The first place to start is always looking over the current github issues for the project you are interested in contributing to. Issues marked with [help wanted](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Astellar+label%3A%22help+wanted%22) are usually pretty self contained and a good place to get started.
+The first place to start is always looking over the current github issues for the project you are interested in contributing to. Issues marked with [help wanted](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Atriam+label%3A%22help+wanted%22) are usually pretty self contained and a good place to get started.
 
 Triam.org also uses these same github issues to keep track of what we are working on. If you see any issues that are assigned to a particular person or have the `in progress` label, that means someone is currently working on that issue. The `orbit` label means we will likely be working on this issue in the next week or two. The `ready` label means that the issue is one we have prioritized and will be working on in our next orbit (Triam term for sprint) or two.
 
@@ -36,7 +36,7 @@ Feel free to make your own issues if you think something needs to added or fixed
 ## Submitting Changes
 
 * [Sign the Contributor License Agreement](https://docs.google.com/forms/d/1g7EF6PERciwn7zfmfke5Sir2n10yddGGSXyZsq98tVY/viewform?usp=send_form)
-* All content, comments, and pull requests must follow the [Triam Community Guidelines](https://www.stellar.org/community-guidelines/).
+* All content, comments, and pull requests must follow the [Triam Community Guidelines](https://www.triam.org/community-guidelines/).
 * Push your changes to a topic branch in your fork of the repository.
 * Submit a pull request to the repository for the project you’re working on in the Triam organization.
  * Include a descriptive [commit message](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).

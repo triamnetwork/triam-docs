@@ -49,7 +49,7 @@ Any characters from the set [a-z][A-Z][0-9] are allowed. The code can be any num
 
 
 ### Controlling asset holders
-By default, anyone can create a trustline with an asset issuer to accept an asset. However, as an anchor, you can **explicitly authorize** and **revoke** user access to your asset by enabling the following flags on your issuing account (read more [here](https://www.stellar.org/developers/guides/concepts/accounts.html#flags)).
+By default, anyone can create a trustline with an asset issuer to accept an asset. However, as an anchor, you can **explicitly authorize** and **revoke** user access to your asset by enabling the following flags on your issuing account (read more [here](https://www.Triam.org/developers/guides/concepts/accounts.html#flags)).
 
 * `AUTHORIZATION REQUIRED`: with this setting, the anchor must approve anyone who wants to hold its asset, allowing it to control who its customers are. Approving is done by the anchor by setting the `Authorize` flag of an existing trustline to **true** with the [Allow Trust](./list-of-operations.md#allow-trust) operation.
 * `AUTHORIZATION REVOCABLE`: with this setting, the anchor can set `Authorize` flag of existing trustline to `false` with the [Allow Trust](./list-of-operations.md#allow-trust) operation, to freeze the asset held by another account. When an asset is frozen for a particular account, that account can’t transfer the asset to any other account, not even back to the anchor. This setting allows the issuing account to revoke assets that it accidentally issued or that were obtained improperly. To use this setting, `AUTHORIZATION REQUIRED` must also be enabled.
@@ -72,7 +72,7 @@ By default, anyone can create a trustline with an asset issuer to accept an asse
 * `AUTHORIZATION IMMUTABLE`: with this setting, none of the authorization flags can be set and the account can never be deleted.
 
 ## Amount precision and representation
-Each asset amount is encoded as a signed 64-bit integer in the [XDR structures](https://www.stellar.org/developers/horizon/learn/xdr.html). An asset amount unit (that which is seen by end users) is scaled down by a factor of ten million (10,000,000) to arrive at the native 64-bit integer representation. For example, the integer amount value `25,123,456` equals `2.5123456` units of the asset. This scaling allows for **seven decimal places** of precision in human-friendly amount units.
+Each asset amount is encoded as a signed 64-bit integer in the [XDR structures](https://www.Triam.org/developers/horizon/learn/xdr.html). An asset amount unit (that which is seen by end users) is scaled down by a factor of ten million (10,000,000) to arrive at the native 64-bit integer representation. For example, the integer amount value `25,123,456` equals `2.5123456` units of the asset. This scaling allows for **seven decimal places** of precision in human-friendly amount units.
 
 The smallest non-zero amount unit is `0.0000001` (one ten-millionth) represented as an integer value of one. The largest amount unit possible is `((2^63)-1)/(10^7)` (derived from max int64 scaled down) which is `922,337,203,685.4775807`.
 

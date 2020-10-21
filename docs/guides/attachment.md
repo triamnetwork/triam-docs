@@ -62,7 +62,7 @@ hash.update(JSON.stringify(attachment));
 var memoHashHex = hash.digest('hex');
 ```
 
-To add the hash to your transaction use the [`TransactionBuilder.addMemo`](http://stellar.github.io/js-stellar-base/TransactionBuilder.html#addMemo) method.
+To add the hash to your transaction use the [`TransactionBuilder.addMemo`](http://triamnetwork.github.io/js-triam-base/TransactionBuilder.html#addMemo) method.
 
 ## Sending Attachments
 
