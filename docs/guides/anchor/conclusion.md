@@ -5,7 +5,7 @@ Next Steps
 Congratulations! If you’ve made it to this point, you should now have a working bridge server, federation server, and compliance server, with the ability to make and receive secure, sanctioned payments on the Triam network.
 
 ## Testing
-Sending and receiving require your servers to interact with someone else's. This can make it difficult to test. For this reason SDF has built a handy testing harness were you can test sending and receiving against our test anchor. It can simulate various failure scenarios so you can be sure all corner cases are handled. Check out the testing tool here [gostellar.org](http://gostellar.org).
+Sending and receiving require your servers to interact with someone else's. This can make it difficult to test. For this reason SDF has built a handy testing harness were you can test sending and receiving against our test anchor. It can simulate various failure scenarios so you can be sure all corner cases are handled. Check out the testing tool here [goTriam.org](http://goTriam.org).
 
 ## Moving to Production
 
@@ -24,12 +24,10 @@ As you prepare to move your services into production and support transactions on
 
 While you’ve now learned to handle the core operations of an anchor, there are many more things anchors might want to learn about or should consider:
 
-<!-- - [Operate your own node and horizon server on the Triam network](https://stellar.org/developers/stellar-core/software/admin.html). Doing so makes you less reliant on other providers and makes the whole Triam network stronger. -->
 - Read our guide on [security](../security.md).
 - Make offers to [buy and sell assets on the distributed exchange](../concepts/exchange.md).
 - Explore [multisignature systems](../concepts/multi-sig.md) to make critical accounts more secure.
 - Use [channels](../channels.md) to submit more transactions at a time.
-<!-- - Talk with other Triam developers in [Triam’s Slack community](http://slack.stellar.org/)
 - [Contribute](../contributing.md) your own fixes and improvements to Triam software. -->
 
 <nav class="sequence-navigation">

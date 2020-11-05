@@ -17,9 +17,9 @@ For the protocol specification, see bellow:
 - [Account Merge](#account-merge)
 - [Inflation](#inflation)
 - [Manage Data](#manage-data)
-- [CreateAsset](#createasset)
-- [ChangeAsset](#changeasset)
-- [LimitAsset](#limitasset)
+- [Create Asset](#create-asset)
+- [Change Asset](#change-asset)
+- [Limit Asset](#limit-asset)
 
 
 ## Create Account
@@ -371,7 +371,7 @@ Possible errors:
 |MANAGE_DATA_LOW_RESERVE| -3| Not enough RIA in the account to create a new Data Entry. Each additional Data Entry increases the minimum balance of the Account.|
 |MANAGE_DATA_INVALID_NAME| -4| Name not a valid string.|
 
-## CreateAsset
+## Create Asset
 [JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.createAsset) 
 
 **CreateAsset** is used to create a new token. The source account of the transaction which contains **CreateAsset** operation will be the unique owner on that token. We created an Asset table to save this data.
@@ -381,6 +381,7 @@ Threshold: Medium
 Result: `CreateAssetResult`
 
 Parameters:
+
 | Parameters | Type | Description |
 | --- | --- | --- |
 | asset | Asset | It contains two fields: issuer(PublicKey) and asset code (string). We will create the new unique token from asset code. |
@@ -412,7 +413,7 @@ Possible errors:
 | CREATE_ASSET_MALFORMED_INVALID_ASSET | -17 | Invalid asset|
 | CREATE_ASSET_MALFORMED_NATIVE_ASSET | -18 
 
-## ChangeAsset
+## Change Asset
 [JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.payment)
 
 **ChangeAsset** is used to change the beneficiary (the holding fee wallet)
@@ -444,7 +445,7 @@ Possible errors:
 | CHANGE_ASSET_MALFORMED_INVALID_ASSET | -10 | Invalid asset|
 | CHANGE_ASSET_MALFORMED_NATIVE_ASSET | -11 | From version 10, we don't use native asset in trustline |
 
-## LimitAsset
+## Limit Asset
 [JavaScript](http://triamnetwork.github.io/triam-sdk/Operation.html#.payment)
 
 **LimitAsset** is used to stop issuing more amount of the tokens. This will prevent the inflation.

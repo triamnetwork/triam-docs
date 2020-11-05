@@ -1,30 +1,30 @@
 ---
-Stellar.toml
+Triam.toml
 ---
 
 # Introduction
 
-The `stellar.toml` file is used to provide a common place where the Internet can find information about your domain's Stellar integration. Any website can publish Stellar network information. You can announce your validation key, your [federation](./federation.md) server, peers you are running, your quorum set, if you are a anchor, etc.
+The `triam.toml` file is used to provide a common place where the Internet can find information about your domain's Triam integration. Any website can publish Triam network information. You can announce your validation key, your [federation](./federation.md) server, peers you are running, your quorum set, if you are a anchor, etc.
 
-The stellar.toml file is a text file in the [TOML format](https://github.com/toml-lang/toml).
+The triam.toml file is a text file in the [TOML format](https://github.com/toml-lang/toml).
 
-## Publishing stellar.toml
+## Publishing triam.toml
 
-Given the domain "DOMAIN", the stellar.toml will be searched for at the following location:
+Given the domain "DOMAIN", the triam.toml will be searched for at the following location:
 
-`https://DOMAIN/.well-known/stellar.toml`
+`https://DOMAIN/.well-known/triam.toml`
 
 ## Enabling cross-origin resource sharing (CORS)
-You must enable CORS on the stellar.toml so people can access this file from other sites. The following HTTP header *must* be set for a HTTP response for `stellar.toml` file request.
+You must enable CORS on the triam.toml so people can access this file from other sites. The following HTTP header *must* be set for a HTTP response for `triam.toml` file request.
 
 ```
 Access-Control-Allow-Origin: *
 ```
 
-**Important**: Only enable CORS for stellar.toml (or any files it references). For example, in Apache you would set something like:
+**Important**: Only enable CORS for triam.toml (or any files it references). For example, in Apache you would set something like:
 
 ```xml
-<Location "/.well-known/stellar.toml">
+<Location "/.well-known/triam.toml">
     Header set Access-Control-Allow-Origin "*"
 </Location>
 ```
@@ -32,7 +32,7 @@ Access-Control-Allow-Origin: *
 Or in nginx:
 
 ```
-location /.well-known/stellar.toml {
+location /.well-known/triam.toml {
  add_header 'Access-Control-Allow-Origin' '*';
 }
 ```
@@ -41,16 +41,16 @@ For other web servers, see: http://enable-cors.org/server.html
 
 ## Testing CORS
 
-1. Run a curl command in your terminal similar to the following (replace stellar.org with the hosting location of your stellar.toml file):
+1. Run a curl command in your terminal similar to the following (replace triam.org with the hosting location of your triam.toml file):
 
   ```bash
-  curl --head https://stellar.org/.well-known/stellar.toml
+  curl --head https://Triam.org/.well-known/triam.toml
   ```
 
 2. Verify the `Access-Control-Allow-Origin` header is present as shown below.
 
   ```bash
-  curl --head https://stellar.org/.well-known/stellar.toml
+  curl --head https://Triam.org/.well-known/triam.toml
   HTTP/1.1 200 OK
   Accept-Ranges: bytes
   Access-Control-Allow-Origin: *
@@ -60,30 +60,30 @@ For other web servers, see: http://enable-cors.org/server.html
 
 3. Also run the command on a page that should not have it and verify the `Access-Control-Allow-Origin` header is missing.
 
-## Stellar.toml example
+## Triam.toml example
 
 This file is UTF-8 with Dos-, UNIX-, or Mac-style end of lines.
 Blank lines and lines beginning with '#' are ignored.
 Undefined sections are reserved.
 All sections are optional.
-Many of these sections reflect what would be listed in your [stellar-core.cfg](https://github.com/stellar/stellar-core/blob/master/docs/stellar-core_example.cfg)
+Many of these sections reflect what would be listed in your [triam-core.cfg](https://github.com/triamnetwork/triam-core/blob/master/docs/triam-core_example.cfg)
 
 ```toml
-# Sample stellar.toml
+# Sample triam.toml
 
-#   The endpoint which clients should query to resolve stellar addresses
+#   The endpoint which clients should query to resolve triam addresses
 #   for users on your domain.
-FEDERATION_SERVER="https://api.stellar.org/federation"
+FEDERATION_SERVER="https://api.triam.org/federation"
 
 # The endpoint used for the compliance protocol
-AUTH_SERVER="https://api.stellar.org/auth"
+AUTH_SERVER="https://api.triam.org/auth"
 
 # The signing key is used for the compliance protocol
 SIGNING_KEY="GBBHQ7H4V6RRORKYLHTCAWP6MOHNORRFJSDPXDFYDGJB2LPZUFPXUEW3"
 
 # convenience mapping of common names to node IDs.
 # You can use these common names in sections below instead of the less friendly nodeID.
-# This is provided mainly to be compatible with the stellar-core.cfg
+# This is provided mainly to be compatible with the triam-core.cfg
 NODE_NAMES=[
 "GD5DJQDDBKGAYNEAXU562HYGOOSYAEOO6AS53PZXBOZGCP5M2OPGMZV3  lab1",
 "GB6REF5GOGGSEHZ3L2YK6K4T4KX3YDMWHDCPMV7MZJDLHBDNZXEPRBGM  donovan",
@@ -114,22 +114,22 @@ DESIRED_BASE_FEE=100
 # This is how many maximum transactions per ledger you would like to process.
 DESIRED_MAX_TX_PER_LEDGER=400
 
-#   List of IPs of known stellar-core's.
+#   List of IPs of known triam-core's.
 #   These are IP:port strings.
 #   Port is optional.
 #   By convention, IPs are listed from most to least trusted, if that information is known.
 KNOWN_PEERS=[
 "192.168.0.1",
-"core-testnet1.stellar.org",
-"core-testnet2.stellar.org:11290",
+"core-testnet1.triam.org",
+"core-testnet2.triam.org:11290",
 "2001:0db8:0100:f101:0210:a4ff:fee3:9566"
 ]
 
 # list of history archives maintained by this domain
 HISTORY=[
-"http://history.stellar.org/prd/core-live/core_live_001/",
-"http://history.stellar.org/prd/core-live/core_live_002/",
-"http://history.stellar.org/prd/core-live/core_live_003/"
+"http://history.triam.org/prd/core-live/core_live_001/",
+"http://history.triam.org/prd/core-live/core_live_002/",
+"http://history.triam.org/prd/core-live/core_live_003/"
 ]
 
 #   This section allows an anchor to declare currencies it currently issues.

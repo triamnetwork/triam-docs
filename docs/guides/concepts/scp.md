@@ -6,9 +6,9 @@ The Stellar Consensus Protocol (SCP) provides a way to reach consensus without r
 
 A few ways to explore SCP:
 * To learn all about the protocol, read the [white paper](https://www.stellar.org/papers/stellar-consensus-protocol.pdf). 
-* View or contribute to the code in [stellar-core](https://github.com/stellar/stellar-core).
+* View or contribute to the code in [triam-core](https://github.com/triamnetwork/triam-core).
 * If white papers aren't your thing, here's a [technical summary](https://medium.com/a-stellar-journey/on-worldwide-consensus-359e9eb3e949). 
-* If you're new to consensus, get the basics from our graphic novel, [Adventures in Galactic Consensus](https://www.stellar.org/stories/adventures-in-galactic-consensus-chapter-1/). 
+* If you're new to consensus, get the basics from our graphic novel, [Adventures in Galactic Consensus](https://www.Triam.org/stories/adventures-in-galactic-consensus-chapter-1/). 
 
 You can also watch Professor David Mazières's [talk on SCP](https://www.youtube.com/watch?v=vmwnhZmEZjc):
 

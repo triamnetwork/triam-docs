@@ -2,13 +2,13 @@
 Send and Receive Money
 ---
 
-Now that you have an account, you can send and receive funds through the Stellar network. If you haven’t created an account yet, read [step 2 of the Get Started guide](./create-account.md).
+Now that you have an account, you can send and receive funds through the Triam network. If you haven’t created an account yet, read [step 2 of the Get Started guide](./create-account.md).
 
 Most of the time, you’ll be sending money to someone else who has their own account. For this interactive guide, however, you should make a second account to transact with using the same method you used to make your first account.
 
 ## Send Payments
 
-Actions that change things in Stellar, like sending payments, changing your account, or making offers to trade various kinds of currencies, are called **operations.**[^1] In order to actually perform an operation, you create a **transaction**, which is just a group of operations accompanied by some extra information, like what account is making the transaction and a cryptographic signature to verify that the transaction is authentic.[^2]
+Actions that change things in Triam, like sending payments, changing your account, or making offers to trade various kinds of currencies, are called **operations.**[^1] In order to actually perform an operation, you create a **transaction**, which is just a group of operations accompanied by some extra information, like what account is making the transaction and a cryptographic signature to verify that the transaction is authentic.[^2]
 
 If any operation in the transaction fails, they all fail. For example, let’s say you have 100 RIA and you make two payment operations of 60 RIA each. If you make two transactions (each with one operation), the first will succeed and the second will fail because you don’t have enough RIA. You’ll be left with 40 RIA. However, if you group the two payments into a single transaction, they will both fail and you’ll be left with the full 100 RIA still in your account.
 
@@ -16,14 +16,14 @@ Finally, every transaction costs a small fee. Like the minimum balance on accoun
 
 ### Building a Transaction
 
-Stellar stores and communicates transaction data in a binary format called XDR.[^4] Luckily, the Stellar SDKs provide tools that take care of all that. Here’s how you might send 10 RIA to another account:
+Triam stores and communicates transaction data in a binary format called XDR.[^4] Luckily, the Triam SDKs provide tools that take care of all that. Here’s how you might send 10 RIA to another account:
 
 <code-example name="Submitting a Transaction">
 
 ```js
-var StellarSdk = require('stellar-sdk');
+var TriamSdk = require('triam-sdk');
 TriamSdk.Network.useTestNetwork();
-var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var server = new TriamSdk.Server('https://horizon-testnet.Triam.org');
 var sourceKeys = TriamSdk.Keypair
   .fromSecret('SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4');
 var destinationId = 'GA2C5RFPE6GCKMY3US5PAB6UZLKIGSPIUKSLRB6Q723BM2OARMDUYEJ5';
@@ -47,18 +47,18 @@ server.loadAccount(destinationId)
     transaction = new TriamSdk.TransactionBuilder(sourceAccount)
       .addOperation(TriamSdk.Operation.payment({
         destination: destinationId,
-        // Because Stellar allows transaction in many currencies, you must
+        // Because Triam allows transaction in many currencies, you must
         // specify the asset type. The special "native" asset represents Lumens.
         asset: TriamSdk.Asset.native(),
         amount: "10"
       }))
       // A memo allows you to add your own metadata to a transaction. It's
-      // optional and does not affect how Stellar treats the transaction.
+      // optional and does not affect how Triam treats the transaction.
       .addMemo(TriamSdk.Memo.text('Test Transaction'))
       .build();
     // Sign the transaction to prove you are actually the person sending it.
     transaction.sign(sourceKeys);
-    // And finally, send it off to Stellar!
+    // And finally, send it off to Triam!
     return server.submitTransaction(transaction);
   })
   .then(function(result) {
@@ -74,7 +74,7 @@ server.loadAccount(destinationId)
 
 ```java
 Network.useTestNetwork();
-Server server = new Server("https://horizon-testnet.stellar.org");
+Server server = new Server("https://horizon-testnet.Triam.org");
 
 KeyPair source = KeyPair.fromSecretSeed("SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4");
 KeyPair destination = KeyPair.fromAccountId("GA2C5RFPE6GCKMY3US5PAB6UZLKIGSPIUKSLRB6Q723BM2OARMDUYEJ5");
@@ -92,13 +92,13 @@ AccountResponse sourceAccount = server.accounts().account(source);
 Transaction transaction = new Transaction.Builder(sourceAccount)
         .addOperation(new PaymentOperation.Builder(destination, new AssetTypeNative(), "10").build())
         // A memo allows you to add your own metadata to a transaction. It's
-        // optional and does not affect how Stellar treats the transaction.
+        // optional and does not affect how Triam treats the transaction.
         .addMemo(Memo.text("Test Transaction"))
         .build();
 // Sign the transaction to prove you are actually the person sending it.
 transaction.sign(source);
 
-// And finally, send it off to Stellar!
+// And finally, send it off to Triam!
 try {
   SubmitTransactionResponse response = server.submitTransaction(transaction);
   System.out.println("Success!");
@@ -116,8 +116,8 @@ try {
 package main
 
 import (
-	"github.com/stellar/go/build"
-    "github.com/stellar/go/clients/horizon"
+	"github.com/triamnetwork/go/build"
+    "github.com/triamnetwork/go/clients/horizon"
     "fmt"
 )
 
@@ -157,7 +157,7 @@ func main () {
 		panic(err)
 	}
 
-	// And finally, send it off to Stellar!
+	// And finally, send it off to Triam!
 	resp, err := horizon.DefaultTestNetClient.SubmitTransaction(txeB64)
 	if err != nil {
 		panic(err)
@@ -173,7 +173,7 @@ func main () {
 
 What exactly happened there? Let’s break it down.
 
-1. Confirm that the account ID you are sending to actually exists by loading the associated account data from the Stellar network. Everything will actually be OK if you skip this step, but doing it gives you an opportunity to avoid making a transaction you know will fail. You can also use this call to perform any other verification you might want to do on a destination account. If you are writing banking software, for example, this is a good place to insert regulatory compliance checks and <abbr title="Know Your Customer">KYC</abbr> verification.
+1. Confirm that the account ID you are sending to actually exists by loading the associated account data from the Triam network. Everything will actually be OK if you skip this step, but doing it gives you an opportunity to avoid making a transaction you know will fail. You can also use this call to perform any other verification you might want to do on a destination account. If you are writing banking software, for example, this is a good place to insert regulatory compliance checks and <abbr title="Know Your Customer">KYC</abbr> verification.
 
     <code-example name="Load an Account">
 
@@ -194,7 +194,7 @@ What exactly happened there? Let’s break it down.
 
     </code-example>
 
-2. Load data for the account you are sending from. An account can only perform one transaction at a time[^5] and has something called a [**sequence number**,](../concepts/accounts.md#sequence-number) which helps Stellar verify the order of transactions. A transaction’s sequence number needs to match the account’s sequence number, so you need to get the account’s current sequence number from the network.
+2. Load data for the account you are sending from. An account can only perform one transaction at a time[^5] and has something called a [**sequence number**,](../concepts/accounts.md#sequence-number) which helps Triam verify the order of transactions. A transaction’s sequence number needs to match the account’s sequence number, so you need to get the account’s current sequence number from the network.
 
     <code-example name="Load Source Account">
 
@@ -232,7 +232,7 @@ What exactly happened there? Let’s break it down.
 
     </code-example>
 
-4. Add the payment operation to the account. Note that you need to specify the type of asset you are sending—Stellar’s “native” currency is the RIA, but you can send any type of asset or currency you like, from dollars to bitcoin to any sort of asset you trust the issuer to redeem [(more details below)](#transacting-in-other-currencies). For now, though, we’ll stick to RIA, which are called “native” assets in the SDK:
+4. Add the payment operation to the account. Note that you need to specify the type of asset you are sending—Triam’s “native” currency is the RIA, but you can send any type of asset or currency you like, from dollars to bitcoin to any sort of asset you trust the issuer to redeem [(more details below)](#transacting-in-other-currencies). For now, though, we’ll stick to RIA, which are called “native” assets in the SDK:
 
     <code-example name="Add an Operation">
 
@@ -263,9 +263,9 @@ What exactly happened there? Let’s break it down.
 
     </code-example>
 
-    You should also note that the amount is a string rather than a number. When working with extremely small fractions or large values, [floating point math can introduce small inaccuracies](https://en.wikipedia.org/wiki/Floating_point#Accuracy_problems). Since not all systems have a native way to accurately represent extremely small or large decimals, Stellar uses strings as a reliable way to represent the exact amount across any system.
+    You should also note that the amount is a string rather than a number. When working with extremely small fractions or large values, [floating point math can introduce small inaccuracies](https://en.wikipedia.org/wiki/Floating_point#Accuracy_problems). Since not all systems have a native way to accurately represent extremely small or large decimals, Triam uses strings as a reliable way to represent the exact amount across any system.
 
-5. Optionally, you can add your own metadata, called a [**memo,**](../concepts/transactions.md#memo) to a transaction. Stellar doesn’t do anything with this data, but you can use it for any purpose you’d like. If you are a bank that is receiving or sending payments on behalf of other people, for example, you might include the actual person the payment is meant for here.
+5. Optionally, you can add your own metadata, called a [**memo,**](../concepts/transactions.md#memo) to a transaction. Triam doesn’t do anything with this data, but you can use it for any purpose you’d like. If you are a bank that is receiving or sending payments on behalf of other people, for example, you might include the actual person the payment is meant for here.
 
     <code-example name="Add a Memo">
 
@@ -301,7 +301,7 @@ What exactly happened there? Let’s break it down.
 
     </code-example>
 
-7. And finally, send it to the Stellar network!
+7. And finally, send it to the Triam network!
 
     <code-example name="Submit the Transaction">
 
@@ -323,18 +323,18 @@ What exactly happened there? Let’s break it down.
 
 ## Receive Payments
 
-You don’t actually need to do anything to receive payments into a Stellar account—if a payer makes a successful transaction to send assets to you, those assets will automatically be added to your account.
+You don’t actually need to do anything to receive payments into a Triam account—if a payer makes a successful transaction to send assets to you, those assets will automatically be added to your account.
 
-However, you’ll want to know that someone has actually paid you. If you are a bank accepting payments on behalf of others, you need to find out what was sent to you so you can disburse funds to the intended recipient. If you are operating a retail business, you need to know that your customer actually paid you before you hand them their merchandise. And if you are an automated rental car with a Stellar account, you’ll probably want to verify that the customer in your front seat actually paid before that person can turn on your engine.
+However, you’ll want to know that someone has actually paid you. If you are a bank accepting payments on behalf of others, you need to find out what was sent to you so you can disburse funds to the intended recipient. If you are operating a retail business, you need to know that your customer actually paid you before you hand them their merchandise. And if you are an automated rental car with a Triam account, you’ll probably want to verify that the customer in your front seat actually paid before that person can turn on your engine.
 
 A simple program that watches the network for payments and prints each one might look like:
 
 <code-example name="Receive Payments">
 
 ```js
-var StellarSdk = require('stellar-sdk');
+var TriamSdk = require('triam-sdk');
 
-var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var server = new TriamSdk.Server('https://horizon-testnet.Triam.org');
 var accountId = 'GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF';
 
 // Create an API call to query payments involving the account.
@@ -360,7 +360,7 @@ payments.stream({
       return;
     }
 
-    // In Stellar’s API, Lumens are referred to as the “native” type. Other
+    // In Triam’s API, Lumens are referred to as the “native” type. Other
     // asset types have more detailed information.
     var asset;
     if (payment.asset_type === 'native') {
@@ -389,7 +389,7 @@ function loadLastPagingToken() {
 ```
 
 ```java
-Server server = new Server("https://horizon-testnet.stellar.org");
+Server server = new Server("https://horizon-testnet.Triam.org");
 KeyPair account = KeyPair.fromAccountId("GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF");
 
 // Create an API call to query payments involving the account.
@@ -450,7 +450,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/stellar/go/clients/horizon"
+	"github.com/triamnetwork/go/clients/horizon"
 )
 
 func main() {
@@ -483,7 +483,7 @@ func main() {
 
 </code-example>
 
-There are two main parts to this program. First, you create a query for payments involving a given account. Like most queries in Stellar, this could return a huge number of items, so the API returns paging tokens, which you can use later to start your query from the same point where you previously left off. In the example above, the functions to save and load paging tokens are left blank, but in a real application, you’d want to save the paging tokens to a file or database so you can pick up where you left off in case the program crashes or the user closes it.
+There are two main parts to this program. First, you create a query for payments involving a given account. Like most queries in Triam, this could return a huge number of items, so the API returns paging tokens, which you can use later to start your query from the same point where you previously left off. In the example above, the functions to save and load paging tokens are left blank, but in a real application, you’d want to save the paging tokens to a file or database so you can pick up where you left off in case the program crashes or the user closes it.
 
 <code-example name="Create a Payments Query">
 
@@ -558,17 +558,17 @@ page = page.getNextPage();
 
 ## Transacting in Other Currencies
 
-One of the amazing things about the Stellar network is that you can send and receive many types of assets, such as US dollars, Nigerian naira, digital currencies like bitcoin, or even your own new kind of asset.
+One of the amazing things about the Triam network is that you can send and receive many types of assets, such as US dollars, Nigerian naira, digital currencies like bitcoin, or even your own new kind of asset.
 
-While Stellar’s native asset, the RIA, is fairly simple, all other assets can be thought of like a credit issued by a particular account. In fact, when you trade US dollars on the Stellar network, you don’t actually trade US dollars—you trade US dollars *from a particular account.* That’s why the assets in the example above had both a `code` and an `issuer`. The `issuer` is the ID of the account that created the asset. Understanding what account issued the asset is important—you need to trust that, if you want to redeem your dollars on the Stellar network for actual dollar bills, the issuer will be able to provide them to you. Because of this, you’ll usually only want to trust major financial institutions for assets that represent national currencies.
+While Triam’s native asset, the RIA, is fairly simple, all other assets can be thought of like a credit issued by a particular account. In fact, when you trade US dollars on the Triam network, you don’t actually trade US dollars—you trade US dollars *from a particular account.* That’s why the assets in the example above had both a `code` and an `issuer`. The `issuer` is the ID of the account that created the asset. Understanding what account issued the asset is important—you need to trust that, if you want to redeem your dollars on the Triam network for actual dollar bills, the issuer will be able to provide them to you. Because of this, you’ll usually only want to trust major financial institutions for assets that represent national currencies.
 
-Stellar also supports payments sent as one type of asset and received as another. You can send Nigerian naira to a friend in Germany and have them receive euros. These multi-currency transactions are made possible by a built-in market mechanism where people can make offers to buy and sell different types of assets. Stellar will automatically find the best people to exchange currencies with in order to convert your naira to euros. This system is called [distributed exchange](../concepts/exchange.md).
+Triam also supports payments sent as one type of asset and received as another. You can send Nigerian naira to a friend in Germany and have them receive euros. These multi-currency transactions are made possible by a built-in market mechanism where people can make offers to buy and sell different types of assets. Triam will automatically find the best people to exchange currencies with in order to convert your naira to euros. This system is called [distributed exchange](../concepts/exchange.md).
 
 You can read more about the details of assets in the [assets overview](../concepts/assets.md).
 
 ## What Next?
 
-Now that you can send and receive payments using Stellar’s API, you’re on your way to writing all kinds of amazing financial software. Experiment with other parts of the API, then read up on more detailed topics:
+Now that you can send and receive payments using Triam’s API, you’re on your way to writing all kinds of amazing financial software. Experiment with other parts of the API, then read up on more detailed topics:
 
 - [Become an anchor](../anchor/)
 - [Security](../security.md)
@@ -584,8 +584,8 @@ Now that you can send and receive payments using Stellar’s API, you’re on yo
 
 [^2]: The full details on transactions can be found on the [transactions page](../concepts/transactions.md).
 
-[^3]: The 100 stroops is called Stellar’s **base fee**. The base fee can be changed, but a change in Stellar’s fees isn’t likely to happen more than once every several years. You can look up the current fees by [checking the details of the latest ledger](https://www.stellar.org/developers/horizon/reference/endpoints/ledgers-single.html).
+[^3]: The 100 stroops is called Triam’s **base fee**. The base fee can be changed, but a change in Triam’s fees isn’t likely to happen more than once every several years. You can look up the current fees by [checking the details of the latest ledger](https://www.Triam.org/developers/horizon/reference/endpoints/ledgers-single.html).
 
-[^4]: Even though most responses from the Horizon REST API use JSON, most of the data in Stellar is actually stored in a format called XDR, or External Data Representation. XDR is both more compact than JSON and stores data in a predictable way, which makes signing and verifying an XDR-encoded message easier. You can get more details on [our XDR page](https://www.stellar.org/developers/horizon/reference/xdr.html).
+[^4]: Even though most responses from the Horizon REST API use JSON, most of the data in Triam is actually stored in a format called XDR, or External Data Representation. XDR is both more compact than JSON and stores data in a predictable way, which makes signing and verifying an XDR-encoded message easier. You can get more details on [our XDR page](https://www.Triam.org/developers/horizon/reference/xdr.html).
 
-[^5]: In situations where you need to perform a high number of transactions in a short period of time (for example, a bank might perform transactions on behalf of many customers using one Stellar account), you can create several Stellar accounts that work simultaneously. Read more about this in [the guide to channels](../channels.md).
+[^5]: In situations where you need to perform a high number of transactions in a short period of time (for example, a bank might perform transactions on behalf of many customers using one Triam account), you can create several Triam accounts that work simultaneously. Read more about this in [the guide to channels](../channels.md).

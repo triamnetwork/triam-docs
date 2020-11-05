@@ -1,8 +1,8 @@
 ---
-Stellar Smart Contracts
+Triam Smart Contracts
 ---
 
-Stellar can be used to build sophisticated smart contracts. Smart contracts are computer programs that can automatically execute an agreement based on programmed logic.
+Triam can be used to build sophisticated smart contracts. Smart contracts are computer programs that can automatically execute an agreement based on programmed logic.
 
 The concept of integrating technology and legal contracts dates back to the 1950s when scholars built computational methods that could enforce legal rules without involving traditional legal processes. Smart contracts were formally defined by Nick Szabo in 1997:
 
@@ -10,7 +10,7 @@ The concept of integrating technology and legal contracts dates back to the 1950
 
 In recent years, blockchain technology has enabled a new breed of smart contracts with immutable storage of agreement terms, cryptographic authorization, and integrated transfers of value.
 
-For the Stellar Network, smart contracts are manifested as Stellar Smart Contracts. A **Stellar Smart Contract** (SSC) is expressed as compositions of transactions that are connected and executed using various constraints. The following are examples of constraints that can be considered and implemented when creating SSCs:
+For the Triam Network, smart contracts are manifested as Triam Smart Contracts. A **Triam Smart Contract** (SSC) is expressed as compositions of transactions that are connected and executed using various constraints. The following are examples of constraints that can be considered and implemented when creating SSCs:
 
 - *Multisignature* - What keys are needed to authorize a certain operation? What parties need to agree on a circumstance in order to execute the steps?
 
@@ -22,13 +22,13 @@ Batching is the concept of including multiple operations in one transaction. Ato
 
 - *Sequence* - In what order should a series of transactions be processed? What are the limitations and dependencies?
 
-The concept of sequence is represented on the Stellar Network through sequence number. Utilizing sequence numbers in transaction manipulation, it can be guaranteed that specific transactions do not succeed if an alternative transaction is submitted.
+The concept of sequence is represented on the Triam Network through sequence number. Utilizing sequence numbers in transaction manipulation, it can be guaranteed that specific transactions do not succeed if an alternative transaction is submitted.
 
 - *Time Bounds* - When can a transaction be processed?
 
 Time bounds are limitations on the time period over which a transaction is valid. Using time bounds enables time periods to be represented in an SSC.
 
-This overview presents two common design patterns that can be used to create SSCs on the Stellar Network. The transactions can be translated to API requests or can be executed using [Stellar Laboratory](https://www.stellar.org/laboratory/).
+This overview presents two common design patterns that can be used to create SSCs on the Triam Network. The transactions can be translated to API requests or can be executed using [Triam Laboratory](https://www.Triam.org/laboratory/).
 
 
 ## 2-Party Multisignature Escrow Account with Time Lock & Recovery
@@ -52,7 +52,7 @@ Five transactions are used to create an escrow contract - they are explained bel
 - **D** - the date upon which the lock-up period starts
 - **R** - the recovery period
 
-For the design pattern described below, the asset being exchanged is the native asset. The order of submission of transactions to the Stellar network is different from the order of creation. The following shows the submission order, in respect to time:
+For the design pattern described below, the asset being exchanged is the native asset. The order of submission of transactions to the Triam network is different from the order of creation. The following shows the submission order, in respect to time:
 
 ![Diagram Transaction Submission Order for Escrow Agreements](assets/ssc-escrow.png)
 
@@ -122,7 +122,7 @@ By default, the thresholds are uneven. The second operation sets the weight of t
 **Immediate Signer**: escrow account
 **Eventual Signer**: destination account
 
-Transaction 3 and Transaction 4 are created and signed by the escrow account by the origin. The origin then gives Transaction 3 and Transaction 4, in [XDR form](https://www.stellar.org/developers/horizon/reference/xdr.html), to the target to sign using the destination account. The target then publishes them for the origin to [review](https://www.stellar.org/laboratory/#xdr-viewer?type=TransactionEnvelope&network=test) and save in a safe location. Once signed by both parties, these transactions cannot be modified. Both the origin and target must retain a copy of these signed transactions in their XDR form, and the transactions can be stored in a publicly accessible location without concerns of tampering.
+Transaction 3 and Transaction 4 are created and signed by the escrow account by the origin. The origin then gives Transaction 3 and Transaction 4, in [XDR form](https://www.Triam.org/developers/horizon/reference/xdr.html), to the target to sign using the destination account. The target then publishes them for the origin to [review](https://www.Triam.org/laboratory/#xdr-viewer?type=TransactionEnvelope&network=test) and save in a safe location. Once signed by both parties, these transactions cannot be modified. Both the origin and target must retain a copy of these signed transactions in their XDR form, and the transactions can be stored in a publicly accessible location without concerns of tampering.
 
 Transaction 3 and Transaction 4 are created and signed before the escrow account is funded, and have the same transaction number. This is done to ensure that the two parties are in agreement. If circumstances were to change before one of these two transactions are submitted, both the origin and the target need to authorize transactions utilizing the escrow account. This is represented by the requirement of the signatures of both the destination account and the escrow account.
 
@@ -158,7 +158,7 @@ Five transactions are used to create a crowdfunding contract. The following vari
 
 There are four accounts used for creating a basic crowdfunding schema. First is the holding account, which is the account that deals with collecting and interacting with the donors. It requires the signature of both party A and party B in order to carry out any transactions. The second is the goal account, the account owned by the target to which the crowdfunded value is delivered to on success. The other two are the accounts owned by party A and party B, who are running the crowdfunding.
 
-The transactions that create this design pattern can be created and submitted by any party sponsoring the crowdfunding campaign. The transactions are presented in order of creation. The order of submission to the Stellar Network is conditional, and depends on the success of the crowdfunding campaign.
+The transactions that create this design pattern can be created and submitted by any party sponsoring the crowdfunding campaign. The transactions are presented in order of creation. The order of submission to the Triam Network is conditional, and depends on the success of the crowdfunding campaign.
 
 ![Diagram Transaction Submission Order for Crowdfunding Campaigns](assets/ssc-crowdfunding.png)
 
@@ -257,7 +257,7 @@ When it comes to designing a smart contract, parties must come together and clea
 - [Jurimetrics - The Next Steps Forward](http://heinonline.org/HOL/LandingPage?handle=hein.journals/mnlr33&div=28&id=&page) - Lee Loevinger
 - [Formalizing and Securing Relationships on Public Networks](http://firstmonday.org/article/view/548/469) - Nick Szabo
 - [Smart Contracts: 12 Use Cases for Business and Beyond](https://bloq.com/assets/smart-contracts-white-paper.pdf) - Chamber of Digital Commerce
-- [Concept: Transactions](https://www.stellar.org/developers/guides/concepts/transactions.html) - Stellar<span>.org
-- [Concept: Multisignature](https://www.stellar.org/developers/guides/concepts/multi-sig.html) - Stellar<span>.org
-- [Concept: Time Bounds](https://www.stellar.org/developers/guides/concepts/transactions.html#time-bounds) - Stellar<span>.org
-- [Concept: Trustlines](https://www.stellar.org/developers/guides/concepts/assets.html#trustlines) - Stellar<span>.org
+- [Concept: Transactions](https://www.Triam.org/developers/guides/concepts/transactions.html) - Triam<span>.org
+- [Concept: Multisignature](https://www.Triam.org/developers/guides/concepts/multi-sig.html) - Triam<span>.org
+- [Concept: Time Bounds](https://www.Triam.org/developers/guides/concepts/transactions.html#time-bounds) - Triam<span>.org
+- [Concept: Trustlines](https://www.Triam.org/developers/guides/concepts/assets.html#trustlines) - Triam<span>.org

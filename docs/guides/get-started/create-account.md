@@ -26,7 +26,7 @@ pair.publicKey();
 ```java
 // create a completely new and unique pair of keys.
 // see more about KeyPair objects: https://triamnetwork.github.io/triam-sdk/Keypair.html
-import org.stellar.sdk.KeyPair;
+import org.triam.sdk.KeyPair;
 KeyPair pair = KeyPair.random();
 
 System.out.println(new String(pair.getSecretSeed()));
@@ -41,7 +41,7 @@ package main
 import (
 	"log"
 
-	"github.com/stellar/go/keypair"
+	"github.com/triamnetwork/go/keypair"
 )
 
 func main() {
@@ -59,7 +59,7 @@ func main() {
 
 </code-example>
 
-Now that you have a seed and public key, you can create an account. In order to prevent people from making a huge number of unnecessary accounts, each account must have a minimum balance of 20 RIA (RIA are the built-in currency of the Triam network).[^2] Since you don’t yet have any RIA, though, you can’t pay for an account. In the real world, you’ll usually pay an exchange that sells RIA in order to create a new account.[^3] On Stellar’s test network, however, you can ask Friendbot, our friendly robot with a very fat wallet, to create an account for you.
+Now that you have a seed and public key, you can create an account. In order to prevent people from making a huge number of unnecessary accounts, each account must have a minimum balance of 20 RIA (RIA are the built-in currency of the Triam network).[^2] Since you don’t yet have any RIA, though, you can’t pay for an account. In the real world, you’ll usually pay an exchange that sells RIA in order to create a new account.[^3] On Triam’s test network, however, you can ask Friendbot, our friendly robot with a very fat wallet, to create an account for you.
 
 To create a test account, send Friendbot the public key you created. It’ll create and fund a new account using that public key as the account ID.
 
@@ -133,7 +133,7 @@ Now for the last step: Getting the account’s details and checking its balance.
 <code-example name="Getting account details">
 
 ```js
-var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var server = new TriamSdk.Server('https://horizon-testnet.Triam.org');
 
 // the JS SDK uses promises for most actions, such as retrieving an account
 server.loadAccount(pair.publicKey()).then(function(account) {
@@ -145,10 +145,10 @@ server.loadAccount(pair.publicKey()).then(function(account) {
 ```
 
 ```java
-import org.stellar.sdk.Server;
-import org.stellar.sdk.responses.AccountResponse;
+import org.triam.sdk.Server;
+import org.triam.sdk.responses.AccountResponse;
 
-Server server = new Server("https://horizon-testnet.stellar.org");
+Server server = new Server("https://horizon-testnet.Triam.org");
 AccountResponse account = server.accounts().account(pair);
 System.out.println("Balances for account " + pair.getAccountId());
 for (AccountResponse.Balance balance : account.getBalances()) {
@@ -167,7 +167,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/stellar/go/clients/horizon"
+	"github.com/triamnetwork/go/clients/horizon"
 )
 
 func main() {
@@ -198,4 +198,4 @@ Now that you’ve got an account, you can [start sending and receiving payments]
 
 [^2]: Other features of Triam, like [trust lines](../concepts/assets.md#trustlines), require higher minimum balances. For more on minimum balances, see [fees](../concepts/fees.md#minimum-account-balance)
 
-[^3]: CoinMarketCap maintains a list of exchanges that sell RIA at http://coinmarketcap.com/currencies/stellar/#markets
+[^3]: CoinMarketCap maintains a list of exchanges that sell RIA at http://coinmarketcap.com/currencies/triam/#markets

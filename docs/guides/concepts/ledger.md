@@ -2,11 +2,11 @@
 Ledger
 ---
 
-A **ledger** represents the state of the Stellar universe at a given point in time. It contains the list of all the accounts and balances, all the orders in the distributed exchange, and any other data that persists.
+A **ledger** represents the state of the Triam universe at a given point in time. It contains the list of all the accounts and balances, all the orders in the distributed exchange, and any other data that persists.
 
 The first ledger in the history of the network is called the genesis ledger.
 
-Every [Stellar Consensus Protocol (SCP)](https://www.stellar.org/developers/learn/concepts/scp.html) round, the network reaches consensus on which [transaction set](./transactions.md#transaction-set) to apply to the last closed ledger; when the new set is applied, a new "last closed ledger" is defined.
+Every [Triam Consensus Protocol (SCP)](https://www.Triam.org/developers/learn/concepts/scp.html) round, the network reaches consensus on which [transaction set](./transactions.md#transaction-set) to apply to the last closed ledger; when the new set is applied, a new "last closed ledger" is defined.
 
 Each ledger is cryptographically linked to a unique previous ledger, creating a historical ledger chain that goes back to the genesis ledger.
 
@@ -22,7 +22,7 @@ You can think of the historical ledger chain as a linked list of ledger headers:
 [Genesis] <---- [LedgerHeader_1] <----- ... <---- [LedgerHeader_n]
 
 See the protocol file for the object definitions.
-[`src/xdr/Stellar-ledger.x`](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-ledger.x)
+[`src/xdr/Triam-ledger.x`](https://github.com/triamnetwork/triam-core/blob/master/src/xdr/Triam-ledger.x)
 
 Every ledger header has the following fields:
 
@@ -40,7 +40,7 @@ Every ledger header has the following fields:
 
 - **Transaction set result hash**: Hash of the results of applying the transaction set. This data is not, strictly speaking, necessary for validating the results of the transactions. However, this data makes it easier for entities to validate the result of a given transaction without having to apply the transaction set to the previous ledger.
 
-- **Bucket list hash**: Hash of all the objects in this ledger. The data structure that contains all the objects is called the [bucket list](https://github.com/stellar/stellar-core/tree/master/src/bucket).
+- **Bucket list hash**: Hash of all the objects in this ledger. The data structure that contains all the objects is called the [bucket list](https://github.com/triamnetwork/triam-core/tree/master/src/bucket).
 
 - **Ledger sequence**: The sequence number of this ledger.
 
@@ -65,10 +65,10 @@ Every ledger header has the following fields:
 # Ledger Entries
 
 The ledger is a collection of **entries**. Currently there are 4 types of ledger entries. They're specified in
-[`src/xdr/Stellar-ledger-entries.x`](https://github.com/stellar/stellar-core/blob/master/src/xdr/Stellar-ledger-entries.x).
+[`src/xdr/Triam-ledger-entries.x`](https://github.com/triamnetwork/triam-core/blob/master/src/xdr/Triam-ledger-entries.x).
 
 ## Account entry
-This entry represents an [account](./accounts.md). In Stellar, everything is built around accounts: transactions are performed by accounts, and accounts control the access rights to balances.
+This entry represents an [account](./accounts.md). In Triam, everything is built around accounts: transactions are performed by accounts, and accounts control the access rights to balances.
 
 Other entries are add-ons, owned by a main account entry. With every new entry
 attached to the account, the minimum balance in RIA goes up for the
@@ -80,7 +80,7 @@ account. For details, see [fees and minimum balance](./fees.md#minimum-account-b
 Trustline entries define the rules around the use of this currency. Rules can be defined by the user--e.g., setting a balance limit to limit risk--or by the issuer--e.g., an authorized flag.
 
 ## Offer entry
-Offers are entries that an account creates in the orderbook. They are a way to automate simple trading inside the Stellar network. For more on offers, refer to the [distributed exchange documentation](exchange.md).
+Offers are entries that an account creates in the orderbook. They are a way to automate simple trading inside the Triam network. For more on offers, refer to the [distributed exchange documentation](exchange.md).
 
 ## Data entry
 Data entries are key value pairs attached to an account. They allow account controllers to attach arbitrary data to their account. It provides a flexible extension point to add application specific data into the ledger.

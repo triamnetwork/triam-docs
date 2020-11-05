@@ -2,7 +2,7 @@
 Issuing Assets
 ---
 
-One of Stellar’s most powerful features is the ability to trade any kind of asset, US dollars, Nigerian naira, bitcoins, special coupons, [ICO tokens](https://www.stellar.org/blog/tokens-on-stellar/) or just about anything you like.
+One of Triam’s most powerful features is the ability to trade any kind of asset, US dollars, Nigerian naira, bitcoins, special coupons, [ICO tokens](https://www.triam.org/blog/tokens-on-triam/) or just about anything you like.
 
 This works in Triam because an asset is really just a credit from a particular account. When you trade US dollars on the Triam network, you don’t actually trade US dollars—you trade US dollars *credited from a particular account.* Often, that account will be a bank, but if your neighbor had a banana plant, they might issue banana assets that you could trade with other people.
 
@@ -57,9 +57,9 @@ Sending and receiving custom assets is very similar to [sending and receiving RI
 <code-example name="Send Custom Assets">
 
 ```js
-var StellarSdk = require('stellar-sdk');
+var TriamSdk = require('triam-sdk');
 TriamSdk.Network.useTestNetwork();
-var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var server = new TriamSdk.Server('https://horizon-testnet.triam.org');
 
 // Keys for accounts to issue and receive the new asset
 var issuingKeys = TriamSdk.Keypair
@@ -107,7 +107,7 @@ server.loadAccount(receivingKeys.publicKey())
 
 ```java
 Network.useTestNetwork();
-Server server = new Server("https://horizon-testnet.stellar.org");
+Server server = new Server("https://horizon-testnet.triam.org");
 
 // Keys for accounts to issue and receive the new asset
 KeyPair issuingKeys = KeyPair
@@ -191,9 +191,9 @@ if err != nil { log.Fatal(err) }
 ## Discoverablity and Meta information
 
 Another thing that is important when you issue an asset is to provide clear information about what your asset represents. This info can be discovered and displayed by clients so users know exactly what they are getting when they hold your asset.
-To do this you must do two simple things. First, add a section in your [stellar.toml file](concepts/stellar-toml.html) that contains the necessary meta fields:
+To do this you must do two simple things. First, add a section in your [triam.toml file](concepts/triam-toml.html) that contains the necessary meta fields:
 ```
-# stellar.toml example asset
+# triam.toml example asset
 [[CURRENCIES]]
 code="GOAT"
 issuer="GD5T6IPRNCKFOHQWT264YPKOZAWUMMZOLZBJ6BNQMUGPWGRLBK3U7ZNP"
@@ -204,14 +204,14 @@ conditions="There will only ever be 10,000 GOAT tokens in existence. We will dis
 image="https://pbs.twimg.com/profile_images/666921221410439168/iriHah4f.jpg"
 ```
 
-Second, use the [set options operation](https://www.stellar.org/developers/guides/concepts/list-of-operations.html#set-options) to set the `home_domain` of your issuing account to the domain where the above stellar.toml file is hosted. The following code sets the home domain:
+Second, use the [set options operation](https://www.triam.org/developers/guides/concepts/list-of-operations.html#set-options) to set the `home_domain` of your issuing account to the domain where the above triam.toml file is hosted. The following code sets the home domain:
 
 <code-example name="Set Home Domain">
 
 ```js
-var StellarSdk = require('stellar-sdk');
+var TriamSdk = require('triam-sdk');
 TriamSdk.Network.useTestNetwork();
-var server = new TriamSdk.Server('https://horizon-testnet.stellar.org');
+var server = new TriamSdk.Server('https://horizon-testnet.triam.org');
 
 // Keys for issuing account
 var issuingKeys = TriamSdk.Keypair
@@ -234,7 +234,7 @@ server.loadAccount(issuingKeys.publicKey())
 
 ```java
 Network.useTestNetwork();
-Server server = new Server("https://horizon-testnet.stellar.org");
+Server server = new Server("https://horizon-testnet.triam.org");
 
 // Keys for issuing account
 KeyPair issuingKeys = KeyPair
@@ -290,10 +290,10 @@ server.submitTransaction(transaction);
 ```
 
 ```java
-import org.stellar.sdk.AccountFlag;
+import org.triam.sdk.AccountFlag;
 
 Network.useTestNetwork();
-Server server = new Server("https://horizon-testnet.stellar.org");
+Server server = new Server("https://horizon-testnet.triam.org");
 
 // Keys for issuing account
 KeyPair issuingKeys = KeyPair

@@ -59,12 +59,13 @@
     * Walkthroughs
       * [Custom Assets](docs/guides/walk-throughs/custom-assets.md)
       * [Custom Assets on version 2](docs/guides/walk-throughs/custom-assets-v2.md)
-      * [Triam Smart Contracts](docs/guides/walk-throughs/stellar-smart-contracts.md)
+      * [Triam Smart Contracts](docs/guides/walk-throughs/triam-smart-contracts.md)
     * [Triam Attachment Convention](docs/guides/attachment.md)
     * [Channels](docs/guides/channels.md)
     * [Add Triam to your Exchange](docs/guides/exchange.md)
     * [Hardware Requirements](docs/guides/hardware.md)
-    * [Issuing Assets](docs/guides/issuing-assets.md)
+    * [New Features In Version2](docs/new_features_in_version2.md)
+    <!-- * [Issuing Assets](docs/guides/issuing-assets.md) -->
     * [Security](docs/guides/security.md)
     * [Build Triam Apps](docs/guides/things-to-build.md)
     <!-- * [Contribution Guide](docs/guides/contributing.md) -->

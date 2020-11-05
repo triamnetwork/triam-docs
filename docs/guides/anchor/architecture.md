@@ -18,7 +18,7 @@ As an anchor, you should maintain at least two accounts:
 - An **issuing account** used only for issuing and destroying assets.
 - A **base account** used to transact with other Triam accounts. It holds a balance of assets issued by the *issuing account*.
 
-Create them on the test network using the [laboratory](https://stellar.org/laboratory/) or the steps from the [“get started” guide](../get-started/create-account.md).
+Create them on the test network using the [laboratory](https://triam.org/laboratory/) or the steps from the [“get started” guide](../get-started/create-account.md).
 
 For this guide, we’ll use the following keys:
 
@@ -59,7 +59,7 @@ In order to act as an anchor, your infrastructure will need to:
 - Look up and respond to requests for federated addresses.
 - Comply with Anti-Money Laundering (AML) regulations.
 
-Triam provides a prebuilt [federation server](https://github.com/stellar/go/tree/master/services/federation) and [regulatory compliance server](https://github.com/stellar/bridge-server/blob/master/readme_compliance.md) designed for you to install and integrate with your existing infrastructure. The [bridge server](https://github.com/stellar/bridge-server/blob/master/readme_bridge.md) coordinates them and simplifies interacting with the Triam network. This guide demonstrates how to integrate them with your infrastructure, but you can also write your own customized versions.
+Triam provides a prebuilt [federation server](https://github.com/triamnetwork/go/tree/master/services/federation) and [regulatory compliance server](https://github.com/triamnetwork/bridge-server/blob/master/readme_compliance.md) designed for you to install and integrate with your existing infrastructure. The [bridge server](https://github.com/triamnetwork/bridge-server/blob/master/readme_bridge.md) coordinates them and simplifies interacting with the Triam network. This guide demonstrates how to integrate them with your infrastructure, but you can also write your own customized versions.
 
 ### Making Payments
 
@@ -92,7 +92,7 @@ When someone is sending a transaction to you, the flow is slightly different:
 5. The bridge server monitors the Triam network for the transaction and sends it to your compliance server to verify that it was the same transaction you approved in step 3.1.
 6. The bridge server contacts a service you implement to notify you about the transaction. You can use this step to update your customer’s account balances.
 
-**While these steps can seem complicated, Stellar’s bridge, federation, and compliance services do most of the work.** You only need to implement four callbacks and create a [stellar.toml](../concepts/stellar-toml.html) file where others can find the URL of your services.
+**While these steps can seem complicated, Triam’s bridge, federation, and compliance services do most of the work.** You only need to implement four callbacks and create a [triam.toml](../concepts/triam-toml.html) file where others can find the URL of your services.
 
 In the rest of this guide, we’ll walk through setting up each part of this infrastructure step by step.
 
