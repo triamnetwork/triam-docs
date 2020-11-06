@@ -173,3 +173,5 @@ server
 # New features in core v2
 At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also attracts more users to join Triam network. View [more](docs/new_features_in_version2.md). <br>
 We have some of [concepts](docs/guides/concepts/new-concepts-v2.md) you need to know before making an example about triam-core v2. We also have made an example for you to know the follow of new features. Let's have a look on [it](docs/guides/walk-throughs/custom-assets-v2.md)
+
+Besides that, we are going to release a great feature: smart contract. It helps everyone can deploy their own bussinesses on our blockchain. Developers can use many program languages to write some awesome smart contracts. Triam-core v3 will be come soon. It's a boomb to blow your mind.
