@@ -5,7 +5,7 @@ The JavaScript Triam SDK facilitates integration with the [Triam Horizon API ser
 
 [Building and installing js-triam-sdk](https://triamnetwork.github.io/triam-sdk/)<br>
 [Examples of using js-triam-sdk](docs/examples.md)<br>
-[New features of triam-core v2](#new-features-in-core-v2)
+# [New features of triam-core v2](#new-features-in-core-v2)
 
 # Querying Horizon
 js-triam-sdk gives you access to all the endpoints exposed by Horizon.
