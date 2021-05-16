@@ -69,3 +69,21 @@
     * [Security](docs/guides/security.md)
     * [Build Triam Apps](docs/guides/things-to-build.md)
     <!-- * [Contribution Guide](docs/guides/contributing.md) -->
+* Triam Contract
+    * Install Triam network with smart contract
+        * [Documents](docs/contract/install/index.md)
+        * [Example core config](docs/contract/install/coreConfig.md)
+        * [Example horizon config](docs/contract/install/horizonConfig.md)
+    * Javascript API
+        * [List api](docs/contract/api/jsApi.md)
+    * New Operation for Triam Contract
+        * [Create Contract](docs/contract/operations/CreateContract.md)
+        * [Send Asset](docs/contract/operations/SendAsset.md)
+        * [Call Contract](docs/contract/operations/CallContract.md)
+        * Call Contract Operations:
+            * [Transfer Asset](docs/contract/operations/Transfer.md)
+            * [Check Condition](docs/contract/operations/Check.md)
+            * [Invoke](docs/contract/operations/Invoke.md)
+            * [Query](docs/contract/operations/Query.md)
+    * Example Contract
+        * [Simple contract](docs/contract/simpleContract/index.md)
