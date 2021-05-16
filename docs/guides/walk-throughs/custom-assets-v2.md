@@ -1,5 +1,5 @@
 ---
-Custom Assets
+Custom Assets on version 2
 ---
 
 At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also attracts more users to join Triam network. 

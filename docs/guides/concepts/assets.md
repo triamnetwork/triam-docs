@@ -86,3 +86,30 @@ Some programming languages (such as JavaScript) have problems with maintaining p
 
 ### One stroop, multiple stroops
 A "stroop" is the smallest amount unit. It is one ten-millionth: `1/10000000` or `0.0000001`. The term stroop is used as a convenient way to refer to these small measurements of amounts. The plural form is "stroops" (e.g. "100 stroops"). Fun fact: this term is derived from Stroopy, the name of the Triam mascot whose name is derived from [stroopwafels](https://en.wikipedia.org/wiki/Stroopwafel).
+
+---
+
+### Asset in Triam Version 2
+
+We have some of concepts you need to know before making an example about triam-core v2.
+
+
+#### Beneficiary
+
+It is the holding fee wallet which will receive token fee from exchange using that token. Length: empty or 56 characters
+
+####  Fee
+
+Rate of exchange's amount need to pay for token fee. Range: 0 - 10000. Formula: Token fee = fee * exchange's amount/10000.
+
+#### Ratio
+
+When we starts issuing the token into market, our accounts will be locked an amount of RIA corresponding. Ratio will be used by formula: RIA's amount for locking = amount for issuing / ratio.
+
+#### Minfee
+
+A minimum amount for token fee.
+
+#### Islimited
+
+Values: 0 or 1. 1 for limiting. 0 for countinue issuing.
