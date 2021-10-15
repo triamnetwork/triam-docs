@@ -89,7 +89,7 @@ A "stroop" is the smallest amount unit. It is one ten-millionth: `1/10000000` or
 
 ---
 
-### Asset in Triam Version 2
+### :sparkles:Asset in Triam Version 2:sparkles:
 
 We have some of concepts you need to know before making an example about triam-core v2.
 

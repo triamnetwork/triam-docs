@@ -5,7 +5,7 @@
       * [Send and Receive Money](docs/guides/get-started/transactions.md)
     * Concepts
       * [Accounts](docs/guides/concepts/accounts.md)
-      * [Assets](docs/guides/concepts/assets.md)
+      * [Assets :sparkles:](docs/guides/concepts/assets.md)
       * [Distributed Exchange](docs/guides/concepts/exchange.md)
       * [Federation](docs/guides/concepts/federation.md)
       * [Fees](docs/guides/concepts/fees.md)
@@ -19,16 +19,16 @@
       * [Transactions](docs/guides/concepts/transactions.md)
       * [Versioning and Upgrading](docs/guides/concepts/versioning.md)
       * [XDR](docs/guides/concepts/xdr.md)
-      * [New Concepts in version 2](docs/guides/concepts/new-concepts-v2.md)
+      * [New Concepts in version 2 :sparkles:](docs/guides/concepts/new-concepts-v2.md)
     * Walkthroughs
       * [Custom Assets](docs/guides/walk-throughs/custom-assets.md)
-      * [Custom Assets on version 2](docs/guides/walk-throughs/custom-assets-v2.md)
+      * [Custom Assets on version 2 :sparkles:](docs/guides/walk-throughs/custom-assets-v2.md)
       * [Triam Smart Contracts v1](docs/guides/walk-throughs/triam-smart-contracts.md)
     * [Triam Attachment Convention](docs/guides/attachment.md)
     * [Channels](docs/guides/channels.md)
     * [Add Triam to your Exchange](docs/guides/exchange.md)
     * [Hardware Requirements](docs/guides/hardware.md)
-    * [New Features In Version2](docs/new_features_in_version2.md)
+    * [New Features In Version2 :sparkles:](docs/new_features_in_version2.md)
     <!-- * [Issuing Assets](docs/guides/issuing-assets.md) -->
     * [Security](docs/guides/security.md)
     * [Build Triam Apps](docs/guides/things-to-build.md)
@@ -70,9 +70,9 @@
     * [Transactions for Account](docs/endpoints/transactions-for-account.md)
     * [Transactions for Ledger](docs/endpoints/transactions-for-ledger.md)
     * [Transaction Details](docs/endpoints/transactions-single.md)
-    * [Asset Details](docs/endpoints/asset.md)
+    * [Asset Details :sparkles:](docs/endpoints/asset.md)
 
-* Triam Smart Contract - Triam Network v3
+<!-- * Triam Smart Contract - Triam Network v3
     * [Overview](docs/contract/overview.md#overview)
     * [New Operation for Triam Contract](docs/contract/operations/Overview)
         * [Create Contract](docs/contract/operations/CreateContract.md)
@@ -90,4 +90,4 @@
     * Install Triam network with smart contract
         * [Documents](docs/contract/install/index.md)
         * [Example core config](docs/contract/install/coreConfig.md)
-        * [Example horizon config](docs/contract/install/horizonConfig.md)    
+        * [Example horizon config](docs/contract/install/horizonConfig.md)     -->

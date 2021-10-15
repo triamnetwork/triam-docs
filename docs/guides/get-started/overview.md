@@ -5,9 +5,9 @@ Triam Network Overview
 
 Using the Triam network, you can build mobile wallets, banking tools, smart devices that pay for themselves, and just about anything else you can dream up involving payments! Even though Triam is a complex distributed system, working with it doesn’t need to be complicated.
 
-> **Triam Network v3 Upgrade Countdown**
+> **Triam Network v2 Upgrade Countdown**
 > 
-> Triam Network plans to upgrade directly from version 1 to version 3 in **September 2021** to strongly support smart contracts
+> Triam Network plans to upgrade to version 2 at **09:00AM(UTC+8) October 18, 2021**
 
 ## API: Horizon
 
@@ -34,7 +34,7 @@ All these Triam Cores—the network of nodes—eventually agree on sets of trans
 To help you test your tools and applications, Triam.org operates a small test network and Horizon instance. [Get started with the testnet.](../concepts/test-net.md)
 
 
-## New features in core v2
+## :sparkles: New features in core v2 :sparkles:
 
 At this time, we are customizing token fee at application layer that allows an exchange to has token fee. A holding fee wallet will be received this fee and the source account will lost corresponding. Triam network hasn't this feature. But, at this vervion, we implemented it. This makes it not only easy for developing the bussinesses of third parties but also attracts more users to join Triam network. View [more](docs/new_features_in_version2.md). <br>
 
@@ -44,19 +44,3 @@ We have some of [concepts](docs/guides/concepts/new-concepts-v2.md) you need to 
 **How to migrate your existing system from TriamNetwork v1 to v2?**
 
 - Custom Assets in v2 : We also have made an example for you to know the follow of new features. Let's have a look on [Custom Assets on version 2](docs/guides/walk-throughs/custom-assets-v2.md)
-
-- How to send and Receive Money? Let's see [here](docs/guides/walk-throughs/transactions-v2.md)
-
-
-## New features in core v3 - Smart Contract
-
-Oops! Let me tell you a little about triam-core v3. We are going to release a great feature: smart contract. It helps everyone can deploy their own bussiness on our blockchain. Developers can use many program languages to write some awesome smart contracts. Triam-core v3 will be come soon. It's a boomb to blow your mind. Let's have a look on it [here](docs/contract/overview?id=overview)
-
-
-> **How to migrate your existing system from TriamNetwork v1 to v3?**
->
-> Your existing system won't need to make any changes on your's source code, except having to upgrade your's Node and then enjoy it.
-
-<!-- <div class="sequence-navigation">
-  <a class="button button--next" href="create-account.html">Next: Create an Account</a>
-</div> -->
